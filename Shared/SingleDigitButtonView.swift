@@ -16,10 +16,17 @@ struct SingleDigitButtonView: View {
             function(key)
         } label: {
             switch key {
-            case .DEL:
+            case .DEL,.ENTER:
                 ZStack {
                     Text(" ") //makes box same size as text buttons
-                    Image(systemName: "delete.left")
+                    switch key {
+                    case .DEL:
+                        Image(systemName: "delete.left")
+                    case .ENTER:
+                        Image(systemName: "arrow.up")
+                    default:
+                        fatalError("Unexpected case")
+                    }
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -30,7 +37,8 @@ struct SingleDigitButtonView: View {
                     .frame(maxWidth: .infinity)
                     .aspectRatio(2,contentMode: .fit)
             }
-        }.background(Color.gray)
+        }.font(.title)
+        .background(Color.gray)
             .padding(5)
     }
 }

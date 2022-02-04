@@ -11,6 +11,7 @@ enum Keypress: CustomStringConvertible {
     
     case zero,one,two,three,four,five,six,seven,eight,nine
     case DEL
+    case ENTER
     
     init(_ digit: Int) {
         switch digit {
@@ -63,6 +64,8 @@ enum Keypress: CustomStringConvertible {
             return "9"
         case .DEL:
             return "DEL"
+        case .ENTER:
+            return "ENTER"
         }
     }
 

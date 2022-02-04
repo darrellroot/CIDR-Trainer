@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DecimalKeyboardView: View {
     @Binding var input: String
-    
+    let submit: () -> ()
+
     func buttonPress(_ key: Keypress) -> Void {
         switch key {
         case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero:
@@ -18,9 +19,10 @@ struct DecimalKeyboardView: View {
             if !input.isEmpty {
                 input.removeLast()
             }
-        
-
+        case .ENTER:
+            submit()
         }
+        
     }
     var body: some View {
         VStack(alignment: .center) {
@@ -42,6 +44,7 @@ struct DecimalKeyboardView: View {
                 }
             }
             HStack {
+                SingleDigitButtonView(key: .ENTER,function: buttonPress)
                 SingleDigitButtonView(key: Keypress(0),function: buttonPress)
 
 
@@ -54,6 +57,6 @@ struct DecimalKeyboardView: View {
 
 struct DecimalKeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DecimalKeyboardView(input: .constant(""))
+        DecimalKeyboardView(input: .constant(""),submit: {})
     }
 }

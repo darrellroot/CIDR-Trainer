@@ -13,6 +13,7 @@ struct ContentView: View {
             List {
                 NavigationLink("Hexadecimal and Binary Drills", destination: NumberDrillsView())
             }
+            .navigationTitle("CIDR Trainer")
         }
     }
 }

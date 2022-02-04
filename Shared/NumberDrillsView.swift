@@ -10,9 +10,10 @@ import SwiftUI
 struct NumberDrillsView: View {
     var body: some View {
         List {
-            NavigationLink("1-digit hexadecimal -> Decimal drill", destination: OneDigitHex2DecimalView())
+            NavigationLink("1-digit hex -> decimal", destination: OneDigitHex2DecimalView())
         }
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        .navigationTitle("Hex and Binary Drills")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
