@@ -13,6 +13,16 @@
 		2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07769427ACA61B006CEF8F /* ContentView.swift */; };
 		2F0776A727ACA61C006CEF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F07769527ACA61C006CEF8F /* Assets.xcassets */; };
 		2F0776A827ACA61C006CEF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F07769527ACA61C006CEF8F /* Assets.xcassets */; };
+		2F0776B227ACA70F006CEF8F /* NumberDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */; };
+		2F0776B327ACA70F006CEF8F /* NumberDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */; };
+		2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */; };
+		2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */; };
+		2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */; };
+		2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */; };
+		2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */; };
+		2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */; };
+		2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BD27ACB39F006CEF8F /* Keypress.swift */; };
+		2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BD27ACB39F006CEF8F /* Keypress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,11 @@
 		2F07769A27ACA61C006CEF8F /* CIDR Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CIDR Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0776A027ACA61C006CEF8F /* CIDR Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CIDR Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0776A227ACA61C006CEF8F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDrillsView.swift; sourceTree = "<group>"; };
+		2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitHex2DecimalView.swift; sourceTree = "<group>"; };
+		2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalKeyboardView.swift; sourceTree = "<group>"; };
+		2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDigitButtonView.swift; sourceTree = "<group>"; };
+		2F0776BD27ACB39F006CEF8F /* Keypress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keypress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +72,11 @@
 				2F07769327ACA61B006CEF8F /* CIDR_TrainerApp.swift */,
 				2F07769427ACA61B006CEF8F /* ContentView.swift */,
 				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
+				2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */,
+				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
+				2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */,
+				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
+				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -176,8 +196,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F0776A527ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
+				2F0776B227ACA70F006CEF8F /* NumberDrillsView.swift in Sources */,
+				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +210,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
+				2F0776B327ACA70F006CEF8F /* NumberDrillsView.swift in Sources */,
+				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
