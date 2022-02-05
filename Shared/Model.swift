@@ -11,7 +11,7 @@ enum Games: String, CaseIterable {
     case oneDigitHex2Decimal
 }
 class Model: ObservableObject {
-    @Published var gameScore: [String:GameScore] = [:]
+    @Published private(set) var gameScore: [String:GameScore] = [:]
     
     init() {
         for game in Games.allCases {

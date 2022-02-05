@@ -12,22 +12,26 @@ struct OneDigitHex2DecimalView: View {
     @ObservedObject var gameScore: GameScore
 
     @State var input = ""
-    @State var target: Int = Int.random(in: 0..<16)
+    @State var given: Int = Int.random(in: 0..<16)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     
-    var targetHex: String {
-        return String(format: "0x%X",target)
+    var givenHex: String {
+        return String(format: "0x%X",given)
     }
 
-    func wrongAnswer() {
+    func wrongAnswer(_ answer: Int?) {
         withAnimation {
             lastCorrect = false
         }
         gameScore.wrong()
-        let oldTarget = targetHex
-        let oldAnswer = target
-        lastResult = "Incorrect: \(oldTarget) in decimal is \(oldAnswer)"
+        //let oldTarget = targetHex
+        //let oldGiven = given
+        if let answer = answer {
+            lastResult = "Incorrect: \(givenHex) in decimal is \(given) not \(answer)"
+        } else {
+            lastResult = "Incorrect: \(givenHex) in decimal is \(given)"
+        }
         newQuestion()
     }
     func correctAnswer() {
@@ -35,30 +39,30 @@ struct OneDigitHex2DecimalView: View {
             lastCorrect = true
         }
         gameScore.correct()
-        let oldTarget = target
-        let oldAnswer = targetHex
-        lastResult = "Correct: \(oldTarget) in hex is \(oldAnswer)"
+        //let oldGiven = givenw
+        //let oldAnswer = targetHex
+        lastResult = "Correct: \(givenHex) in hex is \(given)"
         newQuestion()
     }
     func submit() {
         guard let answer = Int(input) else {
-            wrongAnswer()
+            wrongAnswer(nil)
             return
         }
-        if answer == target {
+        if answer == given {
             correctAnswer()
             return
         } else {
-            wrongAnswer()
+            wrongAnswer(answer)
             return
         }
     }
     func newQuestion() {
         // Prevent same question repeatedly
-        let oldTarget = target
+        let oldTarget = given
         repeat {
-            target = Int.random(in: 0..<16)
-        } while target == oldTarget
+            given = Int.random(in: 0..<16)
+        } while given == oldTarget
         input = ""
     }
     var body: some View {
@@ -69,11 +73,11 @@ struct OneDigitHex2DecimalView: View {
                     Text("\(lastResult)")
                         .foregroundColor(lastCorrect ? Color.green : Color.red)
                         .fontWeight(.bold)
-                    Text("Total score: \(gameScore.correctTotal) out of \(gameScore.correctTotal + gameScore.wrongTotal)")
-                    Text("Last 100: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
+                    Text("Recent 100 score: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
+                    Text("All time score: \(gameScore.correctTotal) out of \(gameScore.correctTotal + gameScore.wrongTotal)")
                 }
                 Section("Next Task") {
-                    Text("Convert \(targetHex) to Decimal")
+                    Text("Convert \(givenHex) to Decimal")
                     Text(input)
                 }
                 .foregroundColor(Color.accentColor)
