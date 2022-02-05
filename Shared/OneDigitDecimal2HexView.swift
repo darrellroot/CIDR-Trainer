@@ -67,7 +67,7 @@ struct OneDigitDecimal2HexView: View {
                     Text("\(lastResult)")
                         .foregroundColor(lastCorrect ? Color.green : Color.red)
                         .fontWeight(.bold)
-                    Text("Recent 100 score: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
+                    Text("Recent \(GameScore.lastSize) score: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
                     Text("All time score: \(gameScore.correctTotal) out of \(gameScore.correctTotal + gameScore.wrongTotal)")
                 }
                 Section("Next Task") {
@@ -89,6 +89,6 @@ struct OneDigitDecimal2HexView: View {
 
 struct OneDigitDecimal2HexView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitDecimal2HexView(gameScore: GameScore())
+        OneDigitDecimal2HexView(gameScore: GameScore(name: Games.oneDigitDecimal2Hex.rawValue))
     }
 }
