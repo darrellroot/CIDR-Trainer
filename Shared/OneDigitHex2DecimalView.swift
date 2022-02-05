@@ -6,11 +6,22 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct OneDigitHex2DecimalView: View {
-    
+    static var fetchRequest: NSFetchRequest<CoreGame> {
+        let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
+        fetchRequest.fetchLimit = 1
+        
+        let predicate = NSPredicate(format: "name == \(Games.oneDigitDecimal2Hex.rawValue)")
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = []
+        return fetchRequest
+    }
+    @FetchRequest(fetchRequest: OneDigitHex2DecimalView.fetchRequest) var coreGames
+    @Environment(\.managedObjectContext) var moc
     @ObservedObject var gameScore: GameScore
-
+    var coreGame: FetchedResults<CoreGame>.Element
     @State var input = ""
     @State var given: Int = Int.random(in: 0..<16)
     @State var lastResult = "Press your answer and hit the up arrow"
@@ -33,6 +44,7 @@ struct OneDigitHex2DecimalView: View {
         newQuestion()
     }
     func correctAnswer() {
+        
         withAnimation {
             lastCorrect = true
         }
@@ -90,8 +102,8 @@ struct OneDigitHex2DecimalView: View {
     }
 }
 
-struct OneDigitHex2DecimalView_Previews: PreviewProvider {
+/*struct OneDigitHex2DecimalView_Previews: PreviewProvider {
     static var previews: some View {
         OneDigitHex2DecimalView(gameScore: GameScore(name: Games.oneDigitHex2Decimal.rawValue))
     }
-}
+}*/

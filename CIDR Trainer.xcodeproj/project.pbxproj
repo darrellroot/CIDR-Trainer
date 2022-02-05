@@ -31,6 +31,12 @@
 		2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */; };
 		2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C427AF1A5700589B05 /* CoreModel.xcdatamodeld */; };
 		2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C427AF1A5700589B05 /* CoreModel.xcdatamodeld */; };
+		2F3074CA27AF229500589B05 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C927AF229500589B05 /* DataController.swift */; };
+		2F3074CB27AF229500589B05 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C927AF229500589B05 /* DataController.swift */; };
+		2F3074CF27AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074CD27AF305400589B05 /* CoreGame+CoreDataClass.swift */; };
+		2F3074D027AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074CD27AF305400589B05 /* CoreGame+CoreDataClass.swift */; };
+		2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074CE27AF305400589B05 /* CoreGame+CoreDataProperties.swift */; };
+		2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074CE27AF305400589B05 /* CoreGame+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,9 @@
 		2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitDecimal2HexView.swift; sourceTree = "<group>"; };
 		2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexKeyboardView.swift; sourceTree = "<group>"; };
 		2F3074C527AF1A5700589B05 /* CoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreModel.xcdatamodel; sourceTree = "<group>"; };
+		2F3074C927AF229500589B05 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		2F3074CD27AF305400589B05 /* CoreGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGame+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2F3074CE27AF305400589B05 /* CoreGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +90,13 @@
 		2F07769227ACA61B006CEF8F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				2F07769327ACA61B006CEF8F /* CIDR_TrainerApp.swift */,
+				2F3074CC27AF235000589B05 /* App Stuff */,
+				2F3074C827AF226200589B05 /* DataModel */,
 				2F07769427ACA61B006CEF8F /* ContentView.swift */,
-				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
 				2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */,
 				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
-				2F3074BB27AE33DC00589B05 /* Model.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -117,9 +125,29 @@
 				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
 				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
 				2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */,
-				2F3074C427AF1A5700589B05 /* CoreModel.xcdatamodeld */,
 			);
 			path = Keyboards;
+			sourceTree = "<group>";
+		};
+		2F3074C827AF226200589B05 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F3074C427AF1A5700589B05 /* CoreModel.xcdatamodeld */,
+				2F3074BB27AE33DC00589B05 /* Model.swift */,
+				2F3074C927AF229500589B05 /* DataController.swift */,
+				2F3074CD27AF305400589B05 /* CoreGame+CoreDataClass.swift */,
+				2F3074CE27AF305400589B05 /* CoreGame+CoreDataProperties.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		2F3074CC27AF235000589B05 /* App Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				2F07769327ACA61B006CEF8F /* CIDR_TrainerApp.swift */,
+				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
+			);
+			path = "App Stuff";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +249,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
+				2F3074CA27AF229500589B05 /* DataController.swift in Sources */,
+				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F0776A527ACA61C006CEF8F /* ContentView.swift in Sources */,
 				2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
@@ -229,6 +259,7 @@
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3074CF27AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 			);
@@ -239,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
+				2F3074CB27AF229500589B05 /* DataController.swift in Sources */,
+				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */,
 				2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
@@ -247,6 +280,7 @@
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3074D027AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 			);
