@@ -25,7 +25,7 @@ struct OneDigitDecimal2HexView: View {
             lastCorrect = false
         }
         gameScore.wrong()
-        lastResult = "Incorrect: \(given) in hex is \(givenHex) not \(answer)"
+        lastResult = "Incorrect: \(given) in hex is \(givenHex) not 0x\(answer)"
         newQuestion()
     }
     func correctAnswer() {
