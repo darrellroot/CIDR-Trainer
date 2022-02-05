@@ -64,32 +64,23 @@ struct OneDigitHex2DecimalView: View {
         input = ""
     }
     var body: some View {
-        ZStack {
-            (lastCorrect ? Color.green : Color.red).edgesIgnoringSafeArea(.all).opacity(0.4)
-            
-            VStack(spacing: 10) {
-                Spacer()
-                HStack {
+        VStack(spacing: 10) {
+            Spacer()
+            List {
+                Section("Results") {
                     Text("\(lastResult)")
-                    Spacer()
-                }
-                HStack {
+                        .foregroundColor(lastCorrect ? Color.green : Color.red)
                     Text("Score: \(correct) out of \(correct + wrong)")
-                    Spacer()
                 }
-                Spacer()
-                Text("Convert \(targetHex) to Decimal").font(.title)
-                ZStack {
-                    Text("       ")
+                Section("Next Task") {
+                    Text("Convert \(targetHex) to Decimal")
                     Text(input)
-                }.font(.title)
-                .border(Color.accentColor,width: 1)
-                    
+                }
+                .foregroundColor(Color.accentColor)
 
-                
-                Spacer()
-                DecimalKeyboardView(input: $input,submit: submit)
             }
+            Spacer()
+            DecimalKeyboardView(input: $input,submit: submit)
         }
 
         .navigationTitle("1 Digit Hex -> Decimal")

@@ -74,9 +74,7 @@
 				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
 				2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */,
 				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
-				2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */,
-				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
-				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
+				2F3074BA27AE2EDB00589B05 /* Keyboards */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -96,6 +94,16 @@
 				2F0776A227ACA61C006CEF8F /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		2F3074BA27AE2EDB00589B05 /* Keyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */,
+				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
+				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
+			);
+			path = Keyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -18,7 +18,11 @@ struct SingleDigitButtonView: View {
             switch key {
             case .DEL,.ENTER:
                 ZStack {
-                    Text(" ") //makes box same size as text buttons
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(2,contentMode: .fit)
+                        .foregroundColor(Color.gray)
+
                     switch key {
                     case .DEL:
                         Image(systemName: "delete.left")
@@ -28,14 +32,18 @@ struct SingleDigitButtonView: View {
                         fatalError("Unexpected case")
                     }
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .aspectRatio(2,contentMode: .fit)
+                //.padding()
+                //.frame(maxWidth: .infinity)
+                //.aspectRatio(2,contentMode: .fit)
             default:
-                Text(key.description)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .aspectRatio(2,contentMode: .fit)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(2,contentMode: .fit)
+                        .foregroundColor(Color.gray)
+                    Text(key.description)
+                }
+                 
             }
         }.font(.title)
         .background(Color.gray)
