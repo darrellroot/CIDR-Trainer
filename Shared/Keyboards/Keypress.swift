@@ -12,6 +12,7 @@ enum Keypress: CustomStringConvertible {
     case zero,one,two,three,four,five,six,seven,eight,nine
     case DEL
     case ENTER
+    case a,b,c,d,e,f
     
     init(_ digit: Int) {
         switch digit {
@@ -35,6 +36,18 @@ enum Keypress: CustomStringConvertible {
             self = .eight
         case 9:
             self = .nine
+        case 10:
+            self = .a
+        case 11:
+            self = .b
+        case 12:
+            self = .c
+        case 13:
+            self = .d
+        case 14:
+            self = .e
+        case 15:
+            self = .f
         default:
             fatalError("Keypress: invalid digit \(digit)")
         }
@@ -62,6 +75,18 @@ enum Keypress: CustomStringConvertible {
             return "8"
         case .nine:
             return "9"
+        case .a:
+            return "a"
+        case .b:
+            return "b"
+        case .c:
+            return "c"
+        case .d:
+            return "d"
+        case .e:
+            return "e"
+        case .f:
+            return "f"
         case .DEL:
             return "DEL"
         case .ENTER:

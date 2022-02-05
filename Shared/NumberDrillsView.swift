@@ -12,6 +12,7 @@ struct NumberDrillsView: View {
     var body: some View {
         List {
             NavigationLink("1-digit hex -> decimal", destination: OneDigitHex2DecimalView(gameScore: model.gameScore[Games.oneDigitHex2Decimal.rawValue]!))
+            NavigationLink("1-digit decimal -> hex", destination: OneDigitDecimal2HexView(gameScore: model.gameScore[Games.oneDigitDecimal2Hex.rawValue]!))
         }
         .navigationTitle("Hex and Binary Drills")
         .navigationBarTitleDisplayMode(.inline)

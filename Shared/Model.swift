@@ -9,6 +9,7 @@ import Foundation
 
 enum Games: String, CaseIterable {
     case oneDigitHex2Decimal
+    case oneDigitDecimal2Hex
 }
 class Model: ObservableObject {
     @Published private(set) var gameScore: [String:GameScore] = [:]

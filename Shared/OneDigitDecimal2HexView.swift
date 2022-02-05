@@ -1,13 +1,13 @@
 //
-//  OneDigitHex2DecimalView.swift
+//  OneDigitDecimal2HexView.swift
 //  CIDR Trainer
 //
-//  Created by Darrell Root on 2/3/22.
+//  Created by Darrell Root on 2/4/22.
 //
 
 import SwiftUI
 
-struct OneDigitHex2DecimalView: View {
+struct OneDigitDecimal2HexView: View {
     
     @ObservedObject var gameScore: GameScore
 
@@ -15,21 +15,17 @@ struct OneDigitHex2DecimalView: View {
     @State var given: Int = Int.random(in: 0..<16)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
-    
+
     var givenHex: String {
         return String(format: "0x%X",given)
     }
 
-    func wrongAnswer(_ answer: Int?) {
+    func wrongAnswer(_ answer: String) {
         withAnimation {
             lastCorrect = false
         }
         gameScore.wrong()
-        if let answer = answer {
-            lastResult = "Incorrect: \(givenHex) in decimal is \(given) not \(answer)"
-        } else {
-            lastResult = "Incorrect: \(givenHex) in decimal is \(given)"
-        }
+        lastResult = "Incorrect: \(given) in hex is \(givenHex) not \(answer)"
         newQuestion()
     }
     func correctAnswer() {
@@ -39,19 +35,19 @@ struct OneDigitHex2DecimalView: View {
         gameScore.correct()
         //let oldGiven = givenw
         //let oldAnswer = targetHex
-        lastResult = "Correct: \(givenHex) in hex is \(given)"
+        lastResult = "Correct: \(given) in hex is \(givenHex)"
         newQuestion()
     }
     func submit() {
-        guard let answer = Int(input) else {
-            wrongAnswer(nil)
+        guard let answer = Int(input, radix: 16) else {
+            wrongAnswer(input)
             return
         }
         if answer == given {
             correctAnswer()
             return
         } else {
-            wrongAnswer(answer)
+            wrongAnswer(input)
             return
         }
     }
@@ -75,23 +71,24 @@ struct OneDigitHex2DecimalView: View {
                     Text("All time score: \(gameScore.correctTotal) out of \(gameScore.correctTotal + gameScore.wrongTotal)")
                 }
                 Section("Next Task") {
-                    Text("Convert \(givenHex) to Decimal")
+                    Text("Convert \(given) to Hex")
                     Text(input)
                 }
                 .foregroundColor(Color.accentColor)
 
             }
             Spacer()
-            DecimalKeyboardView(input: $input,submit: submit)
+            HexKeyboardView(input: $input,submit: submit)
         }
 
-        .navigationTitle("1 Digit Hex -> Decimal")
+        .navigationTitle("1 Digit Decimal -> Hex")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct OneDigitHex2DecimalView_Previews: PreviewProvider {
+
+struct OneDigitDecimal2HexView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitHex2DecimalView(gameScore: GameScore())
+        OneDigitDecimal2HexView(gameScore: GameScore())
     }
 }

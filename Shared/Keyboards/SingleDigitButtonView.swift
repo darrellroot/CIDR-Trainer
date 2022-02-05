@@ -11,6 +11,7 @@ import SwiftUI
 struct SingleDigitButtonView: View {
     let key: Keypress
     let function: (Keypress) -> ()
+    var aspectRatio: CGFloat = 3
     var body: some View {
         return Button {
             function(key)
@@ -18,9 +19,9 @@ struct SingleDigitButtonView: View {
             switch key {
             case .DEL,.ENTER:
                 ZStack {
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 10)
                         .frame(maxWidth: .infinity)
-                        .aspectRatio(2,contentMode: .fit)
+                        //.aspectRatio(2,contentMode: .fit)
                         .foregroundColor(Color.gray)
 
                     switch key {
@@ -34,12 +35,12 @@ struct SingleDigitButtonView: View {
                 }
                 //.padding()
                 //.frame(maxWidth: .infinity)
-                //.aspectRatio(2,contentMode: .fit)
+                .aspectRatio(3,contentMode: .fit)
             default:
                 ZStack {
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 10)
                         .frame(maxWidth: .infinity)
-                        .aspectRatio(2,contentMode: .fit)
+                        .aspectRatio(aspectRatio,contentMode: .fit)
                         .foregroundColor(Color.gray)
                     Text(key.description)
                 }
@@ -47,7 +48,7 @@ struct SingleDigitButtonView: View {
             }
         }.font(.title)
         .background(Color.gray)
-            .padding(5)
+            //.padding(5)
     }
 }
 

@@ -25,6 +25,10 @@
 		2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BD27ACB39F006CEF8F /* Keypress.swift */; };
 		2F3074BC27AE33DC00589B05 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BB27AE33DC00589B05 /* Model.swift */; };
 		2F3074BD27AE33DC00589B05 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BB27AE33DC00589B05 /* Model.swift */; };
+		2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */; };
+		2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */; };
+		2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */; };
+		2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,8 @@
 		2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDigitButtonView.swift; sourceTree = "<group>"; };
 		2F0776BD27ACB39F006CEF8F /* Keypress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keypress.swift; sourceTree = "<group>"; };
 		2F3074BB27AE33DC00589B05 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitDecimal2HexView.swift; sourceTree = "<group>"; };
+		2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexKeyboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
 				2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */,
 				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
+				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
 				2F3074BB27AE33DC00589B05 /* Model.swift */,
 			);
@@ -106,6 +113,7 @@
 				2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */,
 				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
 				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
+				2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */,
 			);
 			path = Keyboards;
 			sourceTree = "<group>";
@@ -210,12 +218,14 @@
 			files = (
 				2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F0776A527ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
 				2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
 				2F0776B227ACA70F006CEF8F /* NumberDrillsView.swift in Sources */,
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
+				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,12 +235,14 @@
 			files = (
 				2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
 				2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
 				2F0776B327ACA70F006CEF8F /* NumberDrillsView.swift in Sources */,
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
+				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

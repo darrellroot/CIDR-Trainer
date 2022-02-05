@@ -21,6 +21,8 @@ struct DecimalKeyboardView: View {
             }
         case .ENTER:
             submit()
+        case .a, .b, .c, .d, .e, .f:
+            fatalError("DecimalKeyboard invalid button rpess \(key)")
         }
         
     }
