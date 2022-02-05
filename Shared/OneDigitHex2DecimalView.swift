@@ -9,12 +9,10 @@ import SwiftUI
 
 struct OneDigitHex2DecimalView: View {
     
-
+    @ObservedObject var gameScore: GameScore
 
     @State var input = ""
     @State var target: Int = Int.random(in: 0..<16)
-    @State var correct = 0
-    @State var wrong = 0
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     
@@ -26,7 +24,7 @@ struct OneDigitHex2DecimalView: View {
         withAnimation {
             lastCorrect = false
         }
-        wrong += 1
+        gameScore.wrong()
         let oldTarget = targetHex
         let oldAnswer = target
         lastResult = "Incorrect: \(oldTarget) in decimal is \(oldAnswer)"
@@ -36,7 +34,7 @@ struct OneDigitHex2DecimalView: View {
         withAnimation {
             lastCorrect = true
         }
-        correct += 1
+        gameScore.correct()
         let oldTarget = target
         let oldAnswer = targetHex
         lastResult = "Correct: \(oldTarget) in hex is \(oldAnswer)"
@@ -70,7 +68,9 @@ struct OneDigitHex2DecimalView: View {
                 Section("Results") {
                     Text("\(lastResult)")
                         .foregroundColor(lastCorrect ? Color.green : Color.red)
-                    Text("Score: \(correct) out of \(correct + wrong)")
+                        .fontWeight(.bold)
+                    Text("Total score: \(gameScore.correctTotal) out of \(gameScore.correctTotal + gameScore.wrongTotal)")
+                    Text("Last 100: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
                 }
                 Section("Next Task") {
                     Text("Convert \(targetHex) to Decimal")
@@ -90,6 +90,6 @@ struct OneDigitHex2DecimalView: View {
 
 struct OneDigitHex2DecimalView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitHex2DecimalView()
+        OneDigitHex2DecimalView(gameScore: GameScore())
     }
 }

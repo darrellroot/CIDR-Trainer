@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var model: Model
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Hexadecimal and Binary Drills", destination: NumberDrillsView())
+                NavigationLink("Hexadecimal and Binary Drills", destination: NumberDrillsView(model: model))
             }
             .navigationTitle("CIDR Trainer")
         }
@@ -20,6 +21,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(model: Model())
     }
 }

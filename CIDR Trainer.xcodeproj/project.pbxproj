@@ -23,6 +23,8 @@
 		2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */; };
 		2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BD27ACB39F006CEF8F /* Keypress.swift */; };
 		2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0776BD27ACB39F006CEF8F /* Keypress.swift */; };
+		2F3074BC27AE33DC00589B05 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BB27AE33DC00589B05 /* Model.swift */; };
+		2F3074BD27AE33DC00589B05 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BB27AE33DC00589B05 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,7 @@
 		2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalKeyboardView.swift; sourceTree = "<group>"; };
 		2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDigitButtonView.swift; sourceTree = "<group>"; };
 		2F0776BD27ACB39F006CEF8F /* Keypress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keypress.swift; sourceTree = "<group>"; };
+		2F3074BB27AE33DC00589B05 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 				2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */,
 				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
+				2F3074BB27AE33DC00589B05 /* Model.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +230,7 @@
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

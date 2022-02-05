@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct NumberDrillsView: View {
+    @ObservedObject var model: Model
     var body: some View {
         List {
-            NavigationLink("1-digit hex -> decimal", destination: OneDigitHex2DecimalView())
+            NavigationLink("1-digit hex -> decimal", destination: OneDigitHex2DecimalView(gameScore: model.gameScore[Games.oneDigitHex2Decimal.rawValue]!))
         }
         .navigationTitle("Hex and Binary Drills")
         .navigationBarTitleDisplayMode(.inline)
@@ -19,6 +20,6 @@ struct NumberDrillsView: View {
 
 struct NumberDrillsView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberDrillsView()
+        NumberDrillsView(model: Model())
     }
 }

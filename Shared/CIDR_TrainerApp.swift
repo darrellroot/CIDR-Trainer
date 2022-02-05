@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct CIDR_TrainerApp: App {
+    @StateObject var model = Model()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(model: model)
         }
     }
 }
