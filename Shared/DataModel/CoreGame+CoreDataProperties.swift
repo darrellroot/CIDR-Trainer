@@ -16,11 +16,79 @@ extension CoreGame {
         return NSFetchRequest<CoreGame>(entityName: "CoreGame")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var correctTotal: Int32
-    @NSManaged public var wrongTotal: Int32
-    @NSManaged public var last100: [Bool]?
-    @NSManaged public var nextPosition: Int32
+    @NSManaged private(set) var name: String?
+    @NSManaged private(set) var correctTotal: Int32
+    @NSManaged private(set) var wrongTotal: Int32
+    @NSManaged private(set) var last100: [Bool]?
+    @NSManaged private(set) var nextPosition: Int32
+
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        last100 = []
+        correctTotal = 0
+        wrongTotal = 0
+        nextPosition = 0
+        name = "temporary \(UUID())"
+    }
+    func setName(_ name: String) {
+        self.name = name
+    }
+    var last100correct: Int {
+        if let last100 = last100 {
+            return last100.reduce(0) {$0 + ($1 ? 1 : 0)}
+        } else {
+            last100 = []
+            print("unexpectedly resetting last100 in \(name)")
+            return 0
+        }
+    }
+    var last100wrong: Int {
+        if let last100 = last100 {
+            return last100.reduce(0) {$0 + ($1 ? 0 : 1)}
+        } else {
+            last100 = []
+            print("unexpectedly resetting last100 in \(name)")
+            return 0
+        }
+    }
+    func correct() {
+        correctTotal += 1
+        
+        // should not get here but just in case
+        if nextPosition >= GameScore.lastSize {
+            nextPosition = 0
+        }
+        if last100 != nil {
+            if nextPosition >= last100!.count {
+                last100!.append(true)
+            } else {
+                last100![Int(nextPosition)] = true
+            }
+            nextPosition += 1
+        }
+        if nextPosition >= GameScore.lastSize {
+            nextPosition = 0
+        }
+    }
+    func wrong() {
+        wrongTotal += 1
+        // should not get here but just in case
+        if nextPosition >= GameScore.lastSize {
+            nextPosition = 0
+        }
+
+        if last100 != nil {
+            if nextPosition >= last100!.count {
+                last100!.append(false)
+            } else {
+                last100![Int(nextPosition)] = false
+            }
+            nextPosition += 1
+            if nextPosition >= GameScore.lastSize {
+                nextPosition = 0
+            }
+        }
+    }
 
 }
 
