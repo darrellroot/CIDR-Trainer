@@ -13,7 +13,7 @@ struct OneDigitHex2DecimalView: View {
         let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
         fetchRequest.fetchLimit = 1
         
-        let predicate = NSPredicate(format: "name == \(Games.oneDigitDecimal2Hex.rawValue)")
+        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitDecimal2Hex.rawValue)\"")
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = []
         return fetchRequest

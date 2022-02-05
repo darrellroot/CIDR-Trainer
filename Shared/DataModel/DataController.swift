@@ -19,7 +19,7 @@ class DataController: ObservableObject {
         }
         for game in Games.allCases {
             let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
-            let predicate = NSPredicate(format: "name == \(game.rawValue)")
+            let predicate = NSPredicate(format: "name == \"\(game.rawValue)\"")
             fetchRequest.predicate = predicate
             fetchRequest.sortDescriptors = []
             
