@@ -38,7 +38,12 @@ class DataController: ObservableObject {
             } catch {
                 print("DataController init: Could not fetch \(game.rawValue) due to \(error.localizedDescription)")
             }
-
+        }
+        do {
+            try container.viewContext.save()
+            print("DataController: saved core data context")
+        } catch {
+            print("DataController: failed to save core data context: \(error.localizedDescription)")
         }
     }
 }

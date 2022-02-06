@@ -87,8 +87,6 @@ struct OneDigitHex2DecimalView: View {
                         .fontWeight(.bold)
                     //-1 means error getting core data
                     Text("Recent \(GameScore.lastSize) score: \(coreGames.first?.last100correct ?? -1) correct \(coreGames.first?.last100wrong ?? -1) wrong")
-
-                    //Text("Recent \(GameScore.lastSize) score: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
                     Text("All time score: \(coreGames.first?.correctTotal ?? 0) out of \((coreGames.first?.correctTotal ?? 0) + (coreGames.first?.wrongTotal ?? 0))")
                 }
                 Section("Next Task") {
@@ -100,6 +98,13 @@ struct OneDigitHex2DecimalView: View {
             }
             Spacer()
             DecimalKeyboardView(input: $input,submit: submit)
+        }.onDisappear {
+            do {
+                try moc.save()
+                print("Saved core data context")
+            } catch {
+                print("Failed to save core data context \(error.localizedDescription)")
+            }
         }
 
         .navigationTitle("1 Digit Hex -> Decimal")
