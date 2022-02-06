@@ -13,15 +13,14 @@ struct OneDigitHex2DecimalView: View {
         let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
         fetchRequest.fetchLimit = 1
         
-        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitDecimal2Hex.rawValue)\"")
+        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitHex2Decimal.rawValue)\"")
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = []
         return fetchRequest
     }
     @FetchRequest(fetchRequest: OneDigitHex2DecimalView.fetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
-    //@ObservedObject var gameScore: GameScore
-    //var coreGame: FetchedResults<CoreGame>.Element
+
     @State var input = ""
     @State var given: Int = Int.random(in: 0..<16)
     @State var lastResult = "Press your answer and hit the up arrow"
@@ -36,7 +35,6 @@ struct OneDigitHex2DecimalView: View {
             lastCorrect = false
         }
         coreGames.first?.wrong()
-        //gameScore.wrong()
         if let answer = answer {
             lastResult = "Incorrect: \(givenHex) in decimal is \(given) not \(answer)"
         } else {
@@ -50,9 +48,6 @@ struct OneDigitHex2DecimalView: View {
             lastCorrect = true
         }
         coreGames.first?.correct()
-        //gameScore.correct()
-        //let oldGiven = givenw
-        //let oldAnswer = targetHex
         lastResult = "Correct: \(givenHex) in hex is \(given)"
         newQuestion()
     }
@@ -87,7 +82,7 @@ struct OneDigitHex2DecimalView: View {
                         .fontWeight(.bold)
                     //-1 means error getting core data
                     Text("Recent \(GameScore.lastSize) score: \(coreGames.first?.last100correct ?? -1) correct \(coreGames.first?.last100wrong ?? -1) wrong")
-                    Text("All time score: \(coreGames.first?.correctTotal ?? 0) out of \((coreGames.first?.correctTotal ?? 0) + (coreGames.first?.wrongTotal ?? 0))")
+                    Text("All time score: \(coreGames.first?.correctTotal ?? -1) out of \((coreGames.first?.correctTotal ?? -1) + (coreGames.first?.wrongTotal ?? 0))")
                 }
                 Section("Next Task") {
                     Text("Convert \(givenHex) to Decimal")

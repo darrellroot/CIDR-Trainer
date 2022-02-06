@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct OneDigitDecimal2HexView: View {
     
-    @ObservedObject var gameScore: GameScore
+    static var fetchRequest: NSFetchRequest<CoreGame> {
+        let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
+        fetchRequest.fetchLimit = 1
+        
+        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitDecimal2Hex.rawValue)\"")
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = []
+        return fetchRequest
+    }
+    @FetchRequest(fetchRequest: OneDigitHex2DecimalView.fetchRequest) var coreGames
+    @Environment(\.managedObjectContext) var moc
 
     @State var input = ""
     @State var given: Int = Int.random(in: 0..<16)
@@ -24,7 +35,8 @@ struct OneDigitDecimal2HexView: View {
         withAnimation {
             lastCorrect = false
         }
-        gameScore.wrong()
+        coreGames.first?.wrong()
+        
         lastResult = "Incorrect: \(given) in hex is \(givenHex) not 0x\(answer)"
         newQuestion()
     }
@@ -32,9 +44,7 @@ struct OneDigitDecimal2HexView: View {
         withAnimation {
             lastCorrect = true
         }
-        gameScore.correct()
-        //let oldGiven = givenw
-        //let oldAnswer = targetHex
+        coreGames.first?.correct()
         lastResult = "Correct: \(given) in hex is \(givenHex)"
         newQuestion()
     }
@@ -67,8 +77,9 @@ struct OneDigitDecimal2HexView: View {
                     Text("\(lastResult)")
                         .foregroundColor(lastCorrect ? Color.green : Color.red)
                         .fontWeight(.bold)
-                    Text("Recent \(GameScore.lastSize) score: \(gameScore.last100correct) correct \(gameScore.last100wrong) wrong")
-                    Text("All time score: \(gameScore.correctTotal) out of \(gameScore.correctTotal + gameScore.wrongTotal)")
+                    //-1 means error getting core data
+                    Text("Recent \(GameScore.lastSize) score: \(coreGames.first?.last100correct ?? -1) correct \(coreGames.first?.last100wrong ?? -1) wrong")
+                    Text("All time score: \(coreGames.first?.correctTotal ?? -1) out of \((coreGames.first?.correctTotal ?? -1) + (coreGames.first?.wrongTotal ?? -1))")
                 }
                 Section("Next Task") {
                     Text("Convert \(given) to Hex")
@@ -79,6 +90,13 @@ struct OneDigitDecimal2HexView: View {
             }
             Spacer()
             HexKeyboardView(input: $input,submit: submit)
+        }.onDisappear {
+            do {
+                try moc.save()
+                print("Saved core data context")
+            } catch {
+                print("Failed to save core data context \(error.localizedDescription)")
+            }
         }
 
         .navigationTitle("1 Digit Decimal -> Hex")
@@ -89,6 +107,6 @@ struct OneDigitDecimal2HexView: View {
 
 struct OneDigitDecimal2HexView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitDecimal2HexView(gameScore: GameScore(name: Games.oneDigitDecimal2Hex.rawValue))
+        OneDigitDecimal2HexView()
     }
 }
