@@ -14,8 +14,6 @@ typealias PurchaseCompletionHandler = ((SKPaymentTransaction?) -> Void)
 
 class Store: NSObject, ObservableObject {
     
-    //@Published var purchasedProductNames: Set<String> = []
-    //@Published var allProductNames: Set<String> = []
     // String is product identifer
     @Published var purchasedProducts: Set<String> = []
     // String is product identifier
@@ -28,9 +26,14 @@ class Store: NSObject, ObservableObject {
         }
         return productList.sorted()
     }
+#if DEBUG
+    let certificate = "StoreKitTestCertificate"
+#else
+    let certificate = "AppleIncRootCertificate"
+#endif
     
     private var productsRequest: SKProductsRequest?
-    private var fetchedProducts = [SKProduct]()
+    //private var fetchedProducts = [SKProduct]()
     private var fetchCompletionHandler: FetchCompletionHandler? // fetch product
     private var purchaseCompletionHandler: PurchaseCompletionHandler?
     
@@ -49,7 +52,7 @@ class Store: NSObject, ObservableObject {
         print("Store init")
         startObservingPaymentQueue()
         fetchProducts { products in
-            print("found \(products.count) existing products")
+            print("found \(products.count) existing products from store")
             for product in products {
                 print("\(product.productIdentifier) exists")
                 self.allProducts[product.productIdentifier] = product
@@ -62,6 +65,7 @@ class Store: NSObject, ObservableObject {
     }
     
     private func fetchProducts(_ completion: @escaping FetchCompletionHandler) {
+        print("trying to fetch products from store")
         guard self.productsRequest == nil else { return }
         productsRequest = SKProductsRequest(productIdentifiers: allProductIdentifiers)
         productsRequest?.delegate = self
@@ -102,9 +106,11 @@ extension Store: SKPaymentTransactionObserver {
 extension Store: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         let loadedProducts = response.products
+        print("got \(loadedProducts.count) store products response")
+
         let invalidProducts = response.invalidProductIdentifiers
         guard !loadedProducts.isEmpty else {
-            print("Could not load the products!")
+            print("Could not load the products from store!")
             if !invalidProducts.isEmpty {
                 print("Invalid Products found: \(invalidProducts)")
             }
@@ -112,7 +118,9 @@ extension Store: SKProductsRequestDelegate {
             return
         }
         // cache fetched products
-        fetchedProducts = loadedProducts
+        for product in loadedProducts {
+            allProducts[product.productIdentifier] = product
+        }
         
         // notify anyone waiting on the product load
         DispatchQueue.main.async { [weak self] in

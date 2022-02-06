@@ -16,10 +16,10 @@ struct PurchaseView: View {
                 ForEach(store.nonPurchasedProducts, id: \.self) { productDescription in
                     Text(productDescription)
                 }
-                Section("Purchsed Products") {
-                    ForEach(store.purchasedProducts.sorted(), id: \.self) { product in
-                        Text(product)
-                    }
+            }
+            Section("Purchased Products") {
+                ForEach(store.purchasedProducts.sorted(), id: \.self) { product in
+                    Text(product)
                 }
             }
         }

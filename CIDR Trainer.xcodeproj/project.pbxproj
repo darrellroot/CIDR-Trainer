@@ -41,6 +41,12 @@
 		2F3074D827B068D300589B05 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074D627B068D300589B05 /* Store.swift */; };
 		2F3074DB27B0746D00589B05 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074DA27B0746D00589B05 /* PurchaseView.swift */; };
 		2F3074DC27B0746D00589B05 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074DA27B0746D00589B05 /* PurchaseView.swift */; };
+		2F3074DF27B0786C00589B05 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3074DE27B0786C00589B05 /* StoreKit.framework */; };
+		2F3074E127B078A800589B05 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3074E027B078A800589B05 /* StoreKit.framework */; };
+		2F3074E327B079C600589B05 /* StoreKitTestConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */; };
+		2F3074E427B079C600589B05 /* StoreKitTestConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */; };
+		2F3074E627B07AE000589B05 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */; };
+		2F3074E727B07AE000589B05 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +70,10 @@
 		2F3074CE27AF305400589B05 /* CoreGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2F3074D627B068D300589B05 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2F3074DA27B0746D00589B05 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
+		2F3074DE27B0786C00589B05 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		2F3074E027B078A800589B05 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitTestConfiguration.storekit; sourceTree = "<group>"; };
+		2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3074DF27B0786C00589B05 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3074E127B078A800589B05 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +102,7 @@
 				2F07769227ACA61B006CEF8F /* Shared */,
 				2F0776A127ACA61C006CEF8F /* macOS */,
 				2F07769B27ACA61C006CEF8F /* Products */,
+				2F3074DD27B0786C00589B05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +113,8 @@
 				2F3074C827AF226200589B05 /* DataModel */,
 				2F07769427ACA61B006CEF8F /* ContentView.swift */,
 				2F3074DA27B0746D00589B05 /* PurchaseView.swift */,
+				2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */,
+				2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */,
 				2F3074D927B0744200589B05 /* NumberDrills */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
 			);
@@ -164,6 +179,15 @@
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 			);
 			path = NumberDrills;
+			sourceTree = "<group>";
+		};
+		2F3074DD27B0786C00589B05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F3074E027B078A800589B05 /* StoreKit.framework */,
+				2F3074DE27B0786C00589B05 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +269,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3074E327B079C600589B05 /* StoreKitTestConfiguration.storekit in Resources */,
 				2F0776A727ACA61C006CEF8F /* Assets.xcassets in Resources */,
+				2F3074E627B07AE000589B05 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3074E427B079C600589B05 /* StoreKitTestConfiguration.storekit in Resources */,
 				2F0776A827ACA61C006CEF8F /* Assets.xcassets in Resources */,
+				2F3074E727B07AE000589B05 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
