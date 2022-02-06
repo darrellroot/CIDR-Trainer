@@ -7,7 +7,11 @@
         <attribute name="nextPosition" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wrongTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="CoreSettings" representedClassName="CoreSettings" syncable="YES">
+        <attribute name="fullUnlock" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="CoreGame" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="CoreSettings" positionX="-45" positionY="36" width="128" height="44"/>
     </elements>
 </model>

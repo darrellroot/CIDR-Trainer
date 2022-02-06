@@ -13,7 +13,8 @@ typealias FetchCompletionHandler = (([SKProduct]) -> Void)
 typealias PurchaseCompletionHandler = ((SKPaymentTransaction?) -> Void)
 
 class Store: NSObject, ObservableObject {
-    
+    @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
+
     // String is product identifer
     @Published var purchasedProducts: Set<String> = []
     // String is product identifier
@@ -37,7 +38,8 @@ class Store: NSObject, ObservableObject {
     private var fetchCompletionHandler: FetchCompletionHandler? // fetch product
     private var purchaseCompletionHandler: PurchaseCompletionHandler?
     
-    private let allProductIdentifiers = Set(["net.networkmom.CIDRTrainer.FullUnlock"])
+    static let fullUnlockIdentifier = "net.networkmom.CIDRTrainer.FullUnlock"
+    private let allProductIdentifiers = Set([Store.fullUnlockIdentifier])
     
     /*private var completedPurchases = [String]() {
         didSet {
@@ -50,6 +52,7 @@ class Store: NSObject, ObservableObject {
     override init() {
         super.init()
         print("Store init")
+        print("Core Settings fetch count \(coreSettings.count)")
         startObservingPaymentQueue()
         fetchProducts { products in
             print("found \(products.count) existing products from store")
@@ -78,12 +81,18 @@ extension Store: SKPaymentTransactionObserver {
         for transaction in transactions {
             var shouldFinishTransaction = false
             switch transaction.transactionState {
-            case .purchased:
-                print("We purchased \(transaction.payment.productIdentifier)")
+            case .purchased, .restored:
+                print("We purchased or restored \(transaction.payment.productIdentifier)")
                 purchasedProducts.insert(transaction.payment.productIdentifier)
-            case .restored:
-                print("We restored \(transaction.payment.productIdentifier)")
-                purchasedProducts.insert(transaction.payment.productIdentifier)
+                if transaction.payment.productIdentifier == Store.fullUnlockIdentifier {
+                    if let coreSetting = coreSettings.first {
+                        coreSetting.setFullUnlock(true)
+                    } else {
+                        print("Error: cannot fetch Core Settings to execute full unlock")
+                    }
+                } else {
+                    print("Error: purchased or restored unexpected product identifier: \(transaction.payment.productIdentifier)")
+                }
             case .failed:
                 shouldFinishTransaction = true
             case .deferred, .purchasing:

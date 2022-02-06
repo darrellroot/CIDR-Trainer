@@ -17,6 +17,27 @@ class DataController: ObservableObject {
                 print("Core data failed to load: \(error.localizedDescription)")
             }
         }
+        do {
+            let coreSettings = try container.viewContext.fetch(CoreSettings.fetchRequest())
+            switch coreSettings.count {
+            case 0:
+                print("Creating CoreSettings entity")
+                let newSettings = CoreSettings(context: container.viewContext)
+                print("Newly created Core Settings full unlock \(newSettings.fullUnlock)")
+            case 1:
+                print("Found \(coreSettings.count) CoreSetting entity")
+                if let coreSetting = coreSettings.first {
+                    print("Core Settings full unlock: \(coreSetting.fullUnlock)")
+                } else {
+                    // should never get here
+                    print("Error: cannot access first core settings entity")
+                }
+            default:
+                print("Error: unexpectedly found \(coreSettings.count) CoreSettings entities")
+            }
+        } catch {
+            print("DataController init: Could not fetch CoreSettings due to \(error.localizedDescription)")
+        }
         for game in Games.allCases {
             let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
             let predicate = NSPredicate(format: "name == \"\(game.rawValue)\"")

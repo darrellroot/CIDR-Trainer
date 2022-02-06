@@ -47,6 +47,10 @@
 		2F3074E427B079C600589B05 /* StoreKitTestConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */; };
 		2F3074E627B07AE000589B05 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */; };
 		2F3074E727B07AE000589B05 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */; };
+		2F3074F027B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EE27B08B4A00589B05 /* CoreSettings+CoreDataClass.swift */; };
+		2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EE27B08B4A00589B05 /* CoreSettings+CoreDataClass.swift */; };
+		2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */; };
+		2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,8 @@
 		2F3074E027B078A800589B05 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitTestConfiguration.storekit; sourceTree = "<group>"; };
 		2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		2F3074EE27B08B4A00589B05 /* CoreSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreSettings+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,8 @@
 				2F3074C927AF229500589B05 /* DataController.swift */,
 				2F3074CD27AF305400589B05 /* CoreGame+CoreDataClass.swift */,
 				2F3074CE27AF305400589B05 /* CoreGame+CoreDataProperties.swift */,
+				2F3074EE27B08B4A00589B05 /* CoreSettings+CoreDataClass.swift */,
+				2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -305,7 +313,9 @@
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3074F027B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074CF27AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
+				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 			);
@@ -328,7 +338,9 @@
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074D027AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
+				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 			);

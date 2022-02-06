@@ -9,8 +9,13 @@ import SwiftUI
 
 struct PurchaseView: View {
     @EnvironmentObject private var store: Store
+    @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
+
+
     var body: some View {
         List {
+            Text("\(coreSettings.first != nil ? "Fetched coreSettings successfully!" : "unable to fetch coreSettings")")
+            Text("Full unlock setting: \(coreSettings.first?.fullUnlock ?? false ? "true" : "false")")
             Section("Non-purchased products") {
                 
                 ForEach(store.nonPurchasedProducts, id: \.self) { productDescription in
