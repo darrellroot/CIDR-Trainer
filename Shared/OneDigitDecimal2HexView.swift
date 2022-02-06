@@ -19,7 +19,7 @@ struct OneDigitDecimal2HexView: View {
         fetchRequest.sortDescriptors = []
         return fetchRequest
     }
-    @FetchRequest(fetchRequest: OneDigitHex2DecimalView.fetchRequest) var coreGames
+    @FetchRequest(fetchRequest: OneDigitDecimal2HexView.fetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
 
     @State var input = ""
