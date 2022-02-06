@@ -13,42 +13,24 @@ struct SingleDigitButtonView: View {
     let function: (Keypress) -> ()
     var aspectRatio: CGFloat = 3
     var body: some View {
-        return Button {
+        Button {
             function(key)
         } label: {
             switch key {
-            case .DEL,.ENTER:
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(maxWidth: .infinity)
-                        //.aspectRatio(2,contentMode: .fit)
-                        .foregroundColor(Color.gray)
-
-                    switch key {
-                    case .DEL:
-                        Image(systemName: "delete.left")
-                    case .ENTER:
-                        Image(systemName: "arrow.up")
-                    default:
-                        fatalError("Unexpected case")
-                    }
-                }
-                //.padding()
-                //.frame(maxWidth: .infinity)
-                .aspectRatio(3,contentMode: .fit)
+            case .DEL:
+                Image(systemName: "delete.left")
+                    .frame(maxWidth: .infinity)
+            case.ENTER:
+                Image(systemName: "arrow.up")
+                    .frame(maxWidth: .infinity)
             default:
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(maxWidth: .infinity)
-                        .aspectRatio(aspectRatio,contentMode: .fit)
-                        .foregroundColor(Color.gray)
-                    Text(key.description)
-                }
-                 
+                Text(key.description)
+                    .frame(maxWidth: .infinity)
             }
-        }.font(.title)
-        .background(Color.gray)
-            //.padding(5)
+        }
+        .buttonStyle(.bordered)
+        .font(.title)
+
     }
 }
 
