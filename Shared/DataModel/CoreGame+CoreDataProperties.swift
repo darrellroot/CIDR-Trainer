@@ -29,6 +29,11 @@ extension CoreGame {
         wrongTotal = 0
         nextPosition = 0
         name = "temporary \(UUID())"
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            print("Unable to save core data: \(error)")
+        }
     }
     func setName(_ name: String) {
         self.name = name

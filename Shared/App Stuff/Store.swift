@@ -8,13 +8,17 @@
 import Foundation
 import StoreKit
 import SwiftUI
+import CoreData
 
 typealias FetchCompletionHandler = (([SKProduct]) -> Void)
 typealias PurchaseCompletionHandler = ((SKPaymentTransaction?) -> Void)
 
 class Store: NSObject, ObservableObject {
-    @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
+    //@FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
+    var moc: NSManagedObjectContext
+    var coreSetting: CoreSettings?
+    
     // String is product identifer
     @Published var purchasedProducts: Set<String> = []
     // String is product identifier
@@ -49,10 +53,13 @@ class Store: NSObject, ObservableObject {
         }
     }*/
     
-    override init() {
+    init(moc: NSManagedObjectContext) {
+        self.moc = moc
         super.init()
         print("Store init")
-        print("Core Settings fetch count \(coreSettings.count)")
+        if let coreSettings = try? moc.fetch(CoreSettings.fetchRequest()) {
+            self.coreSetting = coreSettings.first
+        }
         startObservingPaymentQueue()
         fetchProducts { products in
             print("found \(products.count) existing products from store")
@@ -74,6 +81,24 @@ class Store: NSObject, ObservableObject {
         productsRequest?.delegate = self
         productsRequest?.start()
     }
+    
+    private func buy(_ product: SKProduct, completion: @escaping PurchaseCompletionHandler) {
+        purchaseCompletionHandler = completion
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(payment)
+    }
+}
+
+extension Store {
+    func product(for identifier: String) -> SKProduct? {
+        return allProducts[identifier]
+    }
+    func purchaseProduct(_ product: SKProduct) {
+        startObservingPaymentQueue()
+        buy(product) { _ in
+            
+        }
+    }
 }
 
 extension Store: SKPaymentTransactionObserver {
@@ -85,7 +110,7 @@ extension Store: SKPaymentTransactionObserver {
                 print("We purchased or restored \(transaction.payment.productIdentifier)")
                 purchasedProducts.insert(transaction.payment.productIdentifier)
                 if transaction.payment.productIdentifier == Store.fullUnlockIdentifier {
-                    if let coreSetting = coreSettings.first {
+                    if let coreSetting = coreSetting {
                         coreSetting.setFullUnlock(true)
                     } else {
                         print("Error: cannot fetch Core Settings to execute full unlock")

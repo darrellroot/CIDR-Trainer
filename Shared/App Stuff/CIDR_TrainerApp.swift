@@ -18,7 +18,7 @@ struct CIDR_TrainerApp: App {
         WindowGroup {
             ContentView(model: model)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
-                .environmentObject(Store())
+                .environmentObject(Store(moc: dataController.container.viewContext))
         }
     }
 }

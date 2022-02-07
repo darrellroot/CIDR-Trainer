@@ -24,10 +24,20 @@ extension CoreSettings {
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         fullUnlock = false
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            print("Unable to save core data: \(error)")
+        }
     }
     
     public func setFullUnlock(_ newValue: Bool) {
         fullUnlock = newValue
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            print("Unable to save core data: \(error)")
+        }
     }
 }
 
