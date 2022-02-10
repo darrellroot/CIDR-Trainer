@@ -73,6 +73,8 @@
 		2F30757927B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757727B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift */; };
 		2F30757B27B5AB9C00589B05 /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */; };
 		2F30757C27B5AB9C00589B05 /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */; };
+		2F30757E27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */; };
+		2F30757F27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,7 @@
 		2F30757327B591D000589B05 /* AllTimeScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeScoreView.swift; sourceTree = "<group>"; };
 		2F30757727B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitHexadecimalHelp.swift; sourceTree = "<group>"; };
 		2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLStringView.swift; sourceTree = "<group>"; };
+		2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinaryHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				2F30757727B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift */,
+				2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */,
 				2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */,
 			);
 			path = HelpViews;
@@ -390,6 +394,7 @@
 				2F3074F027B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074CF27AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F30757B27B5AB9C00589B05 /* HTMLStringView.swift in Sources */,
+				2F30757E27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F30757427B591D000589B05 /* AllTimeScoreView.swift in Sources */,
 				2F30756A27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
@@ -426,6 +431,7 @@
 				2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074D027AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F30757C27B5AB9C00589B05 /* HTMLStringView.swift in Sources */,
+				2F30757F27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F30757527B591D000589B05 /* AllTimeScoreView.swift in Sources */,
 				2F30756B27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,

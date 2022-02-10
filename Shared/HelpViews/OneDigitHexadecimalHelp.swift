@@ -10,6 +10,9 @@ import SwiftUI
 
 struct OneDigitHexadecimalHelp: View {
     
+    var attributedString: AttributedString {
+        try! AttributedString(markdown: markdownString, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace))
+    }
     var body: some View {
         ScrollView {
             Text(attributedString)
@@ -17,9 +20,7 @@ struct OneDigitHexadecimalHelp: View {
         //HTMLStringView(htmlContent: htmlString)
     }
     
-    let attributedString = try! AttributedString(markdown: OneDigitHexadecimalHelp.markdownString, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace))
-
-    static let markdownString = """
+    let markdownString = """
     ***1-digit Hexadecimal Digits***
     
     **Purpose:**

@@ -109,6 +109,11 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
             }// zstack
             .navigationTitle("1 Digit Hex -> Binary")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink("Help", destination: OneDigitBinaryHelp())
+                }
+            }
         }//if else
     }
 }
