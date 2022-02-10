@@ -26,7 +26,7 @@ struct RecentScoreView: View {
     }
     var body: some View {
         HStack {
-            Text("Recent Score:")
+            Text("Recent Score:  ") // 15 chars to align (sorta) with all-time score
             Label(recentCorrect , systemImage: SFSymbol.checkmark.rawValue)
             Spacer()
             Label(recentWrong, systemImage: SFSymbol.xCircle.rawValue)

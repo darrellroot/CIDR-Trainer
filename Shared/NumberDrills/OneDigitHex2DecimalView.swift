@@ -85,12 +85,8 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
                             Text("\(lastResult)")
                                 .foregroundColor(lastCorrect ? Color.green : Color.red)
                                 .fontWeight(.bold)
-                            //-1 means error getting core data
                             RecentScoreView(thisGame: thisGame)
-                            //Text("Recent \(Globals.lastSize) score: \(thisGame?.last100correct ?? -1) \(SFSymbol.checkmark) \(thisGame?.last100wrong ?? -1) \(SFSymbol.xCircle)")
                             AllTimeScoreView(thisGame: thisGame)
-
-                            //Text("All time score: \(thisGame?.correctTotal ?? -1) \(SFSymbol.checkmark) \(thisGame?.wrongTotal ?? 0) \(SFSymbol.xCircle)")
                         }
                         Section("Next Task") {
                             Text("Convert \(givenHex) to Decimal")
