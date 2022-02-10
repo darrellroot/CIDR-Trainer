@@ -63,6 +63,12 @@
 		2F30756827B4BF6200589B05 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756627B4BF6200589B05 /* Int+Extensions.swift */; };
 		2F30756A27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */; };
 		2F30756B27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */; };
+		2F30756E27B58D2200589B05 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756D27B58D2200589B05 /* SFSymbol.swift */; };
+		2F30756F27B58D2200589B05 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756D27B58D2200589B05 /* SFSymbol.swift */; };
+		2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757027B58F0400589B05 /* RecentScoreView.swift */; };
+		2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757027B58F0400589B05 /* RecentScoreView.swift */; };
+		2F30757427B591D000589B05 /* AllTimeScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757327B591D000589B05 /* AllTimeScoreView.swift */; };
+		2F30757527B591D000589B05 /* AllTimeScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757327B591D000589B05 /* AllTimeScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +104,9 @@
 		2F30756327B4BD5400589B05 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		2F30756627B4BF6200589B05 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryKeyboardView.swift; sourceTree = "<group>"; };
+		2F30756D27B58D2200589B05 /* SFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
+		2F30757027B58F0400589B05 /* RecentScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentScoreView.swift; sourceTree = "<group>"; };
+		2F30757327B591D000589B05 /* AllTimeScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTimeScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +142,7 @@
 		2F07769227ACA61B006CEF8F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2F30756C27B58D0700589B05 /* Enumerations */,
 				2F3074F427B09E4B00589B05 /* Extensions */,
 				2F3074CC27AF235000589B05 /* App Stuff */,
 				2F3074C827AF226200589B05 /* DataModel */,
@@ -209,6 +219,8 @@
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 				2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */,
 				2F30755D27B4B81C00589B05 /* DrillHelper.swift */,
+				2F30757027B58F0400589B05 /* RecentScoreView.swift */,
+				2F30757327B591D000589B05 /* AllTimeScoreView.swift */,
 			);
 			path = NumberDrills;
 			sourceTree = "<group>";
@@ -228,6 +240,14 @@
 				2F30756627B4BF6200589B05 /* Int+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2F30756C27B58D0700589B05 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				2F30756D27B58D2200589B05 /* SFSymbol.swift */,
+			);
+			path = Enumerations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +354,7 @@
 			files = (
 				2F3074D727B068D300589B05 /* Store.swift in Sources */,
 				2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
+				2F30756E27B58D2200589B05 /* SFSymbol.swift in Sources */,
 				2F3074CA27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DB27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
@@ -352,7 +373,9 @@
 				2F3074F027B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074CF27AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
+				2F30757427B591D000589B05 /* AllTimeScoreView.swift in Sources */,
 				2F30756A27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
+				2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */,
@@ -365,6 +388,7 @@
 			files = (
 				2F3074D827B068D300589B05 /* Store.swift in Sources */,
 				2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
+				2F30756F27B58D2200589B05 /* SFSymbol.swift in Sources */,
 				2F3074CB27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DC27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
@@ -383,7 +407,9 @@
 				2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074D027AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
+				2F30757527B591D000589B05 /* AllTimeScoreView.swift in Sources */,
 				2F30756B27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
+				2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */,

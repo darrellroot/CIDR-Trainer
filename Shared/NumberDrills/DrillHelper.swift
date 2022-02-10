@@ -25,5 +25,9 @@ extension DrillHelper {
         }
         return false
     }
+    
+    var thisGame: CoreGame? {
+        return coreGames.first
+    }
 
 }

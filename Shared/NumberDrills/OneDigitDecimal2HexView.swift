@@ -28,7 +28,7 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
         withAnimation {
             lastCorrect = false
         }
-        coreGames.first?.wrong()
+        thisGame?.wrong()
         
         lastResult = "Incorrect: \(given) in hex is \(givenHex) not 0x\(answer)"
         displayCheck = true
@@ -41,7 +41,7 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
         withAnimation {
             lastCorrect = true
         }
-        coreGames.first?.correct()
+        thisGame?.correct()
         lastResult = "Correct: \(given) in hex is \(givenHex)"
         displayCheck = true
         withAnimation {
@@ -82,8 +82,10 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
                                 .foregroundColor(lastCorrect ? Color.green : Color.red)
                                 .fontWeight(.bold)
                             //-1 means error getting core data
-                            Text("Recent \(Globals.lastSize) score: \(coreGames.first?.last100correct ?? -1) correct \(coreGames.first?.last100wrong ?? -1) wrong")
-                            Text("All time score: \(coreGames.first?.correctTotal ?? -1) out of \((coreGames.first?.correctTotal ?? -1) + (coreGames.first?.wrongTotal ?? -1))")
+                            RecentScoreView(thisGame: thisGame)
+                            //Text("Recent \(Globals.lastSize) score: \(thisGame?.last100correct ?? -1) \(SFSymbol.checkmark) \(thisGame?.last100wrong ?? -1) \(SFSymbol.xCircle)")
+                            AllTimeScoreView(thisGame: thisGame)
+                            //Text("All time score: \(thisGame?.correctTotal ?? -1) \(SFSymbol.checkmark) \(thisGame?.wrongTotal ?? 0) \(SFSymbol.xCircle)")
                         }
                         Section("Next Task") {
                             Text("Convert \(given) to Hex")
@@ -102,7 +104,9 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
                         print("Failed to save core data context \(error.localizedDescription)")
                     }
                 }//main vstack
-                Image(systemName: (lastCorrect ? "checkmark" : "x.circle")).font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
+                (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
+                    .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
+
             }// zstack
 
             .navigationTitle("1 Digit Decimal -> Hex")
