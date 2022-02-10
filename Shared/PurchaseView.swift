@@ -32,7 +32,7 @@ struct PurchaseView: View {
                 Text("Thank you!")
                     .font(.title)
             case false:
-                Text("Each subnetting drill may only be used \(Globals.freeSampleNumber) times.  You may go back and try another drill, or purchase CIDR Trainer")
+                Text("Each subnetting drill may only be used for free \(Globals.freeSampleNumber) times.  You may go back and try another drill, or purchase CIDR Trainer")
                 Spacer()
                 Button("\(productDescription)") {
                     if let product = store.product(for: Store.fullUnlockIdentifier) {

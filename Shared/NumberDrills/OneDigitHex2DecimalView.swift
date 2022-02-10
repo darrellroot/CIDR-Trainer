@@ -31,17 +31,6 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
     var givenHex: String {
         return String(format: "0x%X",given)
     }
-    /*var displayPurchaseView: Bool {
-        if coreSettings.first?.fullUnlock == true {
-            return false
-        }
-        if let coreGame = coreGames.first {
-            if coreGame.totalAttempts >= Globals.freeSampleNumber {
-                return true
-            }
-        }
-        return false
-    }*/
 
     func wrongAnswer(_ answer: Int?) {
         withAnimation {
