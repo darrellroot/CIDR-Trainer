@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var model: Model
+    //@ObservedObject var model: Model
     @EnvironmentObject private var store: Store
 
     var body: some View {
         NavigationView {
             List {
                 NavigationLink("Purchase full unlock",destination: PurchaseView())
-                NavigationLink("Hexadecimal and Binary Drills", destination: NumberDrillsView(model: model))
+                NavigationLink("Hexadecimal and Binary Drills", destination: NumberDrillsView())
             }
             
             .navigationTitle("CIDR Trainer")
@@ -25,6 +25,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(model: Model())
+        ContentView()
     }
 }

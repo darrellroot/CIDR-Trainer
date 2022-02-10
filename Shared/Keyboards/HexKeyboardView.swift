@@ -21,6 +21,8 @@ struct HexKeyboardView: View {
             }
         case .ENTER:
             submit()
+        case .zeroBinary,.oneBinary,.twoBinary,.threeBinary,.fourBinary,.fiveBinary,.sixBinary,.sevenBinary,.eightBinary,.nineBinary,.tenBinary,.elevenBinary,.twelveBinary,.thirteenBinary,.fourteenBinary, .fifteenBinary:
+            fatalError("BinaryKeyboard invalid button rpess \(key)")
         }
     }
     
@@ -50,7 +52,7 @@ struct HexKeyboardView: View {
                 SingleDigitButtonView(key: .ENTER,function: buttonPress,aspectRatio: 4)
                 SingleDigitButtonView(key: .DEL,function: buttonPress, aspectRatio: 4)
             }
-        }
+        }.font(.title)
     }
 }
 

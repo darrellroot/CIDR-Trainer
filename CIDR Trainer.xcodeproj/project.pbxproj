@@ -55,6 +55,14 @@
 		2F30755C27B4A31500589B05 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755A27B4A31500589B05 /* Globals.swift */; };
 		2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755D27B4B81C00589B05 /* DrillHelper.swift */; };
 		2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755D27B4B81C00589B05 /* DrillHelper.swift */; };
+		2F30756127B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */; };
+		2F30756227B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */; };
+		2F30756427B4BD5500589B05 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756327B4BD5400589B05 /* Games.swift */; };
+		2F30756527B4BD5500589B05 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756327B4BD5400589B05 /* Games.swift */; };
+		2F30756727B4BF6200589B05 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756627B4BF6200589B05 /* Int+Extensions.swift */; };
+		2F30756827B4BF6200589B05 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756627B4BF6200589B05 /* Int+Extensions.swift */; };
+		2F30756A27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */; };
+		2F30756B27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +94,10 @@
 		2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2F30755A27B4A31500589B05 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		2F30755D27B4B81C00589B05 /* DrillHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillHelper.swift; sourceTree = "<group>"; };
+		2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitHex2BinaryView.swift; sourceTree = "<group>"; };
+		2F30756327B4BD5400589B05 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		2F30756627B4BF6200589B05 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryKeyboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +170,7 @@
 				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
 				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
 				2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */,
+				2F30756927B4C19700589B05 /* BinaryKeyboardView.swift */,
 			);
 			path = Keyboards;
 			sourceTree = "<group>";
@@ -183,6 +196,7 @@
 				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
 				2F3074D627B068D300589B05 /* Store.swift */,
 				2F30755A27B4A31500589B05 /* Globals.swift */,
+				2F30756327B4BD5400589B05 /* Games.swift */,
 			);
 			path = "App Stuff";
 			sourceTree = "<group>";
@@ -194,6 +208,7 @@
 				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 				2F30755D27B4B81C00589B05 /* DrillHelper.swift */,
+				2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */,
 			);
 			path = NumberDrills;
 			sourceTree = "<group>";
@@ -210,6 +225,7 @@
 		2F3074F427B09E4B00589B05 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2F30756627B4BF6200589B05 /* Int+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,14 +341,18 @@
 				2F30755B27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
+				2F30756127B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */,
 				2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
 				2F0776B227ACA70F006CEF8F /* NumberDrillsView.swift in Sources */,
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F30756727B4BF6200589B05 /* Int+Extensions.swift in Sources */,
+				2F30756427B4BD5500589B05 /* Games.swift in Sources */,
 				2F3074F027B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074CF27AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
+				2F30756A27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */,
@@ -352,14 +372,18 @@
 				2F30755C27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
+				2F30756227B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */,
 				2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
 				2F0776B327ACA70F006CEF8F /* NumberDrillsView.swift in Sources */,
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F30756827B4BF6200589B05 /* Int+Extensions.swift in Sources */,
+				2F30756527B4BD5500589B05 /* Games.swift in Sources */,
 				2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F3074D027AF305400589B05 /* CoreGame+CoreDataClass.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
+				2F30756B27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */,

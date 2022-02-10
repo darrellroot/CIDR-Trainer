@@ -63,7 +63,7 @@ extension CoreGame {
         correctTotal += 1
         
         // should not get here but just in case
-        if nextPosition >= GameScore.lastSize {
+        if nextPosition >= Globals.lastSize {
             nextPosition = 0
         }
         if last100 != nil {
@@ -74,14 +74,14 @@ extension CoreGame {
             }
             nextPosition += 1
         }
-        if nextPosition >= GameScore.lastSize {
+        if nextPosition >= Globals.lastSize {
             nextPosition = 0
         }
     }
     func wrong() {
         wrongTotal += 1
         // should not get here but just in case
-        if nextPosition >= GameScore.lastSize {
+        if nextPosition >= Globals.lastSize {
             nextPosition = 0
         }
 
@@ -92,7 +92,7 @@ extension CoreGame {
                 last100![Int(nextPosition)] = false
             }
             nextPosition += 1
-            if nextPosition >= GameScore.lastSize {
+            if nextPosition >= Globals.lastSize {
                 nextPosition = 0
             }
         }

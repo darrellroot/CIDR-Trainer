@@ -9,14 +9,14 @@ import SwiftUI
 
 @main
 struct CIDR_TrainerApp: App {
-    @StateObject var model = Model()
+    //@StateObject var model = Model()
     @StateObject private var dataController = DataController()
     @EnvironmentObject var store: Store
     
 
     var body: some Scene {
         WindowGroup {
-            ContentView(model: model)
+            ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(Store(moc: dataController.container.viewContext))
         }

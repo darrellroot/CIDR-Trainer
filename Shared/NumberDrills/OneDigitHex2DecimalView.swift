@@ -94,7 +94,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
                                 .foregroundColor(lastCorrect ? Color.green : Color.red)
                                 .fontWeight(.bold)
                             //-1 means error getting core data
-                            Text("Recent \(GameScore.lastSize) score: \(coreGames.first?.last100correct ?? -1) correct \(coreGames.first?.last100wrong ?? -1) wrong")
+                            Text("Recent \(Globals.lastSize) score: \(coreGames.first?.last100correct ?? -1) correct \(coreGames.first?.last100wrong ?? -1) wrong")
                             Text("All time score: \(coreGames.first?.correctTotal ?? -1) out of \((coreGames.first?.correctTotal ?? -1) + (coreGames.first?.wrongTotal ?? 0))")
                         }
                         Section("Next Task") {

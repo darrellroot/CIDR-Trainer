@@ -7,11 +7,8 @@
 
 import Foundation
 
-enum Games: String, CaseIterable {
-    case oneDigitHex2Decimal
-    case oneDigitDecimal2Hex
-}
-class Model: ObservableObject {
+
+/*class Model: ObservableObject {
     @Published private(set) var gameScore: [String:GameScore] = [:]
     
     init() {
@@ -22,10 +19,10 @@ class Model: ObservableObject {
             }
         }
     }
-}
+}*/
 
 
-class GameScore: ObservableObject {
+/*class GameScore: ObservableObject {
     static let lastSize = 10
     
     let gameName: String
@@ -83,4 +80,4 @@ class GameScore: ObservableObject {
         }
     }
     
-}
+}*/

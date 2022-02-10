@@ -13,6 +13,7 @@ enum Keypress: CustomStringConvertible {
     case DEL
     case ENTER
     case a,b,c,d,e,f
+    case zeroBinary,oneBinary,twoBinary,threeBinary,fourBinary,fiveBinary,sixBinary,sevenBinary,eightBinary,nineBinary,tenBinary,elevenBinary,twelveBinary,thirteenBinary,fourteenBinary,fifteenBinary
     
     init(_ digit: Int) {
         switch digit {
@@ -91,6 +92,38 @@ enum Keypress: CustomStringConvertible {
             return "DEL"
         case .ENTER:
             return "ENTER"
+        case .zeroBinary:
+            return "0000"
+        case .oneBinary:
+            return "0001"
+        case .twoBinary:
+            return "0010"
+        case .threeBinary:
+            return "0011"
+        case .fourBinary:
+            return "0100"
+        case .fiveBinary:
+            return "0101"
+        case .sixBinary:
+            return "0110"
+        case .sevenBinary:
+            return "0111"
+        case .eightBinary:
+            return "1000"
+        case .nineBinary:
+            return "1001"
+        case .tenBinary:
+            return "1010"
+        case .elevenBinary:
+            return "1011"
+        case .twelveBinary:
+            return "1100"
+        case .thirteenBinary:
+            return "1101"
+        case .fourteenBinary:
+            return "1110"
+        case .fifteenBinary:
+            return "1111"
         }
     }
 

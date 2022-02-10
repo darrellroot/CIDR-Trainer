@@ -23,6 +23,9 @@ struct DecimalKeyboardView: View {
             submit()
         case .a, .b, .c, .d, .e, .f:
             fatalError("DecimalKeyboard invalid button rpess \(key)")
+        case .zeroBinary,.oneBinary,.twoBinary,.threeBinary,.fourBinary,.fiveBinary,.sixBinary,.sevenBinary,.eightBinary,.nineBinary,.tenBinary,.elevenBinary,.twelveBinary,.thirteenBinary,.fourteenBinary, .fifteenBinary:
+            fatalError("BinaryKeyboard invalid button rpess \(key)")
+
         }
         
     }
@@ -53,7 +56,7 @@ struct DecimalKeyboardView: View {
                 SingleDigitButtonView(key: .DEL,function: buttonPress)
 
             }
-        }
+        }.font(.title)
     }
 }
 

@@ -29,7 +29,6 @@ struct SingleDigitButtonView: View {
             }
         }
         .buttonStyle(.bordered)
-        .font(.title)
 
     }
 }
