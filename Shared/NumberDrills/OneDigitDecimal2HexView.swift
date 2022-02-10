@@ -108,6 +108,12 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
 
             .navigationTitle("1 Digit Decimal -> Hex")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink("Help", destination: OneDigitHexadecimalHelp())
+                }
+            }
+
         }// if else
     }
 }

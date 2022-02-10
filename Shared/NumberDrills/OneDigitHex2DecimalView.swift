@@ -110,6 +110,11 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
             }// zstack
             .navigationTitle("1 Digit Hex -> Decimal")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink("Help", destination: OneDigitHexadecimalHelp())
+                }
+            }
         }//if else
     }
 }

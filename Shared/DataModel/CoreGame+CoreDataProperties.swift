@@ -46,7 +46,7 @@ extension CoreGame {
             return last100.reduce(0) {$0 + ($1 ? 1 : 0)}
         } else {
             last100 = []
-            print("unexpectedly resetting last100 in \(name)")
+            print("unexpectedly resetting last100 in \(String(describing: name))")
             return 0
         }
     }
@@ -55,7 +55,7 @@ extension CoreGame {
             return last100.reduce(0) {$0 + ($1 ? 0 : 1)}
         } else {
             last100 = []
-            print("unexpectedly resetting last100 in \(name)")
+            print("unexpectedly resetting last100 in \(String(describing: name))")
             return 0
         }
     }
