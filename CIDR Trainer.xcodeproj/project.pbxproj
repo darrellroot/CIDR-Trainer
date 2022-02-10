@@ -51,6 +51,10 @@
 		2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EE27B08B4A00589B05 /* CoreSettings+CoreDataClass.swift */; };
 		2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */; };
 		2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */; };
+		2F30755B27B4A31500589B05 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755A27B4A31500589B05 /* Globals.swift */; };
+		2F30755C27B4A31500589B05 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755A27B4A31500589B05 /* Globals.swift */; };
+		2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755D27B4B81C00589B05 /* DrillHelper.swift */; };
+		2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30755D27B4B81C00589B05 /* DrillHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,8 @@
 		2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		2F3074EE27B08B4A00589B05 /* CoreSettings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreSettings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2F30755A27B4A31500589B05 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		2F30755D27B4B81C00589B05 /* DrillHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		2F07769227ACA61B006CEF8F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2F3074F427B09E4B00589B05 /* Extensions */,
 				2F3074CC27AF235000589B05 /* App Stuff */,
 				2F3074C827AF226200589B05 /* DataModel */,
 				2F07769427ACA61B006CEF8F /* ContentView.swift */,
@@ -175,6 +182,7 @@
 				2F07769327ACA61B006CEF8F /* CIDR_TrainerApp.swift */,
 				2F07769527ACA61C006CEF8F /* Assets.xcassets */,
 				2F3074D627B068D300589B05 /* Store.swift */,
+				2F30755A27B4A31500589B05 /* Globals.swift */,
 			);
 			path = "App Stuff";
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 				2F0776B127ACA70F006CEF8F /* NumberDrillsView.swift */,
 				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
+				2F30755D27B4B81C00589B05 /* DrillHelper.swift */,
 			);
 			path = NumberDrills;
 			sourceTree = "<group>";
@@ -196,6 +205,13 @@
 				2F3074DE27B0786C00589B05 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F3074F427B09E4B00589B05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +322,7 @@
 				2F3074DB27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F0776A527ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F30755B27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
 				2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
@@ -318,6 +335,7 @@
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
+				2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +349,7 @@
 				2F3074DC27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F30755C27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
 				2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
@@ -343,6 +362,7 @@
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
+				2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

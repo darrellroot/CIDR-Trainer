@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var model: Model
+    @EnvironmentObject private var store: Store
+
     var body: some View {
         NavigationView {
             List {

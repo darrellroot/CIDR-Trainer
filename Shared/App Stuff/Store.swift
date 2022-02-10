@@ -99,6 +99,11 @@ extension Store {
             
         }
     }
+    func restorePurchases() {
+        print("attempting to restore purchases")
+        startObservingPaymentQueue()
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
 }
 
 extension Store: SKPaymentTransactionObserver {

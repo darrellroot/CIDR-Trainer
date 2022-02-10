@@ -38,6 +38,9 @@ extension CoreGame {
     func setName(_ name: String) {
         self.name = name
     }
+    var totalAttempts: Int {
+        return Int(self.correctTotal) + Int(self.wrongTotal)
+    }
     var last100correct: Int {
         if let last100 = last100 {
             return last100.reduce(0) {$0 + ($1 ? 1 : 0)}

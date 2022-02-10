@@ -6,43 +6,51 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct PurchaseView: View {
     @EnvironmentObject private var store: Store
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
+ 
+    var productDescription: String {
+        guard let product = store.product(for: Store.fullUnlockIdentifier) else {
+            return "Unable to purchase CIDR Trainer at this time"
+        }
+        
+        return "\(product.localizedTitle): \(product.localizedDescription) for \(Locale.current.currencySymbol ?? "")\(Double(truncating: product.price).formatted(.currency(code: Locale.current.identifier)))"
+    }
 
     var body: some View {
-        List {
+        VStack {
+            Spacer()
             switch coreSettings.first?.fullUnlock ?? false {
             case true:
                 Text("You already fully unlocked CIDR Trainer!")
+                    .font(.title)
+                Spacer()
+                Text("Thank you!")
+                    .font(.title)
             case false:
-                Button("Click here to purchase CIDR Trainer") {
+                Text("Each subnetting drill may only be used \(Globals.freeSampleNumber) times.  You may go back and try another drill, or purchase CIDR Trainer")
+                Spacer()
+                Button("\(productDescription)") {
                     if let product = store.product(for: Store.fullUnlockIdentifier) {
                         store.purchaseProduct(product)
                     } else {
                         print("Cannot identify product \(Store.fullUnlockIdentifier) in store")
                     }
-                }
-                Button("Click here to attempt to restore a prior CIDR Trainer purchase") {
-                    
-                }
+                }.buttonStyle(.borderedProminent)
+                Spacer()
+                Button("Click here to restore a prior CIDR Trainer purchase") {
+                    store.restorePurchases()
+                }.buttonStyle(.borderedProminent)
             }
-            /*Text("\(coreSettings.first != nil ? "Fetched coreSettings successfully!" : "unable to fetch coreSettings")")
-            Text("Full unlock setting: \(coreSettings.first?.fullUnlock ?? false ? "true" : "false")")
-            Section("Non-purchased products") {
-                
-                ForEach(store.nonPurchasedProducts, id: \.self) { productDescription in
-                    Text(productDescription)
-                }
-            }
-            Section("Purchased Products") {
-                ForEach(store.purchasedProducts.sorted(), id: \.self) { product in
-                    Text(product)
-                }
-            }*/
+            Spacer()
         }
+        .padding([.leading,.trailing])
+        .navigationTitle("Purchase CIDR Trainer")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
