@@ -9,16 +9,7 @@ import SwiftUI
 import CoreData
 
 struct OneDigitHex2BinaryView: View, DrillHelper {
-    static var fetchRequest: NSFetchRequest<CoreGame> {
-        let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
-        fetchRequest.fetchLimit = 1
-        
-        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitHex2Binary.rawValue)\"")
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
-        return fetchRequest
-    }
-    @FetchRequest(fetchRequest: OneDigitHex2BinaryView.fetchRequest) var coreGames
+    @FetchRequest(fetchRequest: Games.oneDigitHex2Binary.fetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 

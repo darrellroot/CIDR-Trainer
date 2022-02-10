@@ -10,16 +10,7 @@ import CoreData
 
 struct OneDigitDecimal2HexView: View, DrillHelper {
     
-    static var fetchRequest: NSFetchRequest<CoreGame> {
-        let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
-        fetchRequest.fetchLimit = 1
-        
-        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitDecimal2Hex.rawValue)\"")
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
-        return fetchRequest
-    }
-    @FetchRequest(fetchRequest: OneDigitDecimal2HexView.fetchRequest) var coreGames
+    @FetchRequest(fetchRequest: Games.oneDigitDecimal2Hex.fetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 

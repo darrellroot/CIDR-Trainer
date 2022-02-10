@@ -157,8 +157,11 @@ extension Store: SKProductsRequestDelegate {
             return
         }
         // cache fetched products
-        for product in loadedProducts {
-            allProducts[product.productIdentifier] = product
+        // on main thread
+        DispatchQueue.main.async {
+            for product in loadedProducts {
+                self.allProducts[product.productIdentifier] = product
+            }
         }
         
         // notify anyone waiting on the product load

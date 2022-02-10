@@ -9,16 +9,8 @@ import SwiftUI
 import CoreData
 
 struct OneDigitHex2DecimalView: View, DrillHelper {
-    static var fetchRequest: NSFetchRequest<CoreGame> {
-        let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
-        fetchRequest.fetchLimit = 1
-        
-        let predicate = NSPredicate(format: "name == \"\(Games.oneDigitHex2Decimal.rawValue)\"")
-        fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
-        return fetchRequest
-    }
-    @FetchRequest(fetchRequest: OneDigitHex2DecimalView.fetchRequest) var coreGames
+    
+    @FetchRequest(fetchRequest: Games.oneDigitHex2Decimal.fetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
