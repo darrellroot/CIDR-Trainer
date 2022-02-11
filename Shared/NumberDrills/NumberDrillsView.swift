@@ -20,7 +20,9 @@ struct NumberDrillsView: View {
                 NavigationLink("Decimal -> 4-digit binary", destination: OneDigitDecimal2BinaryView())
             }
             Section("Two digit conversions") {
-                
+                NavigationLink("2-digit hexadecimal -> decimal (easy)", destination: TwoDigitHex2DecimalEasyView())
+                NavigationLink("2-digit hexadecimal -> binary", destination: TwoDigitHex2BinaryView())
+
             }
 
 

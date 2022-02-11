@@ -13,6 +13,8 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
+    
+
 
     @State var input = ""
     @State var given: Int = Int.random(in: 0..<16)
@@ -96,12 +98,7 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
                     Spacer()
                     BinaryKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
-                    do {
-                        try moc.save()
-                        print("Saved core data context")
-                    } catch {
-                        print("Failed to save core data context \(error.localizedDescription)")
-                    }
+                    saveMoc()
                 }//main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)

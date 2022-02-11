@@ -12,6 +12,8 @@ import SwiftUI
 protocol DrillHelper {
     var coreGames: FetchedResults<CoreGame> { get }
     var coreSettings: FetchedResults<CoreSettings> { get }
+    var moc: NSManagedObjectContext { get }
+
 }
 extension DrillHelper {
     var displayPurchaseView: Bool {
@@ -28,6 +30,15 @@ extension DrillHelper {
     
     var thisGame: CoreGame? {
         return coreGames.first
+    }
+    
+    func saveMoc() {
+        do {
+            try moc.save()
+            print("Saved core data context")
+        } catch {
+            print("Failed to save core data context \(error.localizedDescription)")
+        }
     }
 
 }

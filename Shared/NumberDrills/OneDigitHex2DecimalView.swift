@@ -21,16 +21,12 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
     @State var lastCorrect = true
     @State var displayCheck = false
         
-    func wrongAnswer(_ answer: Int?) {
+    func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        if let answer = answer {
-            lastResult = "Incorrect:  0x\(given.hex) is \(given) not \(answer) in decimal"
-        } else {
-            lastResult = "Incorrect:  0x\(given.hex) is \(given) in decimal"
-        }
+        lastResult = "Incorrect:  0x\(given.hex) is \(given) not \(input) in decimal"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -52,14 +48,14 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
     }
     func submit() {
         guard let answer = Int(input) else {
-            wrongAnswer(nil)
+            wrongAnswer()
             return
         }
         if answer == given {
             correctAnswer()
             return
         } else {
-            wrongAnswer(answer)
+            wrongAnswer()
             return
         }
     }
@@ -95,12 +91,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
                     Spacer()
                     DecimalKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
-                    do {
-                        try moc.save()
-                        print("Saved core data context")
-                    } catch {
-                        print("Failed to save core data context \(error.localizedDescription)")
-                    }
+                    saveMoc()
                 }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)

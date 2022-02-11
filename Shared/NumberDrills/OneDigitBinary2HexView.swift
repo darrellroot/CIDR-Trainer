@@ -95,12 +95,7 @@ struct OneDigitBinary2HexView: View, DrillHelper {
                     Spacer()
                     HexKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
-                    do {
-                        try moc.save()
-                        print("Saved core data context")
-                    } catch {
-                        print("Failed to save core data context \(error.localizedDescription)")
-                    }
+                    saveMoc()
                 }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
