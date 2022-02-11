@@ -15,6 +15,8 @@ struct NumberDrillsView: View {
             NavigationLink("1-digit decimal -> hex", destination: OneDigitDecimal2HexView())
             NavigationLink("1-digit hex -> binary", destination: OneDigitHex2BinaryView())
             NavigationLink("Binary -> 1-digit hex", destination: OneDigitBinary2HexView())
+            NavigationLink("4-digit Binary -> Decimal", destination: OneDigitBinary2DecimalView())
+
 
         }
         .navigationTitle("Hex and Binary Drills")

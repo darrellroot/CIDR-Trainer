@@ -77,6 +77,8 @@
 		2F30757F27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */; };
 		2F30758127B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */; };
 		2F30758227B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */; };
+		2F30758427B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */; };
+		2F30758527B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,7 @@
 		2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLStringView.swift; sourceTree = "<group>"; };
 		2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinaryHelp.swift; sourceTree = "<group>"; };
 		2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinary2HexView.swift; sourceTree = "<group>"; };
+		2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinary2DecimalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,7 @@
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 				2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */,
 				2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */,
+				2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */,
 				2F30755D27B4B81C00589B05 /* DrillHelper.swift */,
 				2F30757027B58F0400589B05 /* RecentScoreView.swift */,
 				2F30757327B591D000589B05 /* AllTimeScoreView.swift */,
@@ -406,6 +410,7 @@
 				2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
+				2F30758427B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +449,7 @@
 				2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
+				2F30758527B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
