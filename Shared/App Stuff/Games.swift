@@ -12,6 +12,7 @@ enum Games: String, CaseIterable {
     case oneDigitHex2Decimal
     case oneDigitDecimal2Hex
     case oneDigitHex2Binary
+    case oneDigitBinary2Hex
     
     var fetchRequest: NSFetchRequest<CoreGame> {
         let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")

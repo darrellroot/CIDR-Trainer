@@ -6,10 +6,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RecentScoreView: View {
-    var thisGame: CoreGame?
+    @FetchRequest var coreGames: FetchedResults<CoreGame>
+    var thisGame: CoreGame? {
+        return coreGames.first
+    }
     
+    init(nsFetchRequest: NSFetchRequest<CoreGame>) {
+        let fetchRequest = FetchRequest(fetchRequest: nsFetchRequest)
+        _coreGames = fetchRequest
+    }
     var recentCorrect: String {
         if let thisGame = thisGame {
             return "\(thisGame.last100correct)"

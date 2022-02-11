@@ -9,7 +9,9 @@ import SwiftUI
 import CoreData
 
 struct OneDigitHex2BinaryView: View, DrillHelper {
-    @FetchRequest(fetchRequest: Games.oneDigitHex2Binary.fetchRequest) var coreGames
+    static let staticFetchRequest = Games.oneDigitHex2Binary.fetchRequest
+    let fetchRequest = staticFetchRequest
+    @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
@@ -18,17 +20,13 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
-
-    var givenHex: String {
-        return String(format: "0x%X",given)
-    }
     
     func wrongAnswer(_ answer: Int?) {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect: \(givenHex) in binary is \(given.binary) not \(input)"
+        lastResult = "Incorrect: 0x\(given.hex) is 0b\(given.binary4) not 0b\(input) in binary"
 
         displayCheck = true
         withAnimation {
@@ -42,7 +40,7 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(givenHex) in binary is \(given.binary)"
+        lastResult = "Correct: 0x\(given.hex) is 0b\(given.binary4) in binary"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -84,11 +82,11 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
                             Text("\(lastResult)")
                                 .foregroundColor(lastCorrect ? Color.green : Color.red)
                                 .fontWeight(.bold)
-                            RecentScoreView(thisGame: thisGame)
-                            AllTimeScoreView(thisGame: thisGame)
+                            RecentScoreView(nsFetchRequest: fetchRequest)
+                            AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert \(givenHex) to Binary")
+                            Text("Convert 0x\(given.hex) to Binary")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)

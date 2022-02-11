@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AllTimeScoreView: View {
-    var thisGame: CoreGame?
+    @FetchRequest var coreGames: FetchedResults<CoreGame>
+    var thisGame: CoreGame? {
+        return coreGames.first
+    }
+    
+    init(nsFetchRequest: NSFetchRequest<CoreGame>) {
+        let fetchRequest = FetchRequest(fetchRequest: nsFetchRequest)
+        _coreGames = fetchRequest
+    }
     
     var allTimeCorrect: String {
         if let thisGame = thisGame {
@@ -34,8 +43,8 @@ struct AllTimeScoreView: View {
     }
 }
 
-struct AllTimeScoreView_Previews: PreviewProvider {
+/*struct AllTimeScoreView_Previews: PreviewProvider {
     static var previews: some View {
         AllTimeScoreView()
     }
-}
+}*/

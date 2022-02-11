@@ -9,8 +9,9 @@ import SwiftUI
 import CoreData
 
 struct OneDigitHex2DecimalView: View, DrillHelper {
-    
-    @FetchRequest(fetchRequest: Games.oneDigitHex2Decimal.fetchRequest) var coreGames
+    static let staticFetchRequest = Games.oneDigitHex2Decimal.fetchRequest
+    let fetchRequest = staticFetchRequest
+    @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
@@ -19,20 +20,16 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
-    
-    var givenHex: String {
-        return String(format: "0x%X",given)
-    }
-    
+        
     func wrongAnswer(_ answer: Int?) {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
         if let answer = answer {
-            lastResult = "Incorrect: \(givenHex) in decimal is \(given) not \(answer)"
+            lastResult = "Incorrect:  0x\(given.hex) is \(given) not \(answer) in decimal"
         } else {
-            lastResult = "Incorrect: \(givenHex) in decimal is \(given)"
+            lastResult = "Incorrect:  0x\(given.hex) is \(given) in decimal"
         }
         displayCheck = true
         withAnimation {
@@ -46,7 +43,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(givenHex) in hex is \(given)"
+        lastResult = "Correct: 0x\(given.hex) is \(given) in decimal"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -85,11 +82,11 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
                             Text("\(lastResult)")
                                 .foregroundColor(lastCorrect ? Color.green : Color.red)
                                 .fontWeight(.bold)
-                            RecentScoreView(thisGame: thisGame)
-                            AllTimeScoreView(thisGame: thisGame)
+                            RecentScoreView(nsFetchRequest: fetchRequest)
+                            AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert \(givenHex) to Decimal")
+                            Text("Convert 0x\(given.hex) to Decimal")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
