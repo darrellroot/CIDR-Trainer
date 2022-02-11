@@ -14,8 +14,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Purchase full unlock",destination: PurchaseView())
-                NavigationLink("Hexadecimal and Binary Drills", destination: NumberDrillsView())
+                Section("Preliminary Drills") {
+                    NavigationLink("1-Digit Hexadecimal and Binary Drills", destination: OneDigitNumberDrillsView())
+                    NavigationLink("2-Digit Hexadecimal and Binary Drills", destination: TwoDigitNumberDrillsView())
+                }
+                Section("Administrative") {
+                    NavigationLink("Purchase full unlock",destination: PurchaseView())
+                }
             }
             
             .navigationTitle("CIDR Trainer")

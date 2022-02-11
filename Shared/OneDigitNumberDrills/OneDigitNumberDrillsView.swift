@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NumberDrillsView: View {
+struct OneDigitNumberDrillsView: View {
     //@ObservedObject var model: Model
     var body: some View {
         List {
@@ -19,21 +19,16 @@ struct NumberDrillsView: View {
                 NavigationLink("4-digit Binary -> decimal", destination: OneDigitBinary2DecimalView())
                 NavigationLink("Decimal -> 4-digit binary", destination: OneDigitDecimal2BinaryView())
             }
-            Section("Two digit conversions") {
-                NavigationLink("2-digit hexadecimal -> decimal (easy)", destination: TwoDigitHex2DecimalEasyView())
-                NavigationLink("2-digit hexadecimal -> binary", destination: TwoDigitHex2BinaryView())
-
-            }
 
 
         }
-        .navigationTitle("Hex and Binary Drills")
+        .navigationTitle("1-Digit Hex and Binary Drills")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct NumberDrillsView_Previews: PreviewProvider {
+struct OneDigitNumberDrillsView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberDrillsView()
+        OneDigitNumberDrillsView()
     }
 }
