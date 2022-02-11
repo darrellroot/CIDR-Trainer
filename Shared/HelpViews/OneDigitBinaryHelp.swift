@@ -24,7 +24,7 @@ struct OneDigitBinaryHelp: View {
     
 
     let markdownString = """
-    ***1-digit Decimal to Binary Conversion***
+    ***4-digit binary conversion help***
     
     **Purpose:**
     

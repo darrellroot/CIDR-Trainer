@@ -82,7 +82,7 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert \(given) to Hex")
+                            Text("Convert Decimal \(given) to Hex")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)

@@ -86,7 +86,7 @@ struct OneDigitBinary2DecimalView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert \(given.binary4) to Decimal")
+                            Text("Convert 0b\(given.binary4) to Decimal")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)

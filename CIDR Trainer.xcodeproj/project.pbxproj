@@ -79,6 +79,8 @@
 		2F30758227B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */; };
 		2F30758427B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */; };
 		2F30758527B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */; };
+		2F30758727B6F64400589B05 /* OneDigitDecimal2BinaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758627B6F64400589B05 /* OneDigitDecimal2BinaryView.swift */; };
+		2F30758827B6F64400589B05 /* OneDigitDecimal2BinaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30758627B6F64400589B05 /* OneDigitDecimal2BinaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,7 @@
 		2F30757D27B5B89600589B05 /* OneDigitBinaryHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinaryHelp.swift; sourceTree = "<group>"; };
 		2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinary2HexView.swift; sourceTree = "<group>"; };
 		2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitBinary2DecimalView.swift; sourceTree = "<group>"; };
+		2F30758627B6F64400589B05 /* OneDigitDecimal2BinaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitDecimal2BinaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +239,7 @@
 				2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */,
 				2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */,
 				2F30758327B6F32C00589B05 /* OneDigitBinary2DecimalView.swift */,
+				2F30758627B6F64400589B05 /* OneDigitDecimal2BinaryView.swift */,
 				2F30755D27B4B81C00589B05 /* DrillHelper.swift */,
 				2F30757027B58F0400589B05 /* RecentScoreView.swift */,
 				2F30757327B591D000589B05 /* AllTimeScoreView.swift */,
@@ -383,6 +387,7 @@
 				2F3074D727B068D300589B05 /* Store.swift in Sources */,
 				2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F30756E27B58D2200589B05 /* SFSymbol.swift in Sources */,
+				2F30758727B6F64400589B05 /* OneDigitDecimal2BinaryView.swift in Sources */,
 				2F3074CA27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DB27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
@@ -422,6 +427,7 @@
 				2F3074D827B068D300589B05 /* Store.swift in Sources */,
 				2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F30756F27B58D2200589B05 /* SFSymbol.swift in Sources */,
+				2F30758827B6F64400589B05 /* OneDigitDecimal2BinaryView.swift in Sources */,
 				2F3074CB27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DC27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,

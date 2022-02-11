@@ -1,17 +1,16 @@
 //
-//  OneDigitBinary2HexView.swift
+//  OneDigitDecimal2BinaryView.swift
 //  CIDR Trainer
 //
-//  Created by Darrell Root on 2/10/22.
+//  Created by Darrell Root on 2/11/22.
 //
 
 import SwiftUI
 
-struct OneDigitBinary2HexView: View, DrillHelper {
-    static let staticFetchRequest = Games.oneDigitBinary2Hex.fetchRequest
+struct OneDigitDecimal2BinaryView: View, DrillHelper {
+    static let staticFetchRequest = Games.oneDigitDecimal2Binary.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
-
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
@@ -26,8 +25,8 @@ struct OneDigitBinary2HexView: View, DrillHelper {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect:  0b\(given.binary4) is 0x\(given.hex) not 0x\(input)"
-
+        
+        lastResult = "Incorrect: Decimal \(given) is 0b\(given.binary4) not 0b\(input)"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -40,7 +39,7 @@ struct OneDigitBinary2HexView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: 0b\(given.binary4) is 0x\(input)"
+        lastResult = "Correct: Decimal \(given) is 0b\(given.binary4) in binary"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -49,7 +48,7 @@ struct OneDigitBinary2HexView: View, DrillHelper {
     }
     
     func submit() {
-        guard let answer = Int(input, radix: 16) else {
+        guard let answer = Int(input, radix: 2) else {
             wrongAnswer()
             return
         }
@@ -61,7 +60,7 @@ struct OneDigitBinary2HexView: View, DrillHelper {
             return
         }
     }
-    
+
     func newQuestion() {
         // Prevent same question repeatedly
         let oldTarget = given
@@ -70,6 +69,8 @@ struct OneDigitBinary2HexView: View, DrillHelper {
         } while given == oldTarget
         input = ""
     }
+    
+
 
     var body: some View {
         if displayPurchaseView {
@@ -86,14 +87,14 @@ struct OneDigitBinary2HexView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert 0b\(given.binary4) to Hexadecimal")
+                            Text("Convert Decimal \(given) to Binary")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    HexKeyboardView(input: $input,submit: submit)
+                    BinaryKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     do {
                         try moc.save()
@@ -101,23 +102,28 @@ struct OneDigitBinary2HexView: View, DrillHelper {
                     } catch {
                         print("Failed to save core data context \(error.localizedDescription)")
                     }
-                }// main vstack
+                }//main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
+
             }// zstack
-            .navigationTitle("Binary -> 1 Digit Hexadecimal")
+
+            .navigationTitle("Decimal -> 4-Digit Binary")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: OneDigitBinaryHelp())
                 }
             }
-        }//if else
+
+        }// if else
     }
 }
 
-struct OneDigitBinary2HexView_Previews: PreviewProvider {
+
+
+struct OneDigitDecimal2BinaryView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitBinary2HexView()
+        OneDigitDecimal2BinaryView()
     }
 }
