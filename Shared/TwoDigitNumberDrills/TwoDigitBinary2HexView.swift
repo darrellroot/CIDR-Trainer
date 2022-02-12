@@ -1,5 +1,5 @@
 //
-//  OneDigitDecimal2BinaryView.swift
+//  TwoDigitBinary2HexView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/11/22.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct OneDigitDecimal2BinaryView: View, DrillHelper {
-    static let staticFetchRequest = Games.oneDigitDecimal2Binary.fetchRequest
+struct TwoDigitBinary2HexView: View, DrillHelper {
+    static let staticFetchRequest = Games.twoDigitBinary2Hex.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
+
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
-    
+
     @State var input = ""
-    @State var given: Int = Int.random(in: 0..<16)
+    @State var given: Int = Int.random(in: 0..<256)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
@@ -25,8 +26,8 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
             lastCorrect = false
         }
         thisGame?.wrong()
-        
-        lastResult = "Incorrect: Decimal \(given) is 0b\(given.binary4) not 0b\(input)"
+        lastResult = "Incorrect:  0b\(given.binary8) is 0x\(given.hex2) not 0x\(input)"
+
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -39,16 +40,16 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: Decimal \(given) is 0b\(given.binary4) in binary"
+        lastResult = "Correct: 0b\(given.binary8) is 0x\(input)"
         displayCheck = true
         withAnimation {
             displayCheck = false
         }
         newQuestion()
     }
-    
+
     func submit() {
-        guard let answer = Int(input, radix: 2) else {
+        guard let answer = Int(input, radix: 16) else {
             wrongAnswer()
             return
         }
@@ -60,16 +61,17 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
             return
         }
     }
-
+    
     func newQuestion() {
         // Prevent same question repeatedly
         let oldTarget = given
         repeat {
-            given = Int.random(in: 0..<16)
+            given = Int.random(in: 0..<256)
         } while given == oldTarget
         input = ""
     }
-    
+
+
     var body: some View {
         if displayPurchaseView {
             PurchaseView()
@@ -85,38 +87,33 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert Decimal \(given) to Binary")
+                            Text("Convert 0b\(given.binary8) to Hexadecimal")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    BinaryKeyboardView(input: $input,submit: submit)
+                    HexKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     saveMoc()
-                }//main vstack
+                }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
-
             }// zstack
-
-            .navigationTitle("Decimal -> 4-Digit Binary")
+            .navigationTitle("Binary -> 2 Digit Hexadecimal")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: OneDigitBinaryHelp())
+                    NavigationLink("Help", destination: TwoDigitHex2BinaryHelp())
                 }
             }
-
-        }// if else
+        }//if else
     }
 }
 
-
-
-struct OneDigitDecimal2BinaryView_Previews: PreviewProvider {
+struct TwoDigitBinary2HexView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitDecimal2BinaryView()
+        TwoDigitBinary2HexView()
     }
 }

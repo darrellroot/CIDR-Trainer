@@ -1,5 +1,5 @@
 //
-//  OneDigitDecimal2BinaryView.swift
+//  TwoDigitBinary2Decimal.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/11/22.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct OneDigitDecimal2BinaryView: View, DrillHelper {
-    static let staticFetchRequest = Games.oneDigitDecimal2Binary.fetchRequest
+struct TwoDigitBinary2DecimalView: View, DrillHelper {
+    static let staticFetchRequest = Games.twoDigitBinary2Decimal.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
+
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
-    
+
     @State var input = ""
-    @State var given: Int = Int.random(in: 0..<16)
+    @State var given: Int = Int.random(in: 0..<256)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
@@ -25,8 +26,8 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
             lastCorrect = false
         }
         thisGame?.wrong()
-        
-        lastResult = "Incorrect: Decimal \(given) is 0b\(given.binary4) not 0b\(input)"
+        lastResult = "Incorrect:  0b\(given.binary8) is \(given) in Decimal not \(input)"
+
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -39,16 +40,16 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: Decimal \(given) is 0b\(given.binary4) in binary"
+        lastResult = "Correct: 0b\(given.binary8) is \(input) in Decimal"
         displayCheck = true
         withAnimation {
             displayCheck = false
         }
         newQuestion()
     }
-    
+
     func submit() {
-        guard let answer = Int(input, radix: 2) else {
+        guard let answer = Int(input) else {
             wrongAnswer()
             return
         }
@@ -65,11 +66,11 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
         // Prevent same question repeatedly
         let oldTarget = given
         repeat {
-            given = Int.random(in: 0..<16)
+            given = Int.random(in: 0..<256)
         } while given == oldTarget
         input = ""
     }
-    
+
     var body: some View {
         if displayPurchaseView {
             PurchaseView()
@@ -85,38 +86,33 @@ struct OneDigitDecimal2BinaryView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert Decimal \(given) to Binary")
+                            Text("Convert 0b\(given.binary8) to Decimal")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    BinaryKeyboardView(input: $input,submit: submit)
+                    DecimalKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     saveMoc()
-                }//main vstack
+                }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
-
             }// zstack
-
-            .navigationTitle("Decimal -> 4-Digit Binary")
+            .navigationTitle("8-digit Binary -> Decimal")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: OneDigitBinaryHelp())
                 }
             }
-
-        }// if else
+        }//if else
     }
 }
 
-
-
-struct OneDigitDecimal2BinaryView_Previews: PreviewProvider {
+struct TwoDigitBinary2Decimal_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitDecimal2BinaryView()
+        TwoDigitBinary2DecimalView()
     }
 }

@@ -20,7 +20,7 @@ struct TwoDigitHex2BinaryHelp: View {
     }
     
     let markdownString = """
-    ***2-digit Hexadecimal to Binary Conversion ***
+    ***2-digit Hexadecimal to Binary Conversion***
     
     You already know how to convert a 1-digit hexadecimal number to binary.
     
@@ -38,7 +38,7 @@ struct TwoDigitHex2BinaryHelp: View {
     `0x4 -> 4  -> 0b0100`
     `0xef -> "14 4" -> 0b1110 0100 -> 0b11100100`
     
-    This can go in reverse.
+    This can go in reverse to convert an 8-digit binary number to a 2-digit hexadecimal number.
     
     `0b1100 -> 12 -> 0xc`
     `0b0101 -> 5 -> 0x5`

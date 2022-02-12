@@ -14,6 +14,11 @@ struct TwoDigitNumberDrillsView: View {
                 NavigationLink("2-digit hexadecimal -> decimal (easy)", destination: TwoDigitHex2DecimalEasyView())
                 NavigationLink("Decimal -> 2-digit hexadecimal (easy)", destination: TwoDigitDecimal2HexEasyView())
                 NavigationLink("2-digit hexadecimal -> binary", destination: TwoDigitHex2BinaryView())
+                NavigationLink("Binary -> 2-digit hexadecimal", destination: TwoDigitBinary2HexView())
+                NavigationLink("8-digit binary -> decimal (hard)", destination: TwoDigitBinary2DecimalView())
+                NavigationLink("Decimal -> 8-digit binary (hard)", destination: TwoDigitDecimal2BinaryView())
+
+
             }
         }
         .navigationTitle("2-Digit Hex and Binary Drills")

@@ -20,7 +20,7 @@ struct TwoDigitHexadecimalEasyHelp: View {
     }
     
     let markdownString = """
-    ***2-digit Hexadecimal Digits (Easy) ***
+    ***2-digit Hexadecimal Digits (Easy)***
     
     Remember how the decimal number 23 has a value of 2 * 10 + 1 * 3?  The 2 is in the "tens" digit and the 3 is in the "ones" digit.  Each digit represents 10x the value of the digit to the right.  That's why they call it *Decimal*.
     
