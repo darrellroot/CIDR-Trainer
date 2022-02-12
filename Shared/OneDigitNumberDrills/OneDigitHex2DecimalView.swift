@@ -33,8 +33,8 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
         }
         newQuestion()
     }
+    
     func correctAnswer() {
-        
         withAnimation {
             lastCorrect = true
         }
@@ -46,6 +46,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
         }
         newQuestion()
     }
+    
     func submit() {
         guard let answer = Int(input) else {
             wrongAnswer()
@@ -59,6 +60,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
             return
         }
     }
+    
     func newQuestion() {
         // Prevent same question repeatedly
         let oldTarget = given
@@ -67,6 +69,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
         } while given == oldTarget
         input = ""
     }
+    
     var body: some View {
         if displayPurchaseView {
             PurchaseView()

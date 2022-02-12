@@ -1,5 +1,5 @@
 //
-//  TwoDigitDecimal2HexEasyView.swift
+//  TwoDigitHex2DecimalView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/11/22.
@@ -7,16 +7,15 @@
 
 import SwiftUI
 
-struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
-    static let staticFetchRequest = Games.twoDigitDecimal2HexEasy.fetchRequest
+struct TwoDigitHex2DecimalView: View, DrillHelper {
+    static let staticFetchRequest = Games.twoDigitHex2Decimal.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    // easy mode means its a multple of 16
-    @State var given: Int = Int.random(in: 0..<16) * 16
+    @State var given: Int = Int.random(in: 0..<256)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
@@ -26,8 +25,7 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
             lastCorrect = false
         }
         thisGame?.wrong()
-        
-        lastResult = "Incorrect: Decimal \(given) is 0x\(given.hex2) not 0x\(input) in hex"
+        lastResult = "Incorrect:  0x\(given.hex2) is \(given) not \(input) in decimal"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -40,7 +38,7 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: Decimal \(given) is 0x\(given.hex2) in hex"
+        lastResult = "Correct: 0x\(given.hex2) is \(given) in decimal"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -49,7 +47,7 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
     }
     
     func submit() {
-        guard let answer = Int(input, radix: 16) else {
+        guard let answer = Int(input) else {
             wrongAnswer()
             return
         }
@@ -66,13 +64,11 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
         // Prevent same question repeatedly
         let oldTarget = given
         repeat {
-            // easy mode multiple of 16
-            given = Int.random(in: 0..<16) * 16
+            given = Int.random(in: 0..<256)
         } while given == oldTarget
         input = ""
     }
-
-
+    
     var body: some View {
         if displayPurchaseView {
             PurchaseView()
@@ -88,37 +84,34 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert Decimal \(given) to Hex")
+                            Text("Convert 0x\(given.hex2) to Decimal")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    HexKeyboardView(input: $input,submit: submit)
+                    DecimalKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     saveMoc()
-                }//main vstack
+                }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
-
             }// zstack
-
-            .navigationTitle("Decimal -> 2-digit Hex (Easy)")
+            .navigationTitle("2 Digit Hex -> Decimal")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: TwoDigitHexadecimalEasyHelp())
+                    NavigationLink("Help", destination: TwoDigitHex2DecimalHelp())
                 }
             }
-
-        }// if else
+        }//if else
     }
 
 }
 
-struct TwoDigitDecimal2HexEasyView_Previews: PreviewProvider {
+struct TwoDigitHex2DecimalView_Previews: PreviewProvider {
     static var previews: some View {
-        TwoDigitDecimal2HexEasyView()
+        TwoDigitHex2DecimalView()
     }
 }

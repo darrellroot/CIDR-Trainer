@@ -1,5 +1,5 @@
 //
-//  TwoDigitDecimal2HexEasyView.swift
+//  TwoDigitDecimal2HexView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/11/22.
@@ -7,16 +7,15 @@
 
 import SwiftUI
 
-struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
-    static let staticFetchRequest = Games.twoDigitDecimal2HexEasy.fetchRequest
+struct TwoDigitDecimal2HexView: View, DrillHelper {
+    static let staticFetchRequest = Games.twoDigitDecimal2Hex.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    // easy mode means its a multple of 16
-    @State var given: Int = Int.random(in: 0..<16) * 16
+    @State var given: Int = Int.random(in: 0..<256)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
@@ -61,17 +60,15 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
             return
         }
     }
-
+    
     func newQuestion() {
         // Prevent same question repeatedly
         let oldTarget = given
         repeat {
-            // easy mode multiple of 16
-            given = Int.random(in: 0..<16) * 16
+            given = Int.random(in: 0..<256)
         } while given == oldTarget
         input = ""
     }
-
 
     var body: some View {
         if displayPurchaseView {
@@ -104,11 +101,11 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
 
             }// zstack
 
-            .navigationTitle("Decimal -> 2-digit Hex (Easy)")
+            .navigationTitle("Decimal -> 2-digit Hex")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: TwoDigitHexadecimalEasyHelp())
+                    NavigationLink("Help", destination: TwoDigitDecimal2HexHelp())
                 }
             }
 
@@ -117,8 +114,8 @@ struct TwoDigitDecimal2HexEasyView: View, DrillHelper {
 
 }
 
-struct TwoDigitDecimal2HexEasyView_Previews: PreviewProvider {
+struct TwoDigitDecimal2HexView_Previews: PreviewProvider {
     static var previews: some View {
-        TwoDigitDecimal2HexEasyView()
+        TwoDigitDecimal2HexView()
     }
 }
