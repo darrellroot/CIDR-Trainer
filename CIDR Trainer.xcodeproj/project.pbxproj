@@ -111,6 +111,20 @@
 		2F3075B727B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075B527B746B500589B05 /* TwoDigitHex2DecimalView.swift */; };
 		2F3075B927B747B600589B05 /* TwoDigitHex2DecimalHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075B827B747B600589B05 /* TwoDigitHex2DecimalHelp.swift */; };
 		2F3075BA27B747B600589B05 /* TwoDigitHex2DecimalHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075B827B747B600589B05 /* TwoDigitHex2DecimalHelp.swift */; };
+		2F3075BD27B75E1300589B05 /* IPv4TerminologyDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075BC27B75E1300589B05 /* IPv4TerminologyDrillsView.swift */; };
+		2F3075BE27B75E1300589B05 /* IPv4TerminologyDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075BC27B75E1300589B05 /* IPv4TerminologyDrillsView.swift */; };
+		2F3075C027B75E6000589B05 /* ValidIPv4AddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075BF27B75E6000589B05 /* ValidIPv4AddressesView.swift */; };
+		2F3075C127B75E6000589B05 /* ValidIPv4AddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075BF27B75E6000589B05 /* ValidIPv4AddressesView.swift */; };
+		2F3075C327B769DC00589B05 /* ValidIPv4AddressesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C227B769DC00589B05 /* ValidIPv4AddressesHelp.swift */; };
+		2F3075C427B769DC00589B05 /* ValidIPv4AddressesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C227B769DC00589B05 /* ValidIPv4AddressesHelp.swift */; };
+		2F3075C627B7766500589B05 /* IPv4AddressTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C527B7766500589B05 /* IPv4AddressTypesView.swift */; };
+		2F3075C727B7766500589B05 /* IPv4AddressTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C527B7766500589B05 /* IPv4AddressTypesView.swift */; };
+		2F3075C927B7770900589B05 /* IPv4AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C827B7770900589B05 /* IPv4AddressType.swift */; };
+		2F3075CA27B7770900589B05 /* IPv4AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C827B7770900589B05 /* IPv4AddressType.swift */; };
+		2F3075CC27B7784200589B05 /* IPv4Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CB27B7784200589B05 /* IPv4Address.swift */; };
+		2F3075CD27B7784200589B05 /* IPv4Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CB27B7784200589B05 /* IPv4Address.swift */; };
+		2F3075CF27B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */; };
+		2F3075D027B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +184,13 @@
 		2F3075B227B7435500589B05 /* TwoDigitDecimal2HexHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoDigitDecimal2HexHelp.swift; sourceTree = "<group>"; };
 		2F3075B527B746B500589B05 /* TwoDigitHex2DecimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDigitHex2DecimalView.swift; sourceTree = "<group>"; };
 		2F3075B827B747B600589B05 /* TwoDigitHex2DecimalHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoDigitHex2DecimalHelp.swift; sourceTree = "<group>"; };
+		2F3075BC27B75E1300589B05 /* IPv4TerminologyDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4TerminologyDrillsView.swift; sourceTree = "<group>"; };
+		2F3075BF27B75E6000589B05 /* ValidIPv4AddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidIPv4AddressesView.swift; sourceTree = "<group>"; };
+		2F3075C227B769DC00589B05 /* ValidIPv4AddressesHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidIPv4AddressesHelp.swift; sourceTree = "<group>"; };
+		2F3075C527B7766500589B05 /* IPv4AddressTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4AddressTypesView.swift; sourceTree = "<group>"; };
+		2F3075C827B7770900589B05 /* IPv4AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4AddressType.swift; sourceTree = "<group>"; };
+		2F3075CB27B7784200589B05 /* IPv4Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Address.swift; sourceTree = "<group>"; };
+		2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4AddressTypesHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +237,7 @@
 				2F30759F27B7126800589B05 /* DrillsSharedViews */,
 				2F30759E27B7122300589B05 /* OneDigitNumberDrills */,
 				2F3074D927B0744200589B05 /* TwoDigitNumberDrills */,
+				2F3075BB27B75DE100589B05 /* IPv4TerminologyDrills */,
 				2F30757627B5A6B200589B05 /* OtherHelpViews */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
 			);
@@ -320,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				2F30756D27B58D2200589B05 /* SFSymbol.swift */,
+				2F3075C827B7770900589B05 /* IPv4AddressType.swift */,
+				2F3075CB27B7784200589B05 /* IPv4Address.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -334,8 +358,8 @@
 		2F30759E27B7122300589B05 /* OneDigitNumberDrills */ = {
 			isa = PBXGroup;
 			children = (
-				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
 				2F0776B127ACA70F006CEF8F /* OneDigitNumberDrillsView.swift */,
+				2F0776B427ACA75F006CEF8F /* OneDigitHex2DecimalView.swift */,
 				2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */,
 				2F30756027B4BCDB00589B05 /* OneDigitHex2BinaryView.swift */,
 				2F30758027B605CC00589B05 /* OneDigitBinary2HexView.swift */,
@@ -356,6 +380,18 @@
 				2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */,
 			);
 			path = DrillsSharedViews;
+			sourceTree = "<group>";
+		};
+		2F3075BB27B75DE100589B05 /* IPv4TerminologyDrills */ = {
+			isa = PBXGroup;
+			children = (
+				2F3075BC27B75E1300589B05 /* IPv4TerminologyDrillsView.swift */,
+				2F3075BF27B75E6000589B05 /* ValidIPv4AddressesView.swift */,
+				2F3075C527B7766500589B05 /* IPv4AddressTypesView.swift */,
+				2F3075C227B769DC00589B05 /* ValidIPv4AddressesHelp.swift */,
+				2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */,
+			);
+			path = IPv4TerminologyDrills;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,26 +502,33 @@
 				2F3075B327B7435500589B05 /* TwoDigitDecimal2HexHelp.swift in Sources */,
 				2F0776B527ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F30756E27B58D2200589B05 /* SFSymbol.swift in Sources */,
+				2F3075C927B7770900589B05 /* IPv4AddressType.swift in Sources */,
 				2F30758727B6F64400589B05 /* OneDigitDecimal2BinaryView.swift in Sources */,
 				2F3074CA27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DB27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F30758127B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */,
 				2F0776A527ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F3075CF27B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */,
 				2F30755B27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
+				2F3075C327B769DC00589B05 /* ValidIPv4AddressesHelp.swift in Sources */,
 				2F30756127B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */,
 				2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
 				2F0776B227ACA70F006CEF8F /* OneDigitNumberDrillsView.swift in Sources */,
+				2F3075BD27B75E1300589B05 /* IPv4TerminologyDrillsView.swift in Sources */,
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F3075A427B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
 				2F3075B027B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2F3075CC27B7784200589B05 /* IPv4Address.swift in Sources */,
 				2F30759327B708DA00589B05 /* TwoDigitHex2BinaryView.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3075C627B7766500589B05 /* IPv4AddressTypesView.swift in Sources */,
 				2F30756727B4BF6200589B05 /* Int+Extensions.swift in Sources */,
 				2F30756427B4BD5500589B05 /* Games.swift in Sources */,
+				2F3075C027B75E6000589B05 /* ValidIPv4AddressesView.swift in Sources */,
 				2F30757827B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift in Sources */,
 				2F3074F027B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F30759927B70EDE00589B05 /* TwoDigitDecimal2HexEasyView.swift in Sources */,
@@ -521,26 +564,33 @@
 				2F3075B427B7435500589B05 /* TwoDigitDecimal2HexHelp.swift in Sources */,
 				2F0776B627ACA75F006CEF8F /* OneDigitHex2DecimalView.swift in Sources */,
 				2F30756F27B58D2200589B05 /* SFSymbol.swift in Sources */,
+				2F3075CA27B7770900589B05 /* IPv4AddressType.swift in Sources */,
 				2F30758827B6F64400589B05 /* OneDigitDecimal2BinaryView.swift in Sources */,
 				2F3074CB27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DC27B0746D00589B05 /* PurchaseView.swift in Sources */,
 				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F30758227B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */,
 				2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2F3075D027B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */,
 				2F30755C27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
+				2F3075C427B769DC00589B05 /* ValidIPv4AddressesHelp.swift in Sources */,
 				2F30756227B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */,
 				2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
 				2F0776B327ACA70F006CEF8F /* OneDigitNumberDrillsView.swift in Sources */,
+				2F3075BE27B75E1300589B05 /* IPv4TerminologyDrillsView.swift in Sources */,
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F3075A527B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
 				2F3075B127B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2F3075CD27B7784200589B05 /* IPv4Address.swift in Sources */,
 				2F30759427B708DA00589B05 /* TwoDigitHex2BinaryView.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
+				2F3075C727B7766500589B05 /* IPv4AddressTypesView.swift in Sources */,
 				2F30756827B4BF6200589B05 /* Int+Extensions.swift in Sources */,
 				2F30756527B4BD5500589B05 /* Games.swift in Sources */,
+				2F3075C127B75E6000589B05 /* ValidIPv4AddressesView.swift in Sources */,
 				2F30757927B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift in Sources */,
 				2F3074F127B08B4A00589B05 /* CoreSettings+CoreDataClass.swift in Sources */,
 				2F30759A27B70EDE00589B05 /* TwoDigitDecimal2HexEasyView.swift in Sources */,

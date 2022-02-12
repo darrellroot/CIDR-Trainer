@@ -23,6 +23,8 @@ enum Games: String, CaseIterable {
     case twoDigitBinary2Decimal
     case twoDigitDecimal2Hex
     case twoDigitHex2Decimal
+    case validIPv4Addresses
+    case ipv4AddressTypes
     
     var fetchRequest: NSFetchRequest<CoreGame> {
         let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
