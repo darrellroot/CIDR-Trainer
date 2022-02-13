@@ -139,6 +139,7 @@
 		2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalKeyboardView.swift; sourceTree = "<group>"; };
 		2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDigitButtonView.swift; sourceTree = "<group>"; };
 		2F0776BD27ACB39F006CEF8F /* Keypress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keypress.swift; sourceTree = "<group>"; };
+		2F1B648E27B8AA37008B7991 /* Store-StoreKit1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store-StoreKit1.swift"; sourceTree = "<group>"; };
 		2F3074BB27AE33DC00589B05 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitDecimal2HexView.swift; sourceTree = "<group>"; };
 		2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexKeyboardView.swift; sourceTree = "<group>"; };
@@ -226,6 +227,9 @@
 		2F07769227ACA61B006CEF8F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */,
+				2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */,
+				2F1B649127B8AA48008B7991 /* Not in target */,
 				2F30756C27B58D0700589B05 /* Enumerations */,
 				2F3074F427B09E4B00589B05 /* Extensions */,
 				2F3074CC27AF235000589B05 /* App Stuff */,
@@ -257,6 +261,14 @@
 				2F0776A227ACA61C006CEF8F /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		2F1B649127B8AA48008B7991 /* Not in target */ = {
+			isa = PBXGroup;
+			children = (
+				2F1B648E27B8AA37008B7991 /* Store-StoreKit1.swift */,
+			);
+			path = "Not in target";
 			sourceTree = "<group>";
 		};
 		2F3074BA27AE2EDB00589B05 /* Keyboards */ = {
@@ -293,8 +305,6 @@
 				2F3074D627B068D300589B05 /* Store.swift */,
 				2F30755A27B4A31500589B05 /* Globals.swift */,
 				2F30756327B4BD5400589B05 /* Games.swift */,
-				2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */,
-				2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */,
 			);
 			path = "App Stuff";
 			sourceTree = "<group>";

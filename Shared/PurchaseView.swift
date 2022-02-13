@@ -12,13 +12,14 @@ struct PurchaseView: View {
     @EnvironmentObject private var store: Store
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
- 
+    @State var alertMessage: String = ""
+    @State var showAlert: Bool = false
     var productDescription: String {
         guard let product = store.product(for: Store.fullUnlockIdentifier) else {
             return "Unable to purchase CIDR Trainer at this time"
         }
         
-        return "\(product.localizedTitle): \(product.localizedDescription) for \(Locale.current.currencySymbol ?? "")\(Double(truncating: product.price).formatted(.currency(code: Locale.current.identifier)))"
+        return "\(product.displayName): \(product.description) for \(product.displayPrice)"
     }
 
     var body: some View {
@@ -36,14 +37,29 @@ struct PurchaseView: View {
                 Spacer()
                 Button("\(productDescription)") {
                     if let product = store.product(for: Store.fullUnlockIdentifier) {
-                        store.purchaseProduct(product)
+                        Task {
+                            do {
+                                try await _ = store.purchase(product)
+                            } catch {
+                                alertMessage = "Error while attempting to purchase \(product.displayName): \(error.localizedDescription)"
+                            }
+                        }
                     } else {
-                        print("Cannot identify product \(Store.fullUnlockIdentifier) in store")
+                        alertMessage = "Error: cannot identify product \(Store.fullUnlockIdentifier) in store"
+                        showAlert = true
                     }
                 }.buttonStyle(.borderedProminent)
                 Spacer()
                 Button("Click here to restore a prior CIDR Trainer purchase") {
-                    store.restorePurchases()
+                    Task {
+                        do {
+                            try await store.restorePurchases()
+                        } catch {
+                            alertMessage = "Error while attempting to restore prior purchases: \(error)"
+                            showAlert = true
+                            
+                        }
+                    }
                 }.buttonStyle(.borderedProminent)
             }
             Spacer()
@@ -51,6 +67,8 @@ struct PurchaseView: View {
         .padding([.leading,.trailing])
         .navigationTitle("Purchase CIDR Trainer")
         .navigationBarTitleDisplayMode(.inline)
+        .alert(alertMessage, isPresented: $showAlert) {}
+
     }
 }
 
