@@ -232,8 +232,6 @@
 				2F3074C827AF226200589B05 /* DataModel */,
 				2F07769427ACA61B006CEF8F /* ContentView.swift */,
 				2F3074DA27B0746D00589B05 /* PurchaseView.swift */,
-				2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */,
-				2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */,
 				2F30759F27B7126800589B05 /* DrillsSharedViews */,
 				2F30759E27B7122300589B05 /* OneDigitNumberDrills */,
 				2F3074D927B0744200589B05 /* TwoDigitNumberDrills */,
@@ -295,6 +293,8 @@
 				2F3074D627B068D300589B05 /* Store.swift */,
 				2F30755A27B4A31500589B05 /* Globals.swift */,
 				2F30756327B4BD5400589B05 /* Games.swift */,
+				2F3074E227B079C600589B05 /* StoreKitTestConfiguration.storekit */,
+				2F3074E527B07AE000589B05 /* StoreKitTestCertificate.cer */,
 			);
 			path = "App Stuff";
 			sourceTree = "<group>";
