@@ -125,6 +125,16 @@
 		2F3075CD27B7784200589B05 /* IPv4Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CB27B7784200589B05 /* IPv4Address.swift */; };
 		2F3075CF27B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */; };
 		2F3075D027B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */; };
+		2FB7341227BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
+		2FB7341327BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
+		2FB7341627BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */; };
+		2FB7341727BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */; };
+		2FB7341927BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */; };
+		2FB7341A27BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */; };
+		2FB7341C27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341B27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift */; };
+		2FB7341D27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341B27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift */; };
+		2FB7341F27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341E27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift */; };
+		2FB7342027BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341E27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +202,11 @@
 		2F3075C827B7770900589B05 /* IPv4AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4AddressType.swift; sourceTree = "<group>"; };
 		2F3075CB27B7784200589B05 /* IPv4Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Address.swift; sourceTree = "<group>"; };
 		2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4AddressTypesHelp.swift; sourceTree = "<group>"; };
+		2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskView.swift; sourceTree = "<group>"; };
+		2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4PrefixLengthDrillsView.swift; sourceTree = "<group>"; };
+		2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskHelp.swift; sourceTree = "<group>"; };
+		2FB7341B27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4BinaryNetmask2PrefixLengthView.swift; sourceTree = "<group>"; };
+		2FB7341E27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4BinaryNetmask2PrefixHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +255,7 @@
 				2F30759E27B7122300589B05 /* OneDigitNumberDrills */,
 				2F3074D927B0744200589B05 /* TwoDigitNumberDrills */,
 				2F3075BB27B75DE100589B05 /* IPv4TerminologyDrills */,
+				2FB7341427BEE67C002821D9 /* IPv4PrefixLengthDrills */,
 				2F30757627B5A6B200589B05 /* OtherHelpViews */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
 			);
@@ -404,6 +420,18 @@
 			path = IPv4TerminologyDrills;
 			sourceTree = "<group>";
 		};
+		2FB7341427BEE67C002821D9 /* IPv4PrefixLengthDrills */ = {
+			isa = PBXGroup;
+			children = (
+				2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */,
+				2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */,
+				2FB7341B27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift */,
+				2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */,
+				2FB7341E27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift */,
+			);
+			path = IPv4PrefixLengthDrills;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,6 +547,7 @@
 				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F30758127B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */,
 				2F0776A527ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2FB7341F27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift in Sources */,
 				2F3075CF27B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */,
 				2F30755B27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
@@ -532,11 +561,13 @@
 				2F3075A427B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
 				2F3075B027B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2FB7341227BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */,
 				2F3075CC27B7784200589B05 /* IPv4Address.swift in Sources */,
 				2F30759327B708DA00589B05 /* TwoDigitHex2BinaryView.swift in Sources */,
 				2F0776BE27ACB39F006CEF8F /* Keypress.swift in Sources */,
 				2F3075C627B7766500589B05 /* IPv4AddressTypesView.swift in Sources */,
 				2F30756727B4BF6200589B05 /* Int+Extensions.swift in Sources */,
+				2FB7341627BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */,
 				2F30756427B4BD5500589B05 /* Games.swift in Sources */,
 				2F3075C027B75E6000589B05 /* ValidIPv4AddressesView.swift in Sources */,
 				2F30757827B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift in Sources */,
@@ -554,6 +585,7 @@
 				2F3075AD27B73ED700589B05 /* TwoDigitBinary2DecimalHelp.swift in Sources */,
 				2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
+				2FB7341C27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2F30758427B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F3075A727B736AF00589B05 /* TwoDigitDecimal2BinaryHelp.swift in Sources */,
@@ -561,6 +593,7 @@
 				2F3075AA27B73D2500589B05 /* TwoDigitBinary2DecimalView.swift in Sources */,
 				2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 				2F30759027B7006700589B05 /* TwoDigitHexadecimalEasyHelp.swift in Sources */,
+				2FB7341927BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +614,7 @@
 				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F30758227B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */,
 				2F0776A627ACA61C006CEF8F /* ContentView.swift in Sources */,
+				2FB7342027BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift in Sources */,
 				2F3075D027B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */,
 				2F30755C27B4A31500589B05 /* Globals.swift in Sources */,
 				2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
@@ -594,11 +628,13 @@
 				2F3075A527B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
 				2F3075B127B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2FB7341327BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */,
 				2F3075CD27B7784200589B05 /* IPv4Address.swift in Sources */,
 				2F30759427B708DA00589B05 /* TwoDigitHex2BinaryView.swift in Sources */,
 				2F0776BF27ACB39F006CEF8F /* Keypress.swift in Sources */,
 				2F3075C727B7766500589B05 /* IPv4AddressTypesView.swift in Sources */,
 				2F30756827B4BF6200589B05 /* Int+Extensions.swift in Sources */,
+				2FB7341727BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */,
 				2F30756527B4BD5500589B05 /* Games.swift in Sources */,
 				2F3075C127B75E6000589B05 /* ValidIPv4AddressesView.swift in Sources */,
 				2F30757927B5A6DF00589B05 /* OneDigitHexadecimalHelp.swift in Sources */,
@@ -616,6 +652,7 @@
 				2F3075AE27B73ED700589B05 /* TwoDigitBinary2DecimalHelp.swift in Sources */,
 				2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
+				2FB7341D27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2F30758527B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F3075A827B736AF00589B05 /* TwoDigitDecimal2BinaryHelp.swift in Sources */,
@@ -623,6 +660,7 @@
 				2F3075AB27B73D2500589B05 /* TwoDigitBinary2DecimalView.swift in Sources */,
 				2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 				2F30759127B7006700589B05 /* TwoDigitHexadecimalEasyHelp.swift in Sources */,
+				2FB7341A27BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

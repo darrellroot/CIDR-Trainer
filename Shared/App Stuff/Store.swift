@@ -3,6 +3,8 @@
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/6/22.
+// much code modified from SKDemo Apple sample code
+
 
 import Foundation
 import StoreKit
@@ -113,6 +115,7 @@ extension Store {
         return allProducts[identifier]
     }
     
+    // code modified from SKDemo Apple sample code
     func purchase(_ product: Product) async throws -> Transaction? {
         //Begin a purchase.
         let result = try await product.purchase()

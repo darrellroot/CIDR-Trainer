@@ -18,6 +18,8 @@ struct ContentView: View {
                     NavigationLink("1-Digit Hexadecimal and Binary Drills", destination: OneDigitNumberDrillsView())
                     NavigationLink("2-Digit Hexadecimal and Binary Drills", destination: TwoDigitNumberDrillsView())
                     NavigationLink("IPv4 Terminology Drills", destination: IPv4TerminologyDrillsView())
+                    NavigationLink("IPv4 Prefix Length Drills", destination: IPv4PrefixLengthDrillsView())
+
                 }
                 Section("Administrative") {
                     NavigationLink("Purchase full unlock",destination: PurchaseView())

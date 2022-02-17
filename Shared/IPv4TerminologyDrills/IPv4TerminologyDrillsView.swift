@@ -17,6 +17,8 @@ struct IPv4TerminologyDrillsView: View {
 
             }
         }
+        .navigationBarTitle("IPv4 Terminology Drills")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

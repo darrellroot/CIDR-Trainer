@@ -1,32 +1,39 @@
 //
-//  OneDigitHex2DecimalView.swift
+//  IPv4BinaryNetmask2PrefixLengthView.swift
 //  CIDR Trainer
 //
-//  Created by Darrell Root on 2/3/22.
+//  Created by Darrell Root on 2/17/22.
 //
 
 import SwiftUI
-import CoreData
 
-struct OneDigitHex2DecimalView: View, DrillHelper {
-    static let staticFetchRequest = Games.oneDigitHex2Decimal.fetchRequest
+struct IPv4BinaryNetmask2PrefixLengthView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv4BinaryNetmask2PrefixLength.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
+
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    @State var given: Int = Int.random(in: 0..<16)
+    @State var given: Int = Int.random(in: 0..<33)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
-        
+
+    var binaryNetmask: String {
+        let ones = String(repeating: "1", count: given)
+        let zeroes = String(repeating: "0", count: 32 - given)
+        return ones + zeroes
+    }
+
     func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect:  0x\(given.hex) is \(given) not \(input) in decimal"
+        lastResult = "Incorrect: \(binaryNetmask) is /\(given) not /\(input)"
+
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -39,7 +46,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: 0x\(given.hex) is \(given) in decimal"
+        lastResult = "Correct:  \(binaryNetmask) prefix-length is /\(given)"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -65,11 +72,11 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
         // Prevent same question repeatedly
         let oldTarget = given
         repeat {
-            given = Int.random(in: 0..<16)
+            given = Int.random(in: 0..<33)
         } while given == oldTarget
         input = ""
     }
-    
+
     var body: some View {
         if displayPurchaseView {
             PurchaseView()
@@ -77,7 +84,6 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        
                         Section("Results") {
                             Text("\(lastResult)")
                                 .foregroundColor(lastCorrect ? Color.green : Color.red)
@@ -86,7 +92,7 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert 0x\(given.hex) to Decimal")
+                            Text("What is binary netmask \(binaryNetmask)'s prefix-length?")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
@@ -100,19 +106,19 @@ struct OneDigitHex2DecimalView: View, DrillHelper {
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("1 Digit Hex -> Decimal")
+            .navigationTitle("Binary Netmask -> Prefix Length")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: OneDigitHexadecimalHelp())
+                    NavigationLink("Help", destination: IPv4BinaryNetmask2PrefixHelp())
                 }
             }
         }//if else
     }
 }
 
-/*struct OneDigitHex2DecimalView_Previews: PreviewProvider {
+struct IPv4BinaryNetmask2PrefixLengthView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitHex2DecimalView(gameScore: GameScore(name: Games.oneDigitHex2Decimal.rawValue))
+        IPv4BinaryNetmask2PrefixLengthView()
     }
-}*/
+}
