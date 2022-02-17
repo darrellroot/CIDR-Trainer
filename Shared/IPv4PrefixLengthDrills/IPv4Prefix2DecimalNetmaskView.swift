@@ -1,5 +1,5 @@
 //
-//  IPv4BinaryNetmask2PrefixLengthView.swift
+//  IPv4Prefix2DecimalNetmask.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/17/22.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct IPv4BinaryNetmask2PrefixLengthView: View, DrillHelper {
-    static let staticFetchRequest = Games.ipv4BinaryNetmask2PrefixLength.fetchRequest
+struct IPv4Prefix2DecimalNetmaskView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv4Prefix2DecimalNetmask.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
@@ -20,18 +20,18 @@ struct IPv4BinaryNetmask2PrefixLengthView: View, DrillHelper {
     @State var lastCorrect = true
     @State var displayCheck = false
 
-    var binaryNetmask: String {
-        let ones = String(repeating: "1", count: given)
-        let zeroes = String(repeating: "0", count: 32 - given)
-        return ones + zeroes
+    var ipNetmask: UInt32 {
+        var netmask = UInt32.max
+        netmask = netmask << (32 - given)
+        return netmask
     }
-
+    
     func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect: \(binaryNetmask) is /\(given) not /\(input)"
+        lastResult = "Incorrect: A /\(given) is \(ipNetmask.ipv4) in dotted decimal"
 
         displayCheck = true
         withAnimation {
@@ -45,20 +45,20 @@ struct IPv4BinaryNetmask2PrefixLengthView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(binaryNetmask) prefix-length is /\(given)"
+        lastResult = "Correct: A /\(given) is \(ipNetmask.ipv4) in dotted decimal"
         displayCheck = true
         withAnimation {
             displayCheck = false
         }
         newQuestion()
     }
-    
+
     func submit() {
-        guard let answer = Int(input) else {
-            wrongAnswer()
+        /*guard let answer = Int(input, radix: 2) else {
+            wrongAnswer(nil)
             return
-        }
-        if answer == given {
+        }*/
+        if input == ipNetmask.ipv4 {
             correctAnswer()
             return
         } else {
@@ -91,33 +91,33 @@ struct IPv4BinaryNetmask2PrefixLengthView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("What is binary netmask \(binaryNetmask)'s prefix-length?")
-                            Text("/\(input)")
+                            Text("Prefix length: /\(given) What is the netmask in dotted decimal?")
+                            Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    DecimalKeyboardView(input: $input,submit: submit)
+                    DottedDecimalKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("Binary Netmask -> Prefix Length")
+            .navigationTitle("Prefix Length -> Decimal Netmask")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: IPv4BinaryNetmask2PrefixHelp())
+                    NavigationLink("Help", destination: IPv4Prefix2DecimalNetmaskHelp())
                 }
             }
         }//if else
     }
 }
 
-struct IPv4BinaryNetmask2PrefixLengthView_Previews: PreviewProvider {
+struct IPv4Prefix2DecimalNetmaskView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv4BinaryNetmask2PrefixLengthView()
+        IPv4Prefix2DecimalNetmaskView()
     }
 }

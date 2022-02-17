@@ -11,6 +11,7 @@ enum Keypress: CustomStringConvertible {
     
     case zero,one,two,three,four,five,six,seven,eight,nine
     case DEL
+    case DOT
     case ENTER
     case a,b,c,d,e,f
     case zeroBinary,oneBinary,twoBinary,threeBinary,fourBinary,fiveBinary,sixBinary,sevenBinary,eightBinary,nineBinary,tenBinary,elevenBinary,twelveBinary,thirteenBinary,fourteenBinary,fifteenBinary
@@ -88,6 +89,8 @@ enum Keypress: CustomStringConvertible {
             return "e"
         case .f:
             return "f"
+        case .DOT:
+            return "."
         case .DEL:
             return "DEL"
         case .ENTER:

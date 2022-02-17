@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct DecimalKeyboardView: View {
+struct DottedDecimalKeyboardView: View {
     @Binding var input: String
     let submit: () -> ()
 
     func buttonPress(_ key: Keypress) -> Void {
         switch key {
-        case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero:
+        case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero,.DOT:
             input += key.description
         case .DEL:
             if !input.isEmpty {
@@ -23,7 +23,7 @@ struct DecimalKeyboardView: View {
             submit()
         case .a, .b, .c, .d, .e, .f:
             fatalError("DecimalKeyboard invalid button rpess \(key)")
-        case .zeroBinary,.oneBinary,.twoBinary,.threeBinary,.fourBinary,.fiveBinary,.sixBinary,.sevenBinary,.eightBinary,.nineBinary,.tenBinary,.elevenBinary,.twelveBinary,.thirteenBinary,.fourteenBinary, .fifteenBinary,.DOT:
+        case .zeroBinary,.oneBinary,.twoBinary,.threeBinary,.fourBinary,.fiveBinary,.sixBinary,.sevenBinary,.eightBinary,.nineBinary,.tenBinary,.elevenBinary,.twelveBinary,.thirteenBinary,.fourteenBinary, .fifteenBinary:
             fatalError("BinaryKeyboard invalid button rpess \(key)")
 
         }
@@ -51,17 +51,15 @@ struct DecimalKeyboardView: View {
             HStack {
                 SingleDigitButtonView(key: .ENTER,function: buttonPress)
                 SingleDigitButtonView(key: Keypress(0),function: buttonPress)
-
-
+                SingleDigitButtonView(key: .DOT,function: buttonPress)
                 SingleDigitButtonView(key: .DEL,function: buttonPress)
-
             }
         }.font(.title)
     }
 }
 
-struct DecimalKeyboardView_Previews: PreviewProvider {
+struct DottedDecimalKeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DecimalKeyboardView(input: .constant(""),submit: {})
+        DottedDecimalKeyboardView(input: .constant(""),submit: {})
     }
 }
