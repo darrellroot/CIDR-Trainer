@@ -151,6 +151,10 @@
 		2FB7343527BEFF03002821D9 /* IPv4Prefix2DecimalNetmaskHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343327BEFF03002821D9 /* IPv4Prefix2DecimalNetmaskHelp.swift */; };
 		2FB7343727BF01A2002821D9 /* DottedDecimalKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343627BF01A2002821D9 /* DottedDecimalKeyboardView.swift */; };
 		2FB7343827BF01A2002821D9 /* DottedDecimalKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343627BF01A2002821D9 /* DottedDecimalKeyboardView.swift */; };
+		2FB7343A27BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343927BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift */; };
+		2FB7343B27BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343927BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift */; };
+		2FB7343D27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343C27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift */; };
+		2FB7343E27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343C27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +235,8 @@
 		2FB7343027BEFD96002821D9 /* UInt32+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extensions.swift"; sourceTree = "<group>"; };
 		2FB7343327BEFF03002821D9 /* IPv4Prefix2DecimalNetmaskHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2DecimalNetmaskHelp.swift; sourceTree = "<group>"; };
 		2FB7343627BF01A2002821D9 /* DottedDecimalKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedDecimalKeyboardView.swift; sourceTree = "<group>"; };
+		2FB7343927BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4DecimalNetmask2PrefixView.swift; sourceTree = "<group>"; };
+		2FB7343C27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4DecimalNetmask2PrefixHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,9 +461,11 @@
 				2FB7342127BEF3D7002821D9 /* IPv4Prefix2HexNetmaskView.swift */,
 				2FB7342727BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift */,
 				2FB7342D27BEFCC4002821D9 /* IPv4Prefix2DecimalNetmaskView.swift */,
+				2FB7343927BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift */,
 				2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */,
 				2FB7342427BEF60D002821D9 /* IPv4Prefix2HexNetmaskHelp.swift */,
 				2FB7343327BEFF03002821D9 /* IPv4Prefix2DecimalNetmaskHelp.swift */,
+				2FB7343C27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift */,
 				2FB7341E27BEF196002821D9 /* IPv4BinaryNetmask2PrefixHelp.swift */,
 				2FB7342A27BEFA8C002821D9 /* IPv4HexNetmask2PrefixHelp.swift */,
 			);
@@ -619,6 +627,7 @@
 				2F3075B627B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F30757427B591D000589B05 /* AllTimeScoreView.swift in Sources */,
+				2FB7343A27BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift in Sources */,
 				2FB7342527BEF60D002821D9 /* IPv4Prefix2HexNetmaskHelp.swift in Sources */,
 				2F30756A27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
 				2F3075AD27B73ED700589B05 /* TwoDigitBinary2DecimalHelp.swift in Sources */,
@@ -627,6 +636,7 @@
 				2F3074BC27AE33DC00589B05 /* Model.swift in Sources */,
 				2FB7341C27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
+				2FB7343D27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift in Sources */,
 				2F30758427B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F3075A727B736AF00589B05 /* TwoDigitDecimal2BinaryHelp.swift in Sources */,
 				2F30758D27B6FDD100589B05 /* TwoDigitHex2DecimalEasyView.swift in Sources */,
@@ -694,6 +704,7 @@
 				2F3075B727B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F30757527B591D000589B05 /* AllTimeScoreView.swift in Sources */,
+				2FB7343B27BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift in Sources */,
 				2FB7342627BEF60D002821D9 /* IPv4Prefix2HexNetmaskHelp.swift in Sources */,
 				2F30756B27B4C19700589B05 /* BinaryKeyboardView.swift in Sources */,
 				2F3075AE27B73ED700589B05 /* TwoDigitBinary2DecimalHelp.swift in Sources */,
@@ -702,6 +713,7 @@
 				2F3074BD27AE33DC00589B05 /* Model.swift in Sources */,
 				2FB7341D27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
+				2FB7343E27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift in Sources */,
 				2F30758527B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F3075A827B736AF00589B05 /* TwoDigitDecimal2BinaryHelp.swift in Sources */,
 				2F30758E27B6FDD100589B05 /* TwoDigitHex2DecimalEasyView.swift in Sources */,
