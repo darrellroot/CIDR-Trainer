@@ -19,6 +19,7 @@ struct IPv4HexNetmask2PrefixView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     var hexNetmask: String {
         // special case to deal with leading zeroes
@@ -114,6 +115,13 @@ struct IPv4HexNetmask2PrefixView: View, DrillHelper {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: IPv4HexNetmask2PrefixHelp())
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
                 }
             }
         }//if else

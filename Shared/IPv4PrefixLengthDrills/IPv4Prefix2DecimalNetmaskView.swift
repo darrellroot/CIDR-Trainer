@@ -19,6 +19,7 @@ struct IPv4Prefix2DecimalNetmaskView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     var ipNetmask: UInt32 {
         var netmask = UInt32.max
@@ -110,6 +111,13 @@ struct IPv4Prefix2DecimalNetmaskView: View, DrillHelper {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: IPv4Prefix2DecimalNetmaskHelp())
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
                 }
             }
         }//if else

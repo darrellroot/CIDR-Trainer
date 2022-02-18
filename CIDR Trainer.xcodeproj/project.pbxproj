@@ -173,7 +173,28 @@
 		2FB7345727BF3CAC002821D9 /* IPv4NumberIpsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7345527BF3CAC002821D9 /* IPv4NumberIpsHelp.swift */; };
 		2FB7345927BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7345827BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift */; };
 		2FB7345A27BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7345827BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift */; };
+		2FB7345C27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7345B27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift */; };
+		2FB7345D27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7345B27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift */; };
+		2FB7346527C036C8002821D9 /* CIDR_TrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7346427C036C8002821D9 /* CIDR_TrainerTests.swift */; };
+		2FB7346B27C038A1002821D9 /* IPv4Cidr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7345227BF371B002821D9 /* IPv4Cidr.swift */; };
+		2FB7346C27C0395C002821D9 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30756627B4BF6200589B05 /* Int+Extensions.swift */; };
+		2FB7346D27C0395E002821D9 /* UInt32+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7343027BEFD96002821D9 /* UInt32+Extensions.swift */; };
+		2FB7346E27C03960002821D9 /* UInt8+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7344827BF2CFA002821D9 /* UInt8+Extensions.swift */; };
+		2FF3547827C0478300251070 /* ResultControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547727C0478300251070 /* ResultControlView.swift */; };
+		2FF3547927C0478300251070 /* ResultControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547727C0478300251070 /* ResultControlView.swift */; };
+		2FF3547B27C048BE00251070 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547A27C048BE00251070 /* ResultView.swift */; };
+		2FF3547C27C048BE00251070 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547A27C048BE00251070 /* ResultView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FB7346627C036C8002821D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F07768E27ACA61B006CEF8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F07769927ACA61C006CEF8F;
+			remoteInfo = "CIDR Trainer (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2F07769327ACA61B006CEF8F /* CIDR_TrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIDR_TrainerApp.swift; sourceTree = "<group>"; };
@@ -264,6 +285,11 @@
 		2FB7345227BF371B002821D9 /* IPv4Cidr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Cidr.swift; sourceTree = "<group>"; };
 		2FB7345527BF3CAC002821D9 /* IPv4NumberIpsHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4NumberIpsHelp.swift; sourceTree = "<group>"; };
 		2FB7345827BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4NumberUsableIpsCidrView.swift; sourceTree = "<group>"; };
+		2FB7345B27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Cidr2NetworkHardView.swift; sourceTree = "<group>"; };
+		2FB7346227C036C8002821D9 /* CIDR TrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CIDR TrainerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FB7346427C036C8002821D9 /* CIDR_TrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIDR_TrainerTests.swift; sourceTree = "<group>"; };
+		2FF3547727C0478300251070 /* ResultControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultControlView.swift; sourceTree = "<group>"; };
+		2FF3547A27C048BE00251070 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +309,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FB7345F27C036C8002821D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -291,6 +324,7 @@
 			children = (
 				2F07769227ACA61B006CEF8F /* Shared */,
 				2F0776A127ACA61C006CEF8F /* macOS */,
+				2FB7346327C036C8002821D9 /* CIDR TrainerTests */,
 				2F07769B27ACA61C006CEF8F /* Products */,
 				2F3074DD27B0786C00589B05 /* Frameworks */,
 			);
@@ -325,6 +359,7 @@
 			children = (
 				2F07769A27ACA61C006CEF8F /* CIDR Trainer.app */,
 				2F0776A027ACA61C006CEF8F /* CIDR Trainer.app */,
+				2FB7346227C036C8002821D9 /* CIDR TrainerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,9 +501,11 @@
 			isa = PBXGroup;
 			children = (
 				2F30755D27B4B81C00589B05 /* DrillHelper.swift */,
+				2FF3547727C0478300251070 /* ResultControlView.swift */,
 				2F30757027B58F0400589B05 /* RecentScoreView.swift */,
 				2F30757327B591D000589B05 /* AllTimeScoreView.swift */,
 				2F30757A27B5AB9C00589B05 /* HTMLStringView.swift */,
+				2FF3547A27C048BE00251070 /* ResultView.swift */,
 			);
 			path = DrillsSharedViews;
 			sourceTree = "<group>";
@@ -512,8 +549,17 @@
 				2FB7344F27BF3686002821D9 /* IPv4NumberIpsCidrView.swift */,
 				2FB7345827BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift */,
 				2FB7345527BF3CAC002821D9 /* IPv4NumberIpsHelp.swift */,
+				2FB7345B27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift */,
 			);
 			path = IPv4CidrDrills;
+			sourceTree = "<group>";
+		};
+		2FB7346327C036C8002821D9 /* CIDR TrainerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2FB7346427C036C8002821D9 /* CIDR_TrainerTests.swift */,
+			);
+			path = "CIDR TrainerTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,6 +599,24 @@
 			productReference = 2F0776A027ACA61C006CEF8F /* CIDR Trainer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2FB7346127C036C8002821D9 /* CIDR TrainerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FB7346827C036C8002821D9 /* Build configuration list for PBXNativeTarget "CIDR TrainerTests" */;
+			buildPhases = (
+				2FB7345E27C036C8002821D9 /* Sources */,
+				2FB7345F27C036C8002821D9 /* Frameworks */,
+				2FB7346027C036C8002821D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FB7346727C036C8002821D9 /* PBXTargetDependency */,
+			);
+			name = "CIDR TrainerTests";
+			productName = "CIDR TrainerTests";
+			productReference = 2FB7346227C036C8002821D9 /* CIDR TrainerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -568,6 +632,10 @@
 					};
 					2F07769F27ACA61C006CEF8F = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					2FB7346127C036C8002821D9 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 2F07769927ACA61C006CEF8F;
 					};
 				};
 			};
@@ -586,6 +654,7 @@
 			targets = (
 				2F07769927ACA61C006CEF8F /* CIDR Trainer (iOS) */,
 				2F07769F27ACA61C006CEF8F /* CIDR Trainer (macOS) */,
+				2FB7346127C036C8002821D9 /* CIDR TrainerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -611,6 +680,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FB7346027C036C8002821D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -622,6 +698,7 @@
 				2F30759627B70B7A00589B05 /* TwoDigitHex2BinaryHelp.swift in Sources */,
 				2FB7344627BF2B2F002821D9 /* EightBitAndView.swift in Sources */,
 				2FB7343727BF01A2002821D9 /* DottedDecimalKeyboardView.swift in Sources */,
+				2FB7345C27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift in Sources */,
 				2F3074D727B068D300589B05 /* Store.swift in Sources */,
 				2FB7344D27BF3610002821D9 /* IPv4CidrDrillsView.swift in Sources */,
 				2F3075B927B747B600589B05 /* TwoDigitHex2DecimalHelp.swift in Sources */,
@@ -652,6 +729,7 @@
 				2F3075A427B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
 				2F3075B027B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2FF3547827C0478300251070 /* ResultControlView.swift in Sources */,
 				2FB7341227BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */,
 				2FB7343427BEFF03002821D9 /* IPv4Prefix2DecimalNetmaskHelp.swift in Sources */,
 				2F3075CC27B7784200589B05 /* IPv4Address.swift in Sources */,
@@ -693,6 +771,7 @@
 				2F30758427B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F3075A727B736AF00589B05 /* TwoDigitDecimal2BinaryHelp.swift in Sources */,
 				2F30758D27B6FDD100589B05 /* TwoDigitHex2DecimalEasyView.swift in Sources */,
+				2FF3547B27C048BE00251070 /* ResultView.swift in Sources */,
 				2F3075AA27B73D2500589B05 /* TwoDigitBinary2DecimalView.swift in Sources */,
 				2F30755E27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 				2F30759027B7006700589B05 /* TwoDigitHexadecimalEasyHelp.swift in Sources */,
@@ -708,6 +787,7 @@
 				2F30759727B70B7A00589B05 /* TwoDigitHex2BinaryHelp.swift in Sources */,
 				2FB7344727BF2B2F002821D9 /* EightBitAndView.swift in Sources */,
 				2FB7343827BF01A2002821D9 /* DottedDecimalKeyboardView.swift in Sources */,
+				2FB7345D27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift in Sources */,
 				2F3074D827B068D300589B05 /* Store.swift in Sources */,
 				2FB7344E27BF3610002821D9 /* IPv4CidrDrillsView.swift in Sources */,
 				2F3075BA27B747B600589B05 /* TwoDigitHex2DecimalHelp.swift in Sources */,
@@ -738,6 +818,7 @@
 				2F3075A527B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
 				2F3075B127B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
+				2FF3547927C0478300251070 /* ResultControlView.swift in Sources */,
 				2FB7341327BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */,
 				2FB7343527BEFF03002821D9 /* IPv4Prefix2DecimalNetmaskHelp.swift in Sources */,
 				2F3075CD27B7784200589B05 /* IPv4Address.swift in Sources */,
@@ -779,6 +860,7 @@
 				2F30758527B6F32C00589B05 /* OneDigitBinary2DecimalView.swift in Sources */,
 				2F3075A827B736AF00589B05 /* TwoDigitDecimal2BinaryHelp.swift in Sources */,
 				2F30758E27B6FDD100589B05 /* TwoDigitHex2DecimalEasyView.swift in Sources */,
+				2FF3547C27C048BE00251070 /* ResultView.swift in Sources */,
 				2F3075AB27B73D2500589B05 /* TwoDigitBinary2DecimalView.swift in Sources */,
 				2F30755F27B4B81C00589B05 /* DrillHelper.swift in Sources */,
 				2F30759127B7006700589B05 /* TwoDigitHexadecimalEasyHelp.swift in Sources */,
@@ -786,7 +868,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FB7345E27C036C8002821D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FB7346C27C0395C002821D9 /* Int+Extensions.swift in Sources */,
+				2FB7346B27C038A1002821D9 /* IPv4Cidr.swift in Sources */,
+				2FB7346D27C0395E002821D9 /* UInt32+Extensions.swift in Sources */,
+				2FB7346E27C03960002821D9 /* UInt8+Extensions.swift in Sources */,
+				2FB7346527C036C8002821D9 /* CIDR_TrainerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FB7346727C036C8002821D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F07769927ACA61C006CEF8F /* CIDR Trainer (iOS) */;
+			targetProxy = 2FB7346627C036C8002821D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2F0776A927ACA61C006CEF8F /* Debug */ = {
@@ -1017,6 +1119,47 @@
 			};
 			name = Release;
 		};
+		2FB7346927C036C8002821D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.networkmom.CIDR-TrainerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CIDR Trainer.app/CIDR Trainer";
+			};
+			name = Debug;
+		};
+		2FB7346A27C036C8002821D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.networkmom.CIDR-TrainerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CIDR Trainer.app/CIDR Trainer";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1043,6 +1186,15 @@
 			buildConfigurations = (
 				2F0776AF27ACA61C006CEF8F /* Debug */,
 				2F0776B027ACA61C006CEF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FB7346827C036C8002821D9 /* Build configuration list for PBXNativeTarget "CIDR TrainerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FB7346927C036C8002821D9 /* Debug */,
+				2FB7346A27C036C8002821D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

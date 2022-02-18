@@ -20,6 +20,7 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     func wrongAnswer() {
         withAnimation {
@@ -74,12 +75,8 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
                             Text("Convert Decimal \(given) to Hex")
@@ -103,6 +100,13 @@ struct OneDigitDecimal2HexView: View, DrillHelper {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: OneDigitHexadecimalHelp())
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
                 }
             }
 

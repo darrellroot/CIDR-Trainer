@@ -13,6 +13,8 @@ struct IPv4CidrDrillsView: View {
             Section("IPv4 CIDR Drills") {
                 NavigationLink("Number of IPs in a CIDR", destination: IPv4NumberIpsCidrView())
                 NavigationLink("Number of usable unicast IPs in a CIDR", destination: IPv4NumberUsableIpsCidrView())
+                NavigationLink("CIDR to Network Address in binary (hard)", destination: IPv4Cidr2NetworkHardView())
+
             }
         }
     }

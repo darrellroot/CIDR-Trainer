@@ -19,6 +19,7 @@ struct IPv4Prefix2BinaryNetmaskView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     var binaryNetmask: String {
         let ones = String(repeating: "1", count: given)
@@ -109,6 +110,13 @@ struct IPv4Prefix2BinaryNetmaskView: View, DrillHelper {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: IPv4Prefix2BinaryNetmaskHelp())
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
                 }
             }
         }//if else

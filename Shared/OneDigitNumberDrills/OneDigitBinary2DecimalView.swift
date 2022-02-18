@@ -20,6 +20,7 @@ struct OneDigitBinary2DecimalView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     func wrongAnswer() {
         withAnimation {
@@ -78,12 +79,8 @@ struct OneDigitBinary2DecimalView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
                             Text("Convert 0b\(given.binary4) to Decimal")
@@ -105,6 +102,13 @@ struct OneDigitBinary2DecimalView: View, DrillHelper {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: OneDigitBinaryHelp())
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
                 }
             }
         }//if else

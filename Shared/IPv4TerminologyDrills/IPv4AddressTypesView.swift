@@ -17,6 +17,7 @@ struct IPv4AddressTypesView: View, DrillHelper {
     @State var lastResult = ""
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     @State var ipv4Address = IPv4Address(type: IPv4AddressType.allCases.randomElement()!)
 

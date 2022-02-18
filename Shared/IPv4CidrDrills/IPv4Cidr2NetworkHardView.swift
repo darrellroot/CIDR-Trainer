@@ -1,33 +1,42 @@
 //
-//  OneDigitHex2BinaryView.swift
+//  IPv4Cidr2NetworkHardView.swift
 //  CIDR Trainer
 //
-//  Created by Darrell Root on 2/9/22.
+//  Created by Darrell Root on 2/18/22.
 //
 
 import SwiftUI
-import CoreData
 
-struct OneDigitHex2BinaryView: View, DrillHelper {
-    static let staticFetchRequest = Games.oneDigitHex2Binary.fetchRequest
+struct IPv4Cidr2NetworkHardView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv4Cidr2NetworkHard.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    @State var given: Int = Int.random(in: 0..<16)
+    @State var given: IPv4Cidr = IPv4Cidr.unicastRandom
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
     @State var displayScore = true
 
-    func wrongAnswer(_ answer: Int?) {
+    var inputSpaced: String {
+        var result = ""
+        for (position,bit) in input.enumerated() {
+            if position == 8 || position == 16 || position == 24 {
+                result += " "
+            }
+            result.append(bit)
+        }
+        return result
+    }
+    func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect: 0x\(given.hex) is 0b\(given.binary4) not 0b\(input) in binary"
+        lastResult = "Incorrect: \(given.description) network address is \(given.wellFormed.ip.ipv4)"
 
         displayCheck = true
         withAnimation {
@@ -41,7 +50,7 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: 0x\(given.hex) is 0b\(given.binary4) in binary"
+        lastResult = "Correct: \(given.description) network address is \(given.wellFormed.ip.ipv4)"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -50,25 +59,27 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
     }
 
     func submit() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         guard let answer = Int(input, radix: 2) else {
-            wrongAnswer(nil)
+            wrongAnswer()
             return
         }
-        if answer == given {
+        if answer == given.wellFormed.ip {
             correctAnswer()
             return
         } else {
-            wrongAnswer(answer)
+            wrongAnswer()
             return
         }
     }
     
     func newQuestion() {
-        // Prevent same question repeatedly
-        let oldTarget = given
-        repeat {
-            given = Int.random(in: 0..<16)
-        } while given == oldTarget
+        given = IPv4Cidr.unicastRandom
         input = ""
     }
 
@@ -83,8 +94,10 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert 0x\(given.hex) to Binary")
-                            Text(input)
+                            Text("What is the network address for  \(given.description) in binary?")
+                            Text("ip:   \(given.binarySpace)").font(.body.monospaced())
+                            Text("mask: \(given.maskBinarySpace)").font(.body.monospaced())
+                            Text("      \(inputSpaced)").font(.body.monospaced())
                         }
                         .foregroundColor(Color.accentColor)
 
@@ -94,14 +107,15 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("1 Digit Hex -> Binary")
+            .navigationTitle("CIDR 2 Network Binary")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: OneDigitBinaryHelp())
+                    NavigationLink("Help", destination: IPv4NumberIpsHelp())
                 }
             }
             .onAppear {
@@ -111,13 +125,11 @@ struct OneDigitHex2BinaryView: View, DrillHelper {
                     }
                 }
             }
-
         }//if else
     }
 }
-
-struct OneDigitHex2BinaryView_Previews: PreviewProvider {
+struct IPv4Cidr2NetworkHardView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDigitHex2BinaryView()
+        IPv4Cidr2NetworkHardView()
     }
 }

@@ -23,6 +23,82 @@ struct IPv4Cidr: CustomStringConvertible {
         return "\(ip.ipv4)/\(prefixLength)"
     }
     
+    var binary: String {
+        var result = ""
+        for bit in stride(from: 31, to: -1, by: -1) {
+            // goal is to set 1 bit in a mask
+            var mask = UInt32.max
+            mask = mask >> bit
+            mask = mask << bit
+            mask = mask << (31 - bit)
+            mask = mask >> (31 - bit)
+            if (self.ip & mask) != 0 {
+                result += "1"
+            } else {
+                result += "0"
+            }
+        }
+        // result should have 32 characters
+        return result
+    }
+    
+    var binarySpace: String {
+        var result = ""
+        for bit in 0..<32 {
+            if bit == 8 || bit == 16 || bit == 24 {
+                result += " "
+            }
+            // goal is to set 1 bit in a mask
+            var mask = UInt32.max
+            mask = mask >> (31 - bit)
+            mask = mask << (31 - bit)
+            mask = mask << bit
+            mask = mask >> bit
+            if (self.ip & mask) != 0 {
+                result += "1"
+            } else {
+                result += "0"
+            }
+        }
+        // result should have 32 characters
+        return result
+    }
+
+    
+    var maskBinary: String {
+        var result = ""
+        for _ in 0..<prefixLength {
+            result += "1"
+        }
+        for _ in 0..<(32-prefixLength) {
+            result += "0"
+        }
+        return result
+    }
+    
+    var maskBinarySpace: String {
+        var result = ""
+        for bit in 0..<32 {
+            if bit == 8 || bit == 16 || bit == 24 {
+                result += " "
+            }
+            if bit < prefixLength {
+                result += "1"
+            } else {
+                result += "0"
+            }
+        }
+        return result
+    }
+
+    
+    // returns current cidr with host portion set to 0
+    var wellFormed: IPv4Cidr {
+        let mask = UINT32_MAX << (32 - prefixLength)
+        let newIP = self.ip & mask
+        return IPv4Cidr(ip: newIP, prefixLength: self.prefixLength)
+    }
+    
     var numberIps: Int {
         var number = 1
         for _ in prefixLength..<32 {
@@ -60,7 +136,7 @@ struct IPv4Cidr: CustomStringConvertible {
     /* makes small random cidr of /16 or /22 - /32
      with first octet in range 1..126 or 128...223
      we use bitshifting to form the left 8 bits
-     from our restricted range, and 24 right bits randomly*/
+     from our restricted range, and 24 right bits randomly.  "well formed" means host portion 0*/
     static var unicastWellFormed: IPv4Cidr {
         var prefix = Int.random(in: 21...32)
         if prefix == 21 { prefix = 16 }
@@ -75,6 +151,23 @@ struct IPv4Cidr: CustomStringConvertible {
         // using bitshifting to make the right bits 0
         ip = ip >> (32 - prefix)
         ip = ip << (32 - prefix)
+        return IPv4Cidr(ip: ip, prefixLength: prefix)
+    }
+    
+    /* makes small random cidr of /16 or /22 - /32
+     with first octet in range 1..126 or 128...223
+     we use bitshifting to form the left 8 bits
+     from our restricted range, and 24 right bits randomly.  Host portion probably not 0*/
+    static var unicastRandom: IPv4Cidr {
+        var prefix = Int.random(in: 21...32)
+        if prefix == 21 { prefix = 16 }
+        var firstOctet = UInt32.random(in: 1...222)
+        if firstOctet == 127 { firstOctet = 223 }
+        firstOctet = firstOctet << 24
+        var otherOctets = UInt32.random(in: 0...UINT32_MAX)
+        otherOctets = otherOctets >> 8
+        let ip = firstOctet | otherOctets
+        
         return IPv4Cidr(ip: ip, prefixLength: prefix)
     }
     

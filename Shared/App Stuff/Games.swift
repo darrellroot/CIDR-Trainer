@@ -35,6 +35,7 @@ enum Games: String, CaseIterable {
     case ipv4DecimalNetmask2Prefix
     case ipv4NumberIpsCidr
     case ipv4NumberUsableIpsCidr
+    case ipv4Cidr2NetworkHard
     
     var fetchRequest: NSFetchRequest<CoreGame> {
         let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")

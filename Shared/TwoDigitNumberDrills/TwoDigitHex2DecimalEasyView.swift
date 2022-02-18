@@ -20,6 +20,7 @@ struct TwoDigitHex2DecimalEasyView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     func wrongAnswer() {
         withAnimation {
@@ -106,6 +107,13 @@ struct TwoDigitHex2DecimalEasyView: View, DrillHelper {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink("Help", destination: TwoDigitHexadecimalEasyHelp())
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
                 }
             }
         }//if else

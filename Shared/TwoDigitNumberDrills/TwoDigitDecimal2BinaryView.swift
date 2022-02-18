@@ -19,6 +19,7 @@ struct TwoDigitDecimal2BinaryView: View,DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     func wrongAnswer() {
         withAnimation {
@@ -108,7 +109,13 @@ struct TwoDigitDecimal2BinaryView: View,DrillHelper {
                     NavigationLink("Help", destination: TwoDigitDecimal2BinaryHelp())
                 }
             }
-
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
+                }
+            }
         }// if else
     }
 }

@@ -17,6 +17,7 @@ struct ValidIPv4AddressesView: View, DrillHelper {
     @State var lastResult = ""
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     @State var octet1 = Int.random(in: 0..<275)
     @State var octet2 = Int.random(in: 0..<275)

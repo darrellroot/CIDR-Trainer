@@ -21,6 +21,7 @@ struct EightBitAndView: View, DrillHelper {
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
+    @State var displayScore = true
 
     var rightAnswer: String {
         let bitAnswer = given1 & given2
@@ -109,7 +110,13 @@ struct EightBitAndView: View, DrillHelper {
                     NavigationLink("Help", destination: BitwiseAndHelp())
                 }
             }
-
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
+                }
+            }
         }// if else
     }
 
