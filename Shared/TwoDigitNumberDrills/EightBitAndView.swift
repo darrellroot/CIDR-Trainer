@@ -56,6 +56,12 @@ struct EightBitAndView: View, DrillHelper {
     }
 
     func submit() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         if input == rightAnswer {
             correctAnswer()
             return
@@ -79,12 +85,8 @@ struct EightBitAndView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
                             Text("What is \(given1.bitString) AND \(given2.bitString)")
@@ -98,6 +100,7 @@ struct EightBitAndView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }//main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
 

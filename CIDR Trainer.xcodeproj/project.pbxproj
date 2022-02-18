@@ -548,8 +548,8 @@
 				2FB7344C27BF3610002821D9 /* IPv4CidrDrillsView.swift */,
 				2FB7344F27BF3686002821D9 /* IPv4NumberIpsCidrView.swift */,
 				2FB7345827BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift */,
-				2FB7345527BF3CAC002821D9 /* IPv4NumberIpsHelp.swift */,
 				2FB7345B27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift */,
+				2FB7345527BF3CAC002821D9 /* IPv4NumberIpsHelp.swift */,
 			);
 			path = IPv4CidrDrills;
 			sourceTree = "<group>";

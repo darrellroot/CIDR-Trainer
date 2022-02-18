@@ -49,6 +49,12 @@ struct IPv4NumberUsableIpsCidrView: View, DrillHelper {
     }
 
     func submit() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         guard let answer = Int(input) else {
             wrongAnswer()
             return
@@ -74,12 +80,8 @@ struct IPv4NumberUsableIpsCidrView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
                             Text("How many USABLE unicast IPs in  \(given.description)?")
@@ -93,6 +95,7 @@ struct IPv4NumberUsableIpsCidrView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack

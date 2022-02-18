@@ -22,6 +22,12 @@ struct IPv4AddressTypesView: View, DrillHelper {
     @State var ipv4Address = IPv4Address(type: IPv4AddressType.allCases.randomElement()!)
 
     func wrongAnswer() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         withAnimation {
             lastCorrect = false
         }
@@ -36,6 +42,12 @@ struct IPv4AddressTypesView: View, DrillHelper {
     }
 
     func correctAnswer() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         withAnimation {
             lastCorrect = true
         }
@@ -59,12 +71,8 @@ struct IPv4AddressTypesView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
                             Text("What type of IPv4 address is \(ipv4Address.description)")
@@ -90,6 +98,7 @@ struct IPv4AddressTypesView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }//main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
 

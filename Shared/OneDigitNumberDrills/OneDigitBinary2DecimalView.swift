@@ -50,6 +50,12 @@ struct OneDigitBinary2DecimalView: View, DrillHelper {
     }
     
     func submit() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         guard let answer = Int(input) else {
             wrongAnswer()
             return
@@ -94,6 +100,7 @@ struct OneDigitBinary2DecimalView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack

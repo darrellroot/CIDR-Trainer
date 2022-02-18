@@ -66,6 +66,12 @@ struct ValidIPv4AddressesView: View, DrillHelper {
     }
     
     func wrongAnswer() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         withAnimation {
             lastCorrect = false
         }
@@ -80,6 +86,12 @@ struct ValidIPv4AddressesView: View, DrillHelper {
     }
 
     func correctAnswer() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         withAnimation {
             lastCorrect = true
         }
@@ -117,13 +129,15 @@ struct ValidIPv4AddressesView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            Text("Reminder: \"valid\" does not necessarily mean \"usable\" as a unicast IPv4 address")
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            Section("Results") {
+                                Text("\(lastResult)")
+                                    .foregroundColor(lastCorrect ? Color.green : Color.red)
+                                    .fontWeight(.bold)
+                                Text("Reminder: \"valid\" does not necessarily mean \"usable\" as a unicast IPv4 address")
+                                RecentScoreView(nsFetchRequest: fetchRequest)
+                                AllTimeScoreView(nsFetchRequest: fetchRequest)
+                            }
                         }
                         Section("Next Task") {
                             Text("Is \(address) a valid IPv4 address?")
@@ -159,6 +173,7 @@ struct ValidIPv4AddressesView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }//main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
 

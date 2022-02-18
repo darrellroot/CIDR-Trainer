@@ -26,6 +26,12 @@ struct OneDigitBitwiseAndView: View, DrillHelper {
         return given1 & given2
     }
     func wrongAnswer() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         withAnimation {
             lastCorrect = false
         }
@@ -40,6 +46,12 @@ struct OneDigitBitwiseAndView: View, DrillHelper {
     }
     
     func correctAnswer() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         withAnimation {
             lastCorrect = true
         }
@@ -103,6 +115,7 @@ struct OneDigitBitwiseAndView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack

@@ -50,6 +50,12 @@ struct TwoDigitHex2DecimalEasyView: View, DrillHelper {
     }
     
     func submit() {
+        displayScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                displayScore = false
+            }
+        }
         guard let answer = Int(input) else {
             wrongAnswer()
             return
@@ -80,12 +86,8 @@ struct TwoDigitHex2DecimalEasyView: View, DrillHelper {
             ZStack {
                 VStack {
                     List {
-                        Section("Results") {
-                            Text("\(lastResult)")
-                                .foregroundColor(lastCorrect ? Color.green : Color.red)
-                                .fontWeight(.bold)
-                            RecentScoreView(nsFetchRequest: fetchRequest)
-                            AllTimeScoreView(nsFetchRequest: fetchRequest)
+                        if displayScore {
+                            ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
                             Text("Convert 0x\(given.hex) to Decimal")
@@ -99,6 +101,7 @@ struct TwoDigitHex2DecimalEasyView: View, DrillHelper {
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
+                ResultControlView(displayScore: $displayScore)
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
