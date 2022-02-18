@@ -1,45 +1,39 @@
 //
-//  TwoDigitDecimal2BinaryView.swift
+//  EightBitAndView.swift
 //  CIDR Trainer
 //
-//  Created by Darrell Root on 2/11/22.
+//  Created by Darrell Root on 2/17/22.
 //
 
 import SwiftUI
 
-struct TwoDigitDecimal2BinaryView: View,DrillHelper {
-    static let staticFetchRequest = Games.twoDigitDecimal2Binary.fetchRequest
+struct EightBitAndView: View, DrillHelper {
+    static let staticFetchRequest = Games.eightBitAnd.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    @State var given: Int = Int.random(in: 0..<256)
+    @State var given1: UInt8 = UInt8.random(in: 0...255)
+    @State var given2: UInt8 = UInt8.randomPrefix
+
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
 
+    var rightAnswer: String {
+        let bitAnswer = given1 & given2
+        return bitAnswer.bitString
+    }
+    
     func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
         
-        lastResult = "Incorrect: Decimal \(given) is 0b\(given.binary8) not 0b\(input)"
-        displayCheck = true
-        withAnimation {
-            displayCheck = false
-        }
-        newQuestion()
-    }
-
-    func correctAnswer() {
-        withAnimation {
-            lastCorrect = true
-        }
-        thisGame?.correct()
-        lastResult = "Correct: Decimal \(given) is 0b\(given.binary8) in binary"
+        lastResult = "Incorrect: \(given1.bitString) AND \(given2.bitString) is \(rightAnswer)"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -47,12 +41,21 @@ struct TwoDigitDecimal2BinaryView: View,DrillHelper {
         newQuestion()
     }
     
-    func submit() {
-        guard let answer = Int(input, radix: 2) else {
-            wrongAnswer()
-            return
+    func correctAnswer() {
+        withAnimation {
+            lastCorrect = true
         }
-        if answer == given {
+        thisGame?.correct()
+        lastResult = "Correct: \(given1.bitString) AND \(given2.bitString) is \(rightAnswer)"
+        displayCheck = true
+        withAnimation {
+            displayCheck = false
+        }
+        newQuestion()
+    }
+
+    func submit() {
+        if input == rightAnswer {
             correctAnswer()
             return
         } else {
@@ -60,15 +63,13 @@ struct TwoDigitDecimal2BinaryView: View,DrillHelper {
             return
         }
     }
-
+    
     func newQuestion() {
-        // Prevent same question repeatedly
-        let oldTarget = given
-        repeat {
-            given = Int.random(in: 0..<256)
-        } while given == oldTarget
+        given1 = UInt8.random(in: 0...255)
+        given2 = UInt8.randomPrefix
         input = ""
     }
+
 
     var body: some View {
         if displayPurchaseView {
@@ -85,7 +86,7 @@ struct TwoDigitDecimal2BinaryView: View,DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Convert Decimal \(given) to Binary")
+                            Text("What is \(given1.bitString) AND \(given2.bitString)")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
@@ -101,20 +102,21 @@ struct TwoDigitDecimal2BinaryView: View,DrillHelper {
 
             }// zstack
 
-            .navigationTitle("Decimal -> 8-Digit Binary")
+            .navigationTitle("8-bit AND")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: TwoDigitDecimal2BinaryHelp())
+                    NavigationLink("Help", destination: BitwiseAndHelp())
                 }
             }
 
         }// if else
     }
+
 }
 
-struct TwoDigitDecimal2BinaryView_Previews: PreviewProvider {
+struct EightBitAndView_Previews: PreviewProvider {
     static var previews: some View {
-        TwoDigitDecimal2BinaryView()
+        EightBitAndView()
     }
 }

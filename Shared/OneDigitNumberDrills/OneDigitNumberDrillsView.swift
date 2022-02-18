@@ -18,6 +18,7 @@ struct OneDigitNumberDrillsView: View {
                 NavigationLink("Binary -> 1-digit hex", destination: OneDigitBinary2HexView())
                 NavigationLink("4-digit Binary -> decimal", destination: OneDigitBinary2DecimalView())
                 NavigationLink("Decimal -> 4-digit binary", destination: OneDigitDecimal2BinaryView())
+                NavigationLink("1-bit AND", destination: OneDigitBitwiseAndView())
             }
 
 

@@ -15,6 +15,7 @@ enum Games: String, CaseIterable {
     case oneDigitBinary2Hex
     case oneDigitBinary2Decimal
     case oneDigitDecimal2Binary
+    case oneDigitBitwiseAnd
     case twoDigitHex2DecimalEasy
     case twoDigitHex2Binary
     case twoDigitDecimal2HexEasy
@@ -23,6 +24,7 @@ enum Games: String, CaseIterable {
     case twoDigitBinary2Decimal
     case twoDigitDecimal2Hex
     case twoDigitHex2Decimal
+    case eightBitAnd
     case validIPv4Addresses
     case ipv4AddressTypes
     case ipv4Prefix2BinaryNetmask
