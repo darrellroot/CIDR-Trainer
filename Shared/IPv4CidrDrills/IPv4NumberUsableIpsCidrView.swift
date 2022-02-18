@@ -1,5 +1,5 @@
 //
-//  IPv4Prefix2HexNetmaskView.swift
+//  IPv4NumberUsableIpsCidrView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/17/22.
@@ -7,35 +7,25 @@
 
 import SwiftUI
 
-struct IPv4Prefix2HexNetmaskView: View, DrillHelper {
-    static let staticFetchRequest = Games.ipv4Prefix2HexNetmask.fetchRequest
+struct IPv4NumberUsableIpsCidrView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv4NumberUsableIpsCidr.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    @State var given: Int = Int.random(in: 0..<33)
+    @State var given: IPv4Cidr = IPv4Cidr.unicastWellFormed
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
 
-    var hexNetmask: String {
-        // special case to deal with leading zeroes
-        if given == 0 {
-            return "00000000"
-        }
-        var netmask: UInt32 = UInt32.max
-        netmask = netmask << (32 - given)
-        return String(netmask, radix: 16, uppercase: false)
-    }
-    
     func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect: A /\(given) prefix length is \(hexNetmask) in hex"
+        lastResult = "Incorrect: \(given.description) contains \(given.numberUsableIps) USABLE IPs"
 
         displayCheck = true
         withAnimation {
@@ -49,7 +39,7 @@ struct IPv4Prefix2HexNetmaskView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: A /\(given) prefix length is \(hexNetmask) in hex"
+        lastResult = "Correct: \(given.description) contains \(given.numberUsableIps) USABLE IPs"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -58,11 +48,11 @@ struct IPv4Prefix2HexNetmaskView: View, DrillHelper {
     }
 
     func submit() {
-        /*guard let answer = Int(input, radix: 2) else {
-            wrongAnswer(nil)
+        guard let answer = Int(input) else {
+            wrongAnswer()
             return
-        }*/
-        if input == hexNetmask {
+        }
+        if answer == given.numberUsableIps {
             correctAnswer()
             return
         } else {
@@ -72,11 +62,7 @@ struct IPv4Prefix2HexNetmaskView: View, DrillHelper {
     }
     
     func newQuestion() {
-        // Prevent same question repeatedly
-        let oldTarget = given
-        repeat {
-            given = Int.random(in: 0..<33)
-        } while given == oldTarget
+        given = IPv4Cidr.unicastWellFormed
         input = ""
     }
 
@@ -95,33 +81,32 @@ struct IPv4Prefix2HexNetmaskView: View, DrillHelper {
                             AllTimeScoreView(nsFetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Prefix length: /\(given) What is the netmask in hex?")
+                            Text("How many USABLE IPs in  \(given.description)?")
                             Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    HexKeyboardView(input: $input,submit: submit)
+                    DecimalKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("Prefix Length -> Hex Netmask")
+            .navigationTitle("Number Usable IPs in CIDR")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: IPv4Prefix2HexNetmaskHelp())
+                    NavigationLink("Help", destination: IPv4NumberIpsHelp())
                 }
             }
         }//if else
     }
 }
-
-struct IPv4Prefix2HexNetmaskView_Previews: PreviewProvider {
+struct IPv4NumberUsableIpsCidrView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv4Prefix2HexNetmaskView()
+        IPv4NumberUsableIpsCidrView()
     }
 }
