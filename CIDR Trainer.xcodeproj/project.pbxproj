@@ -202,6 +202,8 @@
 		2FF3549827C17BE300251070 /* ContactsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3549627C17BE300251070 /* ContactsHelp.swift */; };
 		2FF3549B27C1857100251070 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF3549A27C1857100251070 /* CloudKit.framework */; };
 		2FF3549E27C1860700251070 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF3549D27C1860700251070 /* CloudKit.framework */; };
+		2FF354A127C19D7A00251070 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF354A027C19D7A00251070 /* DeviceModel.swift */; };
+		2FF354A227C19D7A00251070 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF354A027C19D7A00251070 /* DeviceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,6 +322,7 @@
 		2FF3549A27C1857100251070 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		2FF3549C27C185D900251070 /* CIDR-Trainer--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CIDR-Trainer--iOS--Info.plist"; sourceTree = "<group>"; };
 		2FF3549D27C1860700251070 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2FF354A027C19D7A00251070 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +507,7 @@
 				2F30756D27B58D2200589B05 /* SFSymbol.swift */,
 				2F3075C827B7770900589B05 /* IPv4AddressType.swift */,
 				2F3075CB27B7784200589B05 /* IPv4Address.swift */,
+				2FF354A027C19D7A00251070 /* DeviceModel.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -825,6 +829,7 @@
 				2FB7342827BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift in Sources */,
 				2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2FB7341C27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
+				2FF354A127C19D7A00251070 /* DeviceModel.swift in Sources */,
 				2FB7345327BF371B002821D9 /* IPv4Cidr.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2FB7343D27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift in Sources */,
@@ -922,6 +927,7 @@
 				2FB7342927BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift in Sources */,
 				2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2FB7341D27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
+				2FF354A227C19D7A00251070 /* DeviceModel.swift in Sources */,
 				2FB7345427BF371B002821D9 /* IPv4Cidr.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
 				2FB7343E27BF05F3002821D9 /* IPv4DecimalNetmask2PrefixHelp.swift in Sources */,
