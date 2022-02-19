@@ -184,6 +184,10 @@
 		2FF3547927C0478300251070 /* ResultControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547727C0478300251070 /* ResultControlView.swift */; };
 		2FF3547B27C048BE00251070 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547A27C048BE00251070 /* ResultView.swift */; };
 		2FF3547C27C048BE00251070 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547A27C048BE00251070 /* ResultView.swift */; };
+		2FF3547E27C0702C00251070 /* IPv4CidrBinaryHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547D27C0702C00251070 /* IPv4CidrBinaryHelp.swift */; };
+		2FF3547F27C0702C00251070 /* IPv4CidrBinaryHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3547D27C0702C00251070 /* IPv4CidrBinaryHelp.swift */; };
+		2FF3548127C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3548027C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift */; };
+		2FF3548227C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3548027C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +294,8 @@
 		2FB7346427C036C8002821D9 /* CIDR_TrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIDR_TrainerTests.swift; sourceTree = "<group>"; };
 		2FF3547727C0478300251070 /* ResultControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultControlView.swift; sourceTree = "<group>"; };
 		2FF3547A27C048BE00251070 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		2FF3547D27C0702C00251070 /* IPv4CidrBinaryHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4CidrBinaryHelp.swift; sourceTree = "<group>"; };
+		2FF3548027C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Cidr2NetworkDecimalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +556,8 @@
 				2FB7345827BF55B4002821D9 /* IPv4NumberUsableIpsCidrView.swift */,
 				2FB7345B27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift */,
 				2FB7345527BF3CAC002821D9 /* IPv4NumberIpsHelp.swift */,
+				2FF3547D27C0702C00251070 /* IPv4CidrBinaryHelp.swift */,
+				2FF3548027C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift */,
 			);
 			path = IPv4CidrDrills;
 			sourceTree = "<group>";
@@ -727,6 +735,7 @@
 				2FB7344327BF27FA002821D9 /* BitwiseAndHelp.swift in Sources */,
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F3075A427B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
+				2FF3547E27C0702C00251070 /* IPv4CidrBinaryHelp.swift in Sources */,
 				2F3075B027B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A327ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2FF3547827C0478300251070 /* ResultControlView.swift in Sources */,
@@ -754,6 +763,7 @@
 				2F30757E27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */,
 				2F30759C27B7110500589B05 /* TwoDigitNumberDrillsView.swift in Sources */,
 				2F3075B627B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
+				2FF3548127C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F30757427B591D000589B05 /* AllTimeScoreView.swift in Sources */,
 				2FB7343A27BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift in Sources */,
@@ -816,6 +826,7 @@
 				2FB7344427BF27FA002821D9 /* BitwiseAndHelp.swift in Sources */,
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F3075A527B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
+				2FF3547F27C0702C00251070 /* IPv4CidrBinaryHelp.swift in Sources */,
 				2F3075B127B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2F0776A427ACA61C006CEF8F /* CIDR_TrainerApp.swift in Sources */,
 				2FF3547927C0478300251070 /* ResultControlView.swift in Sources */,
@@ -843,6 +854,7 @@
 				2F30757F27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */,
 				2F30759D27B7110500589B05 /* TwoDigitNumberDrillsView.swift in Sources */,
 				2F3075B727B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
+				2FF3548227C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F30757527B591D000589B05 /* AllTimeScoreView.swift in Sources */,
 				2FB7343B27BF0399002821D9 /* IPv4DecimalNetmask2PrefixView.swift in Sources */,

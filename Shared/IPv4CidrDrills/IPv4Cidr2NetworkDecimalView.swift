@@ -1,5 +1,5 @@
 //
-//  IPv4Cidr2NetworkHardView.swift
+//  IPv4Cidr2NetworkView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/18/22.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct IPv4Cidr2NetworkHardView: View, DrillHelper {
-    static let staticFetchRequest = Games.ipv4Cidr2NetworkHard.fetchRequest
+struct IPv4Cidr2NetworkDecimalView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv4Cidr2NetworkDecimal.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
@@ -21,60 +21,12 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
     @State var displayCheck = false
     @State var displayScore = true
 
-    var inputSpaced: String {
-        var result = ""
-        for (position,bit) in input.enumerated() {
-            if position == 8 || position == 16 || position == 24 {
-                result += " "
-            }
-            result.append(bit)
-        }
-        return result
-    }
-    
-    var inputDottedDecimal: String {
-        var result = ""
-        let inputCount = input.count
-        guard inputCount >= 8 else {
-            return result
-        }
-        let oneIndex = input.index(input.startIndex, offsetBy: 8)
-        guard let firstOctet = Int(input[input.startIndex..<oneIndex], radix: 2) else {
-            return result
-        }
-        result += "\(firstOctet)."
-        guard inputCount >= 16 else {
-            return result
-        }
-        let twoIndex = input.index(oneIndex, offsetBy: 8)
-        guard let secondOctet = Int(input[oneIndex..<twoIndex], radix: 2) else {
-            return result
-        }
-        result += "\(secondOctet)."
-        guard inputCount >= 24 else {
-            return result
-        }
-        let threeIndex = input.index(twoIndex, offsetBy: 8)
-        guard let thirdOctet = Int(input[twoIndex..<threeIndex], radix: 2) else {
-            return result
-        }
-        result += "\(thirdOctet)."
-        guard inputCount >= 32 else {
-            return result
-        }
-        let fourIndex = input.index(threeIndex, offsetBy: 8)
-        guard let fourthOctet = Int(input[threeIndex..<fourIndex], radix: 2) else {
-            return result
-        }
-        result += "\(fourthOctet)"
-        return result
-    }
     func wrongAnswer() {
         withAnimation {
             lastCorrect = false
         }
         thisGame?.wrong()
-        lastResult = "Incorrect: \(given.description) network address is \(given.wellFormed.ip.ipv4)"
+        lastResult = "Incorrect: \(given.description) network IP is \(given.wellFormed.ip.ipv4)"
 
         displayCheck = true
         withAnimation {
@@ -88,14 +40,14 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(given.description) network address is \(given.wellFormed.ip.ipv4)"
+        lastResult = "Correct: \(given.description) network IP is \(given.wellFormed.ip.ipv4)"
         displayCheck = true
         withAnimation {
             displayCheck = false
         }
         newQuestion()
     }
-
+    
     func submit() {
         displayScore = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -103,11 +55,8 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
                 displayScore = false
             }
         }
-        guard let answer = Int(input, radix: 2) else {
-            wrongAnswer()
-            return
-        }
-        if answer == given.wellFormed.ip {
+
+        if input == given.wellFormed.ip.ipv4 {
             correctAnswer()
             return
         } else {
@@ -115,7 +64,7 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
             return
         }
     }
-    
+
     func newQuestion() {
         given = IPv4Cidr.unicastRandom
         input = ""
@@ -132,17 +81,14 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("What is the network address for  \(given.description) in binary?")
-                            Text("ip:   \(given.binarySpace)").font(.body.monospaced())
-                            Text("mask: \(given.maskBinarySpace)").font(.body.monospaced())
-                            Text("      \(inputSpaced)").font(.body.monospaced())
-                            Text("\(inputDottedDecimal)")
+                            Text("What is the network IP for  \(given.description)?")
+                            Text(input)
                         }
                         .foregroundColor(Color.accentColor)
 
                     }
                     Spacer()
-                    BinaryKeyboardView(input: $input,submit: submit)
+                    DottedDecimalKeyboardView(input: $input,submit: submit)
                 }.onDisappear {
                     saveMoc()
                 }// main vstack
@@ -150,7 +96,7 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("CIDR 2 Network Binary")
+            .navigationTitle("CIDR 2 Network Decimal")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -167,8 +113,8 @@ struct IPv4Cidr2NetworkHardView: View, DrillHelper {
         }//if else
     }
 }
-struct IPv4Cidr2NetworkHardView_Previews: PreviewProvider {
+struct IPv4Cidr2NetworkView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv4Cidr2NetworkHardView()
+        IPv4Cidr2NetworkDecimalView()
     }
 }
