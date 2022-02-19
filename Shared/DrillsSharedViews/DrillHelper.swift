@@ -29,7 +29,30 @@ extension DrillHelper {
     }
     
     var thisGame: CoreGame? {
-        return coreGames.first
+        if coreGames.count == 1 {
+            return coreGames.first!
+        }
+        var saveNumber: Int? = nil
+        var maxTotalAttempts = -1
+        for (recordNumber,coreGame) in coreGames.enumerated() {
+            if coreGame.totalAttempts > maxTotalAttempts {
+                saveNumber = recordNumber
+                maxTotalAttempts = coreGame.totalAttempts
+            }
+        }
+        guard let saveNumber = saveNumber else {
+            return nil
+        }
+        let result = coreGames[saveNumber]
+        for (recordNumber, coreGame) in coreGames.enumerated() {
+            if recordNumber != saveNumber {
+                print("deleting duplicate game record with total \(coreGame.totalAttempts)")
+                moc.delete(coreGame)
+            } else {
+                print("keeping game record with \(coreGame.totalAttempts)")
+            }
+        }
+        return result
     }
     
     func saveMoc() {

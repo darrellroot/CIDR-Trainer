@@ -9,10 +9,11 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject {
-    let container = NSPersistentContainer(name: "CoreModel")
+    let container = NSPersistentCloudKitContainer(name: "CoreModel")
     
     init() {
         container.loadPersistentStores { description, error in
+            self.container.viewContext.automaticallyMergesChangesFromParent = true
             if let error = error {
                 print("Core data failed to load: \(error.localizedDescription)")
             }
@@ -33,7 +34,27 @@ class DataController: ObservableObject {
                     print("Error: cannot access first core settings entity")
                 }
             default:
-                print("Error: unexpectedly found \(coreSettings.count) CoreSettings entities")
+                // There can only be one record of each type
+                print("Warning: Found \(coreSettings.count) CoreSetting entities")
+                var keepNumber: Int? = nil
+                for (number,coreSetting) in coreSettings.enumerated() {
+                    // keep first setting with full unlock
+                    if keepNumber == nil && coreSetting.fullUnlock {
+                        keepNumber = number
+                    }
+                }
+                // default is keep first settings record
+                if keepNumber == nil {
+                    keepNumber = 0
+                }
+                for (number, coreSetting) in coreSettings.enumerated() {
+                    if keepNumber == number {
+                        print("keeping settings record \(number)")
+                    } else {
+                        print("deleting settings record \(number)")
+                        container.viewContext.delete(coreSetting)
+                    }
+                }
             }
         } catch {
             print("DataController init: Could not fetch CoreSettings due to \(error.localizedDescription)")
@@ -54,7 +75,24 @@ class DataController: ObservableObject {
                 case 1:
                     print("Found 1 \(game.rawValue) entity")
                 default:
+                    // delete duplicate entities
                     print("Error: Found \(gameTest.count) \(game.rawValue) entities")
+                    var maxTotalAttempts = 0
+                    var keepRecordNumber = 0
+                    for (gameNumber,gameRecord) in gameTest.enumerated() {
+                        if gameRecord.totalAttempts > maxTotalAttempts {
+                            keepRecordNumber = gameNumber
+                            maxTotalAttempts = gameRecord.totalAttempts
+                        }
+                    }
+                    for (gameNumber,gameRecord) in gameTest.enumerated() {
+                        if gameNumber == keepRecordNumber {
+                            print("keeping \(String(describing: gameRecord.name)) attempts \(gameRecord.totalAttempts)")
+                        } else {
+                            print("deleting \(String(describing: gameRecord.name)) attempts \(gameRecord.totalAttempts)")
+                            container.viewContext.delete(gameRecord)
+                        }
+                    }
                 }
             } catch {
                 print("DataController init: Could not fetch \(game.rawValue) due to \(error.localizedDescription)")
