@@ -22,6 +22,24 @@ struct IPv4Cidr: CustomStringConvertible {
     var description: String {
         return "\(ip.ipv4)/\(prefixLength)"
     }
+        
+    //we're being careful with overflow
+    //this is not useful for /31 or /32
+    var broadcastIp: UInt32 {
+        if self.networkIp == 0 {
+            return UInt32(numberIps) - 1
+        } else {
+            return self.networkIp - 1 + UInt32(numberIps)
+        }
+    }
+    
+    var firstUsableIp: UInt32 {
+        if prefixLength == 31 || prefixLength == 32 {
+            return self.networkIp
+        } else {
+            return self.networkIp + 1
+        }
+    }
     
     var binary: String {
         var result = ""
@@ -153,6 +171,35 @@ struct IPv4Cidr: CustomStringConvertible {
         ip = ip << (32 - prefix)
         return IPv4Cidr(ip: ip, prefixLength: prefix)
     }
+    
+    var networkIp: UInt32 {
+        var result = self.ip
+        result = result >> (32 - prefixLength)
+        result = result << (32 - prefixLength)
+        return result
+    }
+    
+    /* makes small random cidr of /16 or /22 - /30
+     with first octet in range 1..126 or 128...223
+     we use bitshifting to form the left 8 bits
+     from our restricted range, and 24 right bits randomly.  "well formed" means host portion 0*/
+    static var unicastWellFormed30: IPv4Cidr {
+        var prefix = Int.random(in: 21...30)
+        if prefix == 21 { prefix = 16 }
+        var firstOctet = UInt32.random(in: 1...222)
+        if firstOctet == 127 { firstOctet = 223 }
+        firstOctet = firstOctet << 24
+        var otherOctets = UInt32.random(in: 0...UINT32_MAX)
+        otherOctets = otherOctets >> 8
+        var ip = firstOctet | otherOctets
+        
+        // now we need to make it well-formed
+        // using bitshifting to make the right bits 0
+        ip = ip >> (32 - prefix)
+        ip = ip << (32 - prefix)
+        return IPv4Cidr(ip: ip, prefixLength: prefix)
+    }
+
     
     /* makes small random cidr of /16 or /22 - /32
      with first octet in range 1..126 or 128...223

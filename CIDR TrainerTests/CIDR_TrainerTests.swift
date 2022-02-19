@@ -66,9 +66,25 @@ class CIDR_TrainerTests: XCTestCase {
         XCTAssert(cidr.numberUsableIps == 126)
     }
 
+    func testNetworkIp() throws {
+        let cidr = IPv4Cidr(ip: 4, prefixLength: 30)
+        XCTAssert(cidr.networkIp == 4)
+    }
+    
+    func testNetworkIp2() throws {
+        let cidr = IPv4Cidr(ip: 5, prefixLength: 30)
+        XCTAssert(cidr.networkIp == 4)
+    }
 
-
- 
+    func testWellFormed() throws {
+        let cidr = IPv4Cidr(ip: 8, prefixLength: 30)
+        XCTAssert(cidr.wellFormed == true)
+    }
+    
+    func testWellFormed2() throws {
+        let cidr = IPv4Cidr(ip: 9, prefixLength: 30)
+        XCTAssert(cidr.wellFormed == false)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
