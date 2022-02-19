@@ -41,6 +41,22 @@ struct IPv4Cidr: CustomStringConvertible {
         }
     }
     
+    var lastUsableIp: UInt32 {
+        let networkIp = self.networkIp
+        if prefixLength == 32 {
+            return networkIp
+        } else if prefixLength == 31 {
+            return networkIp + 1
+        } else if networkIp == 0 {
+            return UInt32(numberIps) - 2
+        } else if networkIp == 1 {
+            return networkIp + UInt32(numberIps) - 2
+        } else {
+            return networkIp - 2 + UInt32(numberIps)
+        }
+    }
+
+    
     var binary: String {
         var result = ""
         for bit in stride(from: 31, to: -1, by: -1) {

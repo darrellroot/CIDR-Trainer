@@ -78,13 +78,24 @@ class CIDR_TrainerTests: XCTestCase {
 
     func testWellFormed() throws {
         let cidr = IPv4Cidr(ip: 8, prefixLength: 30)
-        XCTAssert(cidr.wellFormed == true)
+        XCTAssert(cidr.wellFormed.ip == 8)
     }
     
     func testWellFormed2() throws {
         let cidr = IPv4Cidr(ip: 9, prefixLength: 30)
-        XCTAssert(cidr.wellFormed == false)
+        XCTAssert(cidr.wellFormed.ip == 8)
     }
+    
+    func testLastIp1() throws {
+        let cidr = IPv4Cidr(ip: 8, prefixLength: 30)
+        XCTAssert(cidr.lastUsableIp == 10)
+    }
+    
+    func testLastIp2() throws {
+        let cidr = IPv4Cidr(ip: 11, prefixLength: 30)
+        XCTAssert(cidr.lastUsableIp == 10)
+    }
+
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -17,7 +17,7 @@ struct IPv4CidrDrillsView: View {
                 NavigationLink("CIDR to Network Address in decimal", destination: IPv4Cidr2NetworkDecimalView())
                 NavigationLink("Well-formed CIDR to Broadcast Address", destination: IPv4Cidr2BroadcastView())
                 NavigationLink("Well-formed CIDR to First Usable IP Address", destination: IPv4Cidr2FirstUsableView())
-
+                NavigationLink("Well-formed CIDR to Last Usable IP Address", destination: IPv4Cidr2LastUsableView())
             }
         }
         .navigationTitle("IPv4 CIDR Drills")
