@@ -24,7 +24,7 @@ enum IPv4AddressType: String, CaseIterable {
         case .multicast:
             return "any IPv4 address with 224 through 239 in the first octet is a multicast address"
         case .reserved:
-            return "any IPv4 address ranging from 224.0.0.0 through 255.255.255.254 is reserved for future use"
+            return "any IPv4 address ranging from 240.0.0.0 through 255.255.255.254 is reserved for future use"
         case .unicast:
             return "any IPv4 address with the first octet ranging from 1 through 126, or 128 through 223, is a unicast address"
         }
