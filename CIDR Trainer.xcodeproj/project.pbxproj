@@ -323,6 +323,7 @@
 		2FF3549C27C185D900251070 /* CIDR-Trainer--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CIDR-Trainer--iOS--Info.plist"; sourceTree = "<group>"; };
 		2FF3549D27C1860700251070 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2FF354A027C19D7A00251070 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		2FF3F4FE27C1DF8B002DD117 /* CIDR-Trainer--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CIDR-Trainer--macOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +358,7 @@
 		2F07768D27ACA61B006CEF8F = {
 			isa = PBXGroup;
 			children = (
+				2FF3F4FE27C1DF8B002DD117 /* CIDR-Trainer--macOS--Info.plist */,
 				2FF3549C27C185D900251070 /* CIDR-Trainer--iOS--Info.plist */,
 				2FF3549927C1855300251070 /* CIDR Trainer (iOS).entitlements */,
 				2F07769227ACA61B006CEF8F /* Shared */,
@@ -1154,6 +1156,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CIDR-Trainer--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1182,6 +1185,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CIDR-Trainer--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

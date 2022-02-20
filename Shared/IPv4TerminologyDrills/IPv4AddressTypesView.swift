@@ -75,7 +75,7 @@ struct IPv4AddressTypesView: View, DrillHelper {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("What type of IPv4 address is \(ipv4Address.description)")
+                            Text("\(ipv4Address.description) is what type of IPv4 address?")
                         }
                         .foregroundColor(Color.accentColor)
 
