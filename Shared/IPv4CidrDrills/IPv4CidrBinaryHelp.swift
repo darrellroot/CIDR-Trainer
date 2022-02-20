@@ -39,7 +39,7 @@ struct IPv4CidrBinaryHelp: View {
     
     Also because of the /24, the last octet network mask was entirely 0s'.  So the network address' last octet was guaranteed to be 0.  Converting the last .89 to binary was also not necessary!
     
-    In general, any time you calculate a network address from an arbitrary CIDR, at least 3 octets are the "easy cases" where the mask is always 1 or 0.  Converting the CIDR to binary is, at most, necessary for one octet.  This is a bit time-saver!
+    In general, any time you calculate a network address from an arbitrary CIDR, at least 3 octets are the "easy cases" where the mask is always 1 or 0.  Converting the CIDR to binary is, at most, necessary for one octet.  This is a big time-saver!
     
     Consider the harder case 92.130.133.84/22:
     
