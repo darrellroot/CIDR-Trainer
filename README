@@ -1,0 +1,11 @@
+This is the Source code for CIDR Trainer.
+
+CIDR Trainer is in the iOS / MacOS App store: https://apps.apple.com/us/app/cidr-trainer/id1608806016
+
+It uses directed drills and help to train people to calculate IPv4 and IPv6 subnets.
+
+App store version permits 20 attempts / drill for free, with a $2 full unlock made available as an in-app purchase.
+
+The app could be improved.  Examples of improvements include "flair", localization, improved "help" explanations, full coverage of IPv6, and accessibility.  I welcome pull-requests and am happy to add significant contributors to the credits file.  Feel free to contact me at feedback@networkmom.net.
+
+Darrell Root for Network Mom LLC
