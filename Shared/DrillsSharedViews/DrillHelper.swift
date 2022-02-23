@@ -34,7 +34,12 @@ extension DrillHelper {
         }
         var saveNumber: Int? = nil
         var maxTotalAttempts = -1
+        // need to total up all records, then put in 1 record
+        var allCorrectTotal: Int32 = 0
+        var allWrongTotal: Int32 = 0
         for (recordNumber,coreGame) in coreGames.enumerated() {
+            allCorrectTotal += coreGame.correctTotal
+            allWrongTotal += coreGame.wrongTotal
             if coreGame.totalAttempts > maxTotalAttempts {
                 saveNumber = recordNumber
                 maxTotalAttempts = coreGame.totalAttempts
@@ -49,7 +54,9 @@ extension DrillHelper {
                 print("deleting duplicate game record with total \(coreGame.totalAttempts)")
                 moc.delete(coreGame)
             } else {
-                print("keeping game record with \(coreGame.totalAttempts)")
+                print("keeping game record with \(coreGame.totalAttempts) setting correct total \(allCorrectTotal) wrong total \(allWrongTotal)")
+                coreGame.setCorrectTotal(allCorrectTotal)
+                coreGame.setWrongTotal(allWrongTotal)
             }
         }
         return result

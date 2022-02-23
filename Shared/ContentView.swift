@@ -11,6 +11,10 @@ struct ContentView: View {
     //@ObservedObject var model: Model
     @EnvironmentObject private var store: Store
     @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.managedObjectContext) var moc
+    // used to detect when we go into background
+    // see https://www.hackingwithswift.com/books/ios-swiftui/how-to-be-notified-when-your-swiftui-app-moves-to-the-background
+    @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
         NavigationView {
@@ -33,6 +37,16 @@ struct ContentView: View {
             
         }.onAppear {
             print("vertical size class \(String(describing: verticalSizeClass))")
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .inactive || newPhase == .background {
+                do {
+                    try moc.save()
+                    print("Saved core data context")
+                } catch {
+                    print("Failed to save core data context \(error.localizedDescription)")
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

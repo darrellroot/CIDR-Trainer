@@ -35,6 +35,14 @@ extension CoreGame {
             print("Unable to save core data: \(error)")
         }
     }
+    // use only when deleting duplicate records
+    func setCorrectTotal(_ newTotal: Int32) {
+        self.correctTotal = newTotal
+    }
+    // use only when deleting duplicate records
+    func setWrongTotal(_ newTotal: Int32) {
+        self.wrongTotal = newTotal
+    }
     func setName(_ name: String) {
         self.name = name
     }
