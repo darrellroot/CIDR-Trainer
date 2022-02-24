@@ -56,12 +56,29 @@ struct IPv4Cidr: CustomStringConvertible {
     //this is not useful for /31 or /32
     var broadcastIp: UInt32 {
         if self.networkIp == 0 {
-            return UInt32(numberIps) - 1
+            let answer = numberIps - 1
+            return UInt32(answer)
         } else {
             return self.networkIp - 1 + UInt32(numberIps)
         }
     }
     
+    var firstIp: UInt32 {
+        return self.networkIp
+    }
+    
+    var lastIp: UInt32 {
+        if prefixLength == 32 {
+            return networkIp
+        } else if prefixLength == 31 {
+            return networkIp + 1
+        } else {
+            let answer = Int(networkIp) - 1 + numberIps
+            return UInt32(answer)
+        }
+    }
+    
+    // this implicitly assumes unicast
     var firstUsableIp: UInt32 {
         if prefixLength == 31 || prefixLength == 32 {
             return self.networkIp
@@ -70,12 +87,15 @@ struct IPv4Cidr: CustomStringConvertible {
         }
     }
     
+    // this implicitly assumes unicast
     var lastUsableIp: UInt32 {
         let networkIp = self.networkIp
         if prefixLength == 32 {
             return networkIp
         } else if prefixLength == 31 {
             return networkIp + 1
+        } else if numberIps == 4294967296 {  // /0 case
+            return UINT32_MAX - 1
         } else if networkIp == 0 {
             return UInt32(numberIps) - 2
         } else if networkIp == 1 {
@@ -160,6 +180,46 @@ struct IPv4Cidr: CustomStringConvertible {
         let mask = UINT32_MAX << (32 - prefixLength)
         let newIP = self.ip & mask
         return IPv4Cidr(ip: newIP, prefixLength: self.prefixLength)
+    }
+    
+    static let loopbackRange: Range<UInt32> = 127 * 256 * 256 * 256 ..< 128 * 256 * 256 * 256
+    static let multicastRange: Range<UInt32> = 224 * 256 * 256 * 256 ..< 240 * 256 * 256 * 256
+    static let reservedRange: Range<UInt32> = 240 * 256 * 256 * 256 ..< UINT32_MAX - 1
+    static let unicastRange1: Range<UInt32> = 1 * 256 * 256 * 256 ..< 127 * 256 * 256 * 256
+    static let unicastRange2: Range<UInt32> = 128 * 256 * 256 * 256 ..< 224 * 256 * 256 * 256
+    static let thisNetworkRange: Range<UInt32> = 1 ..< 1 * 256 * 256 * 256
+    
+    var cidrType: IPv4AddressType {
+        let lowType = IPv4Cidr.addressType(ip: self.networkIp)
+        let highType = IPv4Cidr.addressType(ip: self.lastIp)
+        if lowType == highType {
+            return lowType
+        } else {
+            return .mixed
+        }
+    }
+    
+    static func addressType(ip: UInt32) -> IPv4AddressType {
+        switch ip {
+        case UINT32_MAX:
+            return .broadcast
+        case loopbackRange:
+            return .loopback
+        case reservedRange:
+            return .reserved
+        case multicastRange:
+            return .multicast
+        case unicastRange1, unicastRange2:
+            return .unicast
+        case 0:
+            return .unspecified
+        case thisNetworkRange:
+            return .thisNetwork
+        default:
+            // should not get here
+            print("Error: unable to determine address type for \(ip)")
+            return .mixed
+        }
     }
     
     var numberIps: Int {

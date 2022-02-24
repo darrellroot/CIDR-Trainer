@@ -53,6 +53,18 @@ struct IPv4Address: CustomStringConvertible {
             if octet1 == 127 {
                 octet1 = 126
             }
+        case .mixed:
+            fatalError("Tried to generate a mixed ipv4 address type")
+        case .unspecified:
+            octet1 = 0
+            octet2 = 0
+            octet3 = 0
+            octet4 = 0
+        case .thisNetwork:
+            octet1 = 0
+            octet2 = Int.random(in: 0..<256)
+            octet3 = Int.random(in: 0..<256)
+            octet4 = Int.random(in: 1..<256)
         }
     }
 }
