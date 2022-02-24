@@ -12,10 +12,6 @@ struct IPv4CidrCalculatorView: View {
     @State var input = ""
     @State var cidr: IPv4Cidr? = nil
     
-    
-    func submit() {
-        self.cidr = IPv4Cidr(cidr: input)
-    }
     var body: some View {
         VStack {
             List {

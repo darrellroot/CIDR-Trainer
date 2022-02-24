@@ -12,6 +12,8 @@ struct ToolsView: View {
         List {
             Section("CIDR Calculators") {
                 NavigationLink("IPv4 CIDR Calculator", destination: IPv4CidrCalculatorView())
+                NavigationLink("IPv6 CIDR Calculator", destination: IPv6CidrCalculatorView())
+
             }
         }
         .navigationBarTitleDisplayMode(.inline)
