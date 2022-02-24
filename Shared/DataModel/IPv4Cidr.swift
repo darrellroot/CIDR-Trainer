@@ -12,6 +12,24 @@ struct IPv4Cidr: CustomStringConvertible {
     private(set) var ip: UInt32
     private(set) var prefixLength: Int
     
+    init?(cidr: String) {
+        let portions = cidr.split(separator: "/")
+        guard portions.count == 2 else { return nil }
+        guard let ipSubstring = portions.first else { return nil }
+        guard let lengthString = portions.last else { return nil }
+        let octets = ipSubstring.split(separator: ".")
+        guard let octet1 = UInt8(octets[0]) else { return nil }
+        guard let octet2 = UInt8(octets[1]) else { return nil }
+        guard let octet3 = UInt8(octets[2]) else { return nil }
+        guard let octet4 = UInt8(octets[3]) else { return nil }
+        guard let passedInLength = Int(lengthString) else { return nil }
+        guard passedInLength >= 0 && passedInLength <= 32 else { return nil }
+        self.prefixLength = passedInLength
+        let octet1Value = UInt32(octet1) << 24
+        let octet2Value = UInt32(octet2) << 16
+        let octet3Value = UInt32(octet3) << 8
+        self.ip = octet1Value + octet2Value + octet3Value + UInt32(octet4)
+    }
     init(ip: UInt32, prefixLength: Int) {
         guard prefixLength >= 0 && prefixLength <= 32 else {
             fatalError("Invalid prefix length \(prefixLength)")
@@ -21,6 +39,17 @@ struct IPv4Cidr: CustomStringConvertible {
     }
     var description: String {
         return "\(ip.ipv4)/\(prefixLength)"
+    }
+    
+    static let smallestMulticast = 224 * 256 * 256 * 256
+    
+    // true for unicast and loopback
+    var unicast: Bool {
+        if self.ip < IPv4Cidr.smallestMulticast {
+            return true
+        } else {
+            return false
+        }
     }
         
     //we're being careful with overflow

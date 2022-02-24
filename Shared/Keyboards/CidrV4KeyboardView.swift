@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct DecimalKeyboardView: View {
+struct CidrV4KeyboardView: View {
     @Binding var input: String
     let submit: () -> ()
 
     func buttonPress(_ key: Keypress) -> Void {
         switch key {
-        case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero:
+        case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero,.DOT,.SLASH:
             input += key.description
         case .DEL:
             if !input.isEmpty {
@@ -21,9 +21,9 @@ struct DecimalKeyboardView: View {
             }
         case .ENTER:
             submit()
-        case .a, .b, .c, .d, .e, .f, .SLASH:
+        case .a, .b, .c, .d, .e, .f:
             fatalError("DecimalKeyboard invalid button rpess \(key)")
-        case .zeroBinary,.oneBinary,.twoBinary,.threeBinary,.fourBinary,.fiveBinary,.sixBinary,.sevenBinary,.eightBinary,.nineBinary,.tenBinary,.elevenBinary,.twelveBinary,.thirteenBinary,.fourteenBinary, .fifteenBinary,.DOT:
+        case .zeroBinary,.oneBinary,.twoBinary,.threeBinary,.fourBinary,.fiveBinary,.sixBinary,.sevenBinary,.eightBinary,.nineBinary,.tenBinary,.elevenBinary,.twelveBinary,.thirteenBinary,.fourteenBinary, .fifteenBinary:
             fatalError("BinaryKeyboard invalid button rpess \(key)")
 
         }
@@ -45,23 +45,21 @@ struct DecimalKeyboardView: View {
             HStack {
                 ForEach(7..<10) { digit in
                     SingleDigitButtonView(key: Keypress(digit),function: buttonPress)
-
                 }
+                SingleDigitButtonView(key: Keypress(0),function: buttonPress)
             }
             HStack {
                 SingleDigitButtonView(key: .ENTER,function: buttonPress)
-                SingleDigitButtonView(key: Keypress(0),function: buttonPress)
-
-
+                SingleDigitButtonView(key: .SLASH,function: buttonPress)
+                SingleDigitButtonView(key: .DOT,function: buttonPress)
                 SingleDigitButtonView(key: .DEL,function: buttonPress)
-
             }
         }.font(.title)
     }
 }
 
-struct DecimalKeyboardView_Previews: PreviewProvider {
+struct CidrV4KeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DecimalKeyboardView(input: .constant(""),submit: {})
+        CidrV4KeyboardView(input: .constant(""),submit: {})
     }
 }

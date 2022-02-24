@@ -29,6 +29,7 @@ struct ContentView: View {
                     NavigationLink("IPv4 CIDR Drills", destination: IPv4CidrDrillsView())
                 }
                 Section("Other") {
+                    NavigationLink("Network Tools and CIDR Calculators",destination: ToolsView())
                     NavigationLink("Support and Settings",destination: OtherViewsView())
                 }
             }

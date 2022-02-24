@@ -123,6 +123,12 @@
 		2F3075CD27B7784200589B05 /* IPv4Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CB27B7784200589B05 /* IPv4Address.swift */; };
 		2F3075CF27B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */; };
 		2F3075D027B77FDF00589B05 /* IPv4AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */; };
+		2F40946B27C5EF360048F9F3 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40946A27C5EF360048F9F3 /* ToolsView.swift */; };
+		2F40946C27C5EF360048F9F3 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40946A27C5EF360048F9F3 /* ToolsView.swift */; };
+		2F40946E27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40946D27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift */; };
+		2F40946F27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40946D27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift */; };
+		2F40947127C5F6F10048F9F3 /* CidrV4KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40947027C5F6F10048F9F3 /* CidrV4KeyboardView.swift */; };
+		2F40947227C5F6F10048F9F3 /* CidrV4KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40947027C5F6F10048F9F3 /* CidrV4KeyboardView.swift */; };
 		2FB7341227BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
 		2FB7341327BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
 		2FB7341627BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */; };
@@ -280,6 +286,9 @@
 		2F3075C827B7770900589B05 /* IPv4AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4AddressType.swift; sourceTree = "<group>"; };
 		2F3075CB27B7784200589B05 /* IPv4Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Address.swift; sourceTree = "<group>"; };
 		2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4AddressTypesHelp.swift; sourceTree = "<group>"; };
+		2F40946A27C5EF360048F9F3 /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
+		2F40946D27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4CidrCalculatorView.swift; sourceTree = "<group>"; };
+		2F40947027C5F6F10048F9F3 /* CidrV4KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidrV4KeyboardView.swift; sourceTree = "<group>"; };
 		2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskView.swift; sourceTree = "<group>"; };
 		2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4PrefixLengthDrillsView.swift; sourceTree = "<group>"; };
 		2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskHelp.swift; sourceTree = "<group>"; };
@@ -389,6 +398,7 @@
 				2FB7344B27BF35D8002821D9 /* IPv4CidrDrills */,
 				2F30757627B5A6B200589B05 /* OtherHelpViews */,
 				2FF3549227C17A9A00251070 /* OtherViews */,
+				2F40946927C5EEF20048F9F3 /* Tools */,
 				2F3074BA27AE2EDB00589B05 /* Keyboards */,
 			);
 			path = Shared;
@@ -425,6 +435,7 @@
 			children = (
 				2F0776B727ACA86C006CEF8F /* DecimalKeyboardView.swift */,
 				2FB7343627BF01A2002821D9 /* DottedDecimalKeyboardView.swift */,
+				2F40947027C5F6F10048F9F3 /* CidrV4KeyboardView.swift */,
 				2F0776BA27ACB077006CEF8F /* SingleDigitButtonView.swift */,
 				2F0776BD27ACB39F006CEF8F /* Keypress.swift */,
 				2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */,
@@ -562,6 +573,15 @@
 				2F3075CE27B77FDF00589B05 /* IPv4AddressTypesHelp.swift */,
 			);
 			path = IPv4TerminologyDrills;
+			sourceTree = "<group>";
+		};
+		2F40946927C5EEF20048F9F3 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2F40946A27C5EF360048F9F3 /* ToolsView.swift */,
+				2F40946D27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		2FB7341427BEE67C002821D9 /* IPv4PrefixLengthDrills */ = {
@@ -780,6 +800,7 @@
 				2FB7344027BF2615002821D9 /* OneDigitBitwiseAndView.swift in Sources */,
 				2F3074C627AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
+				2F40946E27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift in Sources */,
 				2F3075C327B769DC00589B05 /* ValidIPv4AddressesHelp.swift in Sources */,
 				2F30756127B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */,
 				2F0776B827ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
@@ -790,6 +811,7 @@
 				2FF3549027C0A57D00251070 /* IPv4Cidr2LastUsableView.swift in Sources */,
 				2F0776BB27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F3075A427B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
+				2F40946B27C5EF360048F9F3 /* ToolsView.swift in Sources */,
 				2FF3547E27C0702C00251070 /* IPv4CidrBinaryHelp.swift in Sources */,
 				2F3075B027B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2FF3548A27C09EB200251070 /* IPv4Cidr2FirstUsableView.swift in Sources */,
@@ -831,6 +853,7 @@
 				2FB7342827BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift in Sources */,
 				2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2FB7341C27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
+				2F40947127C5F6F10048F9F3 /* CidrV4KeyboardView.swift in Sources */,
 				2FF354A127C19D7A00251070 /* DeviceModel.swift in Sources */,
 				2FB7345327BF371B002821D9 /* IPv4Cidr.swift in Sources */,
 				2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */,
@@ -878,6 +901,7 @@
 				2FB7344127BF2615002821D9 /* OneDigitBitwiseAndView.swift in Sources */,
 				2F3074C727AF1A5700589B05 /* CoreModel.xcdatamodeld in Sources */,
 				2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */,
+				2F40946F27C5EF880048F9F3 /* IPv4CidrCalculatorView.swift in Sources */,
 				2F3075C427B769DC00589B05 /* ValidIPv4AddressesHelp.swift in Sources */,
 				2F30756227B4BCDB00589B05 /* OneDigitHex2BinaryView.swift in Sources */,
 				2F0776B927ACA86C006CEF8F /* DecimalKeyboardView.swift in Sources */,
@@ -888,6 +912,7 @@
 				2FF3549127C0A57D00251070 /* IPv4Cidr2LastUsableView.swift in Sources */,
 				2F0776BC27ACB077006CEF8F /* SingleDigitButtonView.swift in Sources */,
 				2F3075A527B7355700589B05 /* TwoDigitDecimal2BinaryView.swift in Sources */,
+				2F40946C27C5EF360048F9F3 /* ToolsView.swift in Sources */,
 				2FF3547F27C0702C00251070 /* IPv4CidrBinaryHelp.swift in Sources */,
 				2F3075B127B7421B00589B05 /* TwoDigitDecimal2HexView.swift in Sources */,
 				2FF3548B27C09EB200251070 /* IPv4Cidr2FirstUsableView.swift in Sources */,
@@ -929,6 +954,7 @@
 				2FB7342927BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift in Sources */,
 				2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2FB7341D27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
+				2F40947227C5F6F10048F9F3 /* CidrV4KeyboardView.swift in Sources */,
 				2FF354A227C19D7A00251070 /* DeviceModel.swift in Sources */,
 				2FB7345427BF371B002821D9 /* IPv4Cidr.swift in Sources */,
 				2F3074C327AE3F6700589B05 /* HexKeyboardView.swift in Sources */,

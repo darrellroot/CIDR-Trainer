@@ -13,7 +13,7 @@ struct BinaryKeyboardView: View {
     
     func buttonPress(_ key: Keypress) -> Void {
         switch key {
-        case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero,.a,.b,.c,.d,.e,.f:
+        case .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.zero,.a,.b,.c,.d,.e,.f,.SLASH:
             fatalError("BinaryKeyboard invalid button rpess \(key)")
 
         case .DEL:
