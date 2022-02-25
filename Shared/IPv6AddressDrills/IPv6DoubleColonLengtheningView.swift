@@ -1,5 +1,5 @@
 //
-//  IPv6DoubleColonShorteningView.swift
+//  IPv6DoubleColonLengtheningView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/25/22.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct IPv6DoubleColonShorteningView: View, DrillHelper {
-    static let staticFetchRequest = Games.ipv6EightHextetShortening.fetchRequest
+struct IPv6DoubleColonLengtheningView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv6DoubleColonLengthening.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input: String = ""
-    
+
     @State var given = IPv6Cidr(practice: .doubleColon)
     
     @State var lastResult = "Press your answer and hit the up arrow"
@@ -24,7 +24,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
     @State var displayScore = true
 
     init() {
-        self.input = self.given.unshortened ?? ""
+        self.input = self.given.ipv6.debugDescription
     }
     
     func wrongAnswer() {
@@ -32,7 +32,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
              lastCorrect = false
          }
          thisGame?.wrong()
-        lastResult = "Incorrect: \(given.unshortened!) shortened is \(given.ipv6.debugDescription) not \(input)"
+        lastResult = "Incorrect: \(given.ipv6.debugDescription) with double-colons expanded is \(given.unshortened!) not \(input)"
 
          displayCheck = true
          withAnimation {
@@ -46,7 +46,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(given.unshortened!) shortened is \(given.ipv6.debugDescription)"
+        lastResult = "Correct: \(given.ipv6.debugDescription) with double-colons expanded is \(given.unshortened!)"
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -61,7 +61,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
                 displayScore = false
             }
         }
-        if input == given.ipv6.debugDescription {
+        if input == given.unshortened! {
             correctAnswer()
             return
         } else {
@@ -72,7 +72,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
     
     func newQuestion() {
         given = IPv6Cidr(practice: .doubleColon)
-        input = given.unshortened!
+        input = given.ipv6.debugDescription
     }
 
     var body: some View {
@@ -86,7 +86,8 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                         }
                         Section("Next Task") {
-                            Text("Shorten the IPv6 Address \(given.unshortened!)")
+                            Text("Special instructions for this exercise: only expand each all-zeroes hextet to one zero")
+                            Text("Expand double-colons in IPv6 Address \(given.ipv6.debugDescription)")
                             TextField("",text: $input)
                                 .onSubmit {
                                     submit()
@@ -106,7 +107,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("IPv6 Double Colon Shortening")
+            .navigationTitle("IPv6 Double Colon Lengthening")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -114,7 +115,7 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
                 }
             }
             .onAppear {
-                input = given.unshortened ?? ""
+                input = given.ipv6.debugDescription
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         displayScore = false
@@ -124,8 +125,9 @@ struct IPv6DoubleColonShorteningView: View, DrillHelper {
         }//if else
     }
 }
-struct IPv6DoubleColonShorteningView_Previews: PreviewProvider {
+
+struct IPv6DoubleColonLengtheningView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv6DoubleColonShorteningView()
+        IPv6DoubleColonLengtheningView()
     }
 }
