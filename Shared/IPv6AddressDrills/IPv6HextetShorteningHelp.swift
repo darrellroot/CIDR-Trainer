@@ -57,10 +57,16 @@ struct IPv6HextetShorteningHelp: View {
     `2001:db8:12:3:0:4560:7800:9000`
     becomes
     `2001:0db8:0012:0003:0000:4560:7800:9000`
+    
+    **Remember** When *lengthening* IPv6 address representations the result should have 8 hextets, each with 4 hexadecimal digits.
 
-    In the acompanying drill, you will shorten one hextet at a time.
+    In the acompanying drills, you will shorten or lengthen one hextet at a time.
+    
+    Then we have a more advanced drill where you shorten or lengthen eight hextets at a time.
+    
+    Later drills will cover an additional rule to further shorten IPv6 addresses with multiple consecutive hextets of "0000".  But the IPv6 addresses generated for these drills will not trigger that rule.
 
-    **Important** We are only shortening the textual representation of the IPv6 address.  Every IPv6 address is exactly 128 bits!
+    **Important** We are only shortening the textual representation of the IPv6 address.  Every IPv6 address is always 128 bits! (even if every bit is zero)
     """
 
 }

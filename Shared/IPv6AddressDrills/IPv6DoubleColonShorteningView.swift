@@ -1,5 +1,5 @@
 //
-//  IPv6EightHextetShorteningView.swift
+//  IPv6DoubleColonShorteningView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/25/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IPv6EightHextetShorteningView: View, DrillHelper {
+struct IPv6DoubleColonShorteningView: View, DrillHelper {
     static let staticFetchRequest = Games.ipv6EightHextetShortening.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
@@ -16,7 +16,7 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
 
     @State var input: String = ""
     
-    @State var given = IPv6Cidr(practice: .hextetShortening)
+    @State var given = IPv6Cidr(practice: .doubleColon)
     
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
@@ -26,7 +26,7 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
     init() {
         self.input = self.given.unshortened ?? ""
     }
-
+    
     func wrongAnswer() {
          withAnimation {
              lastCorrect = false
@@ -71,7 +71,7 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
     }
     
     func newQuestion() {
-        given = IPv6Cidr(practice: .hextetShortening)
+        given = IPv6Cidr(practice: .doubleColon)
         input = given.unshortened!
     }
 
@@ -106,7 +106,7 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("IPv6 Eight Hextet Shortening")
+            .navigationTitle("IPv6 Double Colon Shortening")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -124,9 +124,8 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
         }//if else
     }
 }
-
-struct IPv6EightHextetShorteningView_Previews: PreviewProvider {
+struct IPv6DoubleColonShorteningView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv6EightHextetShorteningView()
+        IPv6DoubleColonShorteningView()
     }
 }

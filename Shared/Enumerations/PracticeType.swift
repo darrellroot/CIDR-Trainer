@@ -11,5 +11,5 @@ import Foundation
 // be created for practice purposes
 enum PracticeType {
     case hextetShortening
-    
+    case doubleColon
 }

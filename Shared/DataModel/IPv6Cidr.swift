@@ -10,6 +10,8 @@ import Network
 
 struct IPv6Cidr: CustomStringConvertible {
     
+    static let nonZeroHexDigit = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
+
     var ip: UInt128 {
         return ipv6.uint128
     }
@@ -21,7 +23,52 @@ struct IPv6Cidr: CustomStringConvertible {
 
     init(practice: PracticeType) {
         switch practice {
-            
+        
+        // doubleColon generates an IPv6 address where each hextet has a 50% chance of being 0 and a 50% chance of it being xxxx where x is not 0
+        case .doubleColon:
+            self.prefixLength = 128 // not used for this practice
+            var result = ""
+            let specialCase = Int.random(in: 0..<20)
+            if specialCase == 0 {
+                result = "0:0:0:0:0:0:0:0"
+                self.unshortened = result
+                self.ipv6 = IPv6Address(result)!
+                return
+            }
+            if specialCase == 1 {
+                result = "0:0:0:0:0:0:0:1"
+                self.unshortened = result
+                self.ipv6 = IPv6Address(result)!
+                return
+            }
+
+            for i in 0..<8 {
+                var nonZeroFirstSix = false
+                if Bool.random() {
+                    // prevent ipv4-compatible address
+                    if i == 6 && nonZeroFirstSix {
+                        result += "1111"
+                    } else {
+                        result += "0"
+                    }
+                } else {
+                    var digit = IPv6Cidr.nonZeroHexDigit.randomElement()!
+                    // prevent ipv4-compatible address
+                    if i == 5 && nonZeroFirstSix && digit == "f" {
+                        digit = "e"
+                    }
+                    for _ in 0 ..< 4 {
+                        result.append(digit)
+                    }
+                    nonZeroFirstSix = true
+                }
+                if i < 7 {
+                    result += ":"
+                }
+            }
+            self.unshortened = result
+            self.ipv6 = IPv6Address(result)!
+            return
         // for hextetShortening we want an IPv6 address without consecutive zeroes
         case .hextetShortening:
             var result = ""
@@ -54,6 +101,7 @@ struct IPv6Cidr: CustomStringConvertible {
             self.ipv6 = resultV6
             self.unshortened = result
             self.prefixLength = 128 // not used for this practice
+            return
         }
     }
     
