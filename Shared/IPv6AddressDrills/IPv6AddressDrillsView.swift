@@ -13,8 +13,8 @@ struct IPv6AddressDrillsView: View {
             Section("IPv6 Address Compression") {
                 NavigationLink("IPv6 Hextet Shortening", destination: IPv6HextetShorteningView())
                 NavigationLink("IPv6 Hextet Lengthening", destination: IPv6HextetLengtheningView())
-
-
+                NavigationLink("IPv6 Eight Hextet Shortening", destination: IPv6EightHextetShorteningView())
+                NavigationLink("IPv6 Eight Hextet Lengthening", destination: IPv6EightHextetLengtheningView())
             }
         }
     }
