@@ -18,6 +18,8 @@ struct IPv4Cidr: CustomStringConvertible {
         guard let ipSubstring = portions.first else { return nil }
         guard let lengthString = portions.last else { return nil }
         let octets = ipSubstring.split(separator: ".")
+        guard octets.count == 4 else {
+            return nil }
         guard let octet1 = UInt8(octets[0]) else { return nil }
         guard let octet2 = UInt8(octets[1]) else { return nil }
         guard let octet3 = UInt8(octets[2]) else { return nil }
