@@ -16,6 +16,47 @@ struct IPv6Cidr: CustomStringConvertible {
     private(set) var prefixLength: Int
     private(set) var ipv6: IPv6Address
     
+    // this is the long unshortened IPv6 address for "practice drills"
+    private(set) var unshortened: String?
+
+    init(practice: PracticeType) {
+        switch practice {
+            
+        // for hextetShortening we want an IPv6 address without consecutive zeroes
+        case .hextetShortening:
+            var result = ""
+            var priorHextetZero = false
+            for i in 0..<8 {
+                var valid = false
+                var newHextet: Hextet
+                repeat {
+                    //
+                    newHextet = Hextet()
+                    // if prior hextet was 0, this one cannot be
+                    if priorHextetZero == false || newHextet.value != "0000" {
+                        valid = true
+                    } else {
+                        valid = false // should not be necessary
+                    }
+                    // if this hextet is 0, prevent next one
+                    if newHextet.value == "0000" {
+                        priorHextetZero = true
+                    }
+                } while !valid
+                result += newHextet.value
+                if i < 7 {
+                    result += ":"
+                }
+            }
+            guard let resultV6 = IPv6Address(result) else {
+                fatalError("cannot initialize ipv6 address from \(result)")
+            }
+            self.ipv6 = resultV6
+            self.unshortened = result
+            self.prefixLength = 128 // not used for this practice
+        }
+    }
+    
     init?(cidr: String) {
         let portions = cidr.split(separator: "/")
         guard portions.count == 2 else { return nil }
@@ -28,6 +69,7 @@ struct IPv6Cidr: CustomStringConvertible {
         guard let prefixLength = Int(lengthString) else { return nil }
         guard prefixLength >= 0 && prefixLength <= 128 else { return nil }
         self.prefixLength = prefixLength
+        
     }
     
     var description: String {

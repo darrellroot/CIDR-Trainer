@@ -42,6 +42,7 @@ enum Games: String, CaseIterable {
     case ipv4Cidr2LastUsable
     case ipv6HextetShortening
     case ipv6HextetLengthening
+    case ipv6EightHextetShortening
     
     var fetchRequest: NSFetchRequest<CoreGame> {
         let fetchRequest: NSFetchRequest<CoreGame> = NSFetchRequest(entityName: "CoreGame")
