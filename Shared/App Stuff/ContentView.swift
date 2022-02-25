@@ -28,6 +28,10 @@ struct ContentView: View {
                     NavigationLink("IPv4 Prefix Length Drills", destination: IPv4PrefixLengthDrillsView())
                     NavigationLink("IPv4 CIDR Drills", destination: IPv4CidrDrillsView())
                 }
+                Section("IPv6") {
+                    NavigationLink("IPv6 Address Drills",destination: IPv6AddressDrillsView())
+
+                }
                 Section("Other") {
                     NavigationLink("Network Tools and CIDR Calculators",destination: ToolsView())
                     NavigationLink("Support and Settings",destination: OtherViewsView())
