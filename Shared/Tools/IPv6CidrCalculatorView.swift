@@ -27,10 +27,19 @@ struct IPv6CidrCalculatorView: View {
                 }
                 
                 Section("Results") {
-                    Text(wellFormedCidr)
-                    Text(networkAddress)
-                    Text(lastIp)
-                }
+                    HStack {
+                        Text("Well-Formed-CIDR: ").textSelection(.disabled)
+                        Text(wellFormedCidr)
+                    }
+                    HStack {
+                        Text("Network Address: ").textSelection(.disabled)
+                        Text(networkAddress)
+                    }
+                    HStack {
+                        Text("Last IP: ").textSelection(.disabled)
+                        Text(lastIp)
+                    }
+                }.textSelection(.enabled)
             }
             Button {
                 copyToClipboard()
@@ -46,25 +55,25 @@ struct IPv6CidrCalculatorView: View {
     }
     
     var wellFormedCidr: String {
-        return "Well Formed CIDR: \(cidr?.wellFormedCidrString ?? "")"
+        return "\(cidr?.wellFormedCidrString ?? "")"
     }
     
     var networkAddress: String {
-        return "Network Address: \(cidr?.networkIPv6.debugDescription ?? "")"
+        return "\(cidr?.networkIPv6.debugDescription ?? "")"
     }
     
     var lastIp: String {
-        return "Last IP: \(cidr?.highestIPv6.debugDescription ?? "")"
+        return "\(cidr?.highestIPv6.debugDescription ?? "")"
     }
     
     func copyToClipboard() {
         let result = """
             Input: \(input)
-            \(wellFormedCidr)
-            \(networkAddress)
-            \(lastIp)
+            Well-Formed CIDR: \(wellFormedCidr)
+            Network Address: \(networkAddress)
+            Last IP: \(lastIp)
             """
-        UIPasteboard.general.setValue(result, forPasteboardType: "public.plain-text")
+        UIPasteboard.general.setValue(result, forPasteboardType: "public.utf8-plain-text")
     }
 }
 

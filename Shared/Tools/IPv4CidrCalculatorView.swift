@@ -28,16 +28,43 @@ struct IPv4CidrCalculatorView: View {
                 }
                 
                 Section("Results") {
-                    Text(wellFormedCidr)
-                    Text(networkAddress)
-                    Text(firstIp)
-                    Text(lastIp)
-                    Text(firstUsableIp)
-                    Text(lastUsableIp)
-                    Text(broadcastAddress)
-                    Text(numberOfIps)
-                    Text(numberUsableIps)
-                }
+                    HStack {
+                        Text("Well-Formed-Cidr: ").textSelection(.disabled)
+                        Text(wellFormedCidr)
+                    }
+                    HStack {
+                        Text("Network Address: ").textSelection(.disabled)
+                        Text(networkAddress)
+                    }
+                    HStack {
+                        Text("First IP: ").textSelection(.disabled)
+                        Text(firstIp)
+                    }
+                    HStack {
+                        Text("Last IP: ").textSelection(.disabled)
+                        Text(lastIp)
+                    }
+                    HStack {
+                        Text("First usable unicast IP: ").textSelection(.disabled)
+                        Text(firstUsableIp)
+                    }
+                    HStack {
+                        Text("Last usable unicast IP: ").textSelection(.disabled)
+                        Text(lastUsableIp)
+                    }
+                    HStack {
+                        Text("Broadcast Address: ").textSelection(.disabled)
+                        Text(broadcastAddress)
+                    }
+                    HStack {
+                        Text("Number of IPs: ").textSelection(.disabled)
+                        Text(numberOfIps)
+                    }
+                    HStack {
+                        Text("Number of usable unicast IPs: ").textSelection(.disabled)
+                        Text(numberUsableIps)
+                    }
+                }.textSelection(.enabled)
             }
             Button {
                 copyToClipboard()
@@ -53,73 +80,74 @@ struct IPv4CidrCalculatorView: View {
     }
     
     var wellFormedCidr: String {
-        return "Well Formed CIDR: \(cidr?.wellFormed.description ?? "")"
+        return "\(cidr?.wellFormed.description ?? "")"
     }
     var networkAddress: String {
-        return "Network Address: \(cidr?.networkIp.ipv4 ?? "")"
+        return "\(cidr?.networkIp.ipv4 ?? "")"
     }
     var firstIp: String {
         if let cidr = cidr {
-            return "First IP: \(cidr.firstIp.ipv4) (\(IPv4Cidr.addressType(ip: cidr.firstIp)))"
+            return "\(cidr.firstIp.ipv4) (\(IPv4Cidr.addressType(ip: cidr.firstIp)))"
         } else {
-            return "First IP:"
+            return ""
         }
     }
     
     var lastIp: String {
         if let cidr = cidr {
-            return "Last IP: \(cidr.lastIp.ipv4) (\(IPv4Cidr.addressType(ip: cidr.lastIp)))"
+            return "\(cidr.lastIp.ipv4) (\(IPv4Cidr.addressType(ip: cidr.lastIp)))"
         } else {
-            return "Last IP:"
+            return ""
         }
     }
 
     var firstUsableIp: String {
         if cidr != nil && cidr!.cidrType == .unicast {
-            return "First usable unicast IP: \(cidr?.firstUsableIp.ipv4 ?? "")"
+            return "\(cidr?.firstUsableIp.ipv4 ?? "")"
         } else {
-            return "First usable unicast IP:"
+            return ""
         }
     }
     var lastUsableIp: String {
         if cidr != nil && cidr!.cidrType == .unicast {
-            return "Last usable unicast IP: \(cidr?.lastUsableIp.ipv4 ?? "")"
+            return "\(cidr?.lastUsableIp.ipv4 ?? "")"
         } else {
-            return "Last usable unicast IP:"
+            return ""
         }
     }
     var broadcastAddress: String {
-        return "Broadcast Address: \(cidr?.broadcastIp.ipv4 ?? "")"
+        return "\(cidr?.broadcastIp.ipv4 ?? "")"
     }
     var numberOfIps: String {
         if cidr != nil {
-            return "Number of IPs: \(cidr!.numberIps)"
+            return "\(cidr!.numberIps)"
         } else {
-            return "Number of IPs:"
+            return ""
         }
     }
     var numberUsableIps: String {
         if cidr != nil  && cidr!.cidrType == .unicast {
-            return "Number usable unicast IPs: \(cidr!.numberUsableIps)"
+            return "\(cidr!.numberUsableIps)"
         } else {
-            return "Number usable unicast IPs:"
+            return ""
         }
     }
     func copyToClipboard() {
         let result = """
             Input: \(input)
-            \(wellFormedCidr)
-            \(networkAddress)
-            \(firstIp)
-            \(lastIp)
-            \(firstUsableIp)
-            \(lastUsableIp)
-            \(broadcastAddress)
-            \(numberOfIps)
-            \(numberUsableIps)
+            Well-Formed-CIDR: \(wellFormedCidr)
+            Network Address: \(networkAddress)
+            First IP: \(firstIp)
+            Last IP: \(lastIp)
+            First usable unicast IP: \(firstUsableIp)
+            Last usable unicast IP: \(lastUsableIp)
+            Broadcast address: \(broadcastAddress)
+            Number of IPs: \(numberOfIps)
+            Number of usable unicast IPs: \(numberUsableIps)
             
             """
-        UIPasteboard.general.setValue(result, forPasteboardType: "public.plain-text")
+        UIPasteboard.general.setValue(result, forPasteboardType: "public.utf8-plain-text")
+
     }
 }
 
