@@ -18,9 +18,7 @@ struct IPv6AddressDrillsView: View {
                 NavigationLink("IPv6 Double Colon Shortening", destination: IPv6DoubleColonShorteningView())
                 NavigationLink("IPv6 Double Colon Lengthening", destination: IPv6DoubleColonLengtheningView())
                 NavigationLink("IPv6 Address Shortening", destination: IPv6AddressShorteningView())
-
-
-
+                NavigationLink("IPv6 Address Lengthening", destination: IPv6AddressLengtheningView())
             }
         }
     }

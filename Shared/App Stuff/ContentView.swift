@@ -29,7 +29,7 @@ struct ContentView: View {
                     NavigationLink("IPv4 CIDR Drills", destination: IPv4CidrDrillsView())
                 }
                 Section("IPv6") {
-                    NavigationLink("IPv6 Address Drills",destination: IPv6AddressDrillsView())
+                    NavigationLink("IPv6 Address Shortening and Lengthening Drills",destination: IPv6AddressDrillsView())
 
                 }
                 Section("Other") {

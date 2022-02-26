@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Network
 
 class CIDR_TrainerTests: XCTestCase {
 
@@ -34,6 +35,32 @@ class CIDR_TrainerTests: XCTestCase {
         let cidr = IPv4Cidr(ip: UINT32_MAX, prefixLength: 32)
         // binary string should be 32 chars
         XCTAssert(cidr.binary == "11111111111111111111111111111111")
+    }
+    
+    func testUInt16hex4() throws {
+        let test = UInt16(0x1234)
+        XCTAssert(test.hex4 == "1234")
+    }
+    
+    func testv61281() throws {
+        let input: UInt128 = 1
+        let address = IPv6Address(uint128: input)
+        XCTAssert(address.debugDescription == "::1")
+    }
+    
+    func testv61282() throws {
+        let input: UInt128 = UInt128(upperBits: 0xff00_0000_0000_0000, lowerBits: 0)
+        let address = IPv6Address(uint128: input)
+        XCTAssert(address.debugDescription == "ff00::")
+    }
+    
+    func testUInt16hex41() throws {
+        let test = UInt16(0x234)
+        XCTAssert(test.hex4 == "0234")
+    }
+    func testUInt16hex42() throws {
+        let test = UInt16(0x34)
+        XCTAssert(test.hex4 == "0034")
     }
     
     func testCidrBinary24() throws {

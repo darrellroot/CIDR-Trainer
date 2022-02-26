@@ -96,7 +96,7 @@ struct IPv6AddressShorteningView: View, DrillHelper {
                                 .font(.body.monospaced())
                         }
                         Section("Next Task") {
-                            Text("Shorten the IPv6 Address \(given.unshortened!)")
+                            Text("Shorten \(given.unshortened!)")
                             TextField("",text: $input)
                                 .onSubmit {
                                     submit()
