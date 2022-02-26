@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IPv6AddressType: CustomStringConvertible {
+enum IPv6AddressType: CustomStringConvertible, CaseIterable {
     
     case unspecified
     case loopback
@@ -81,6 +81,30 @@ enum IPv6AddressType: CustomStringConvertible {
             return "Multicast"
         case .unknown:
             return "Unknown"
+        }
+    }
+    
+    var explanation: String {
+        switch self {
+            
+        case .unspecified:
+            return "IPv6 address with all zeros is unspecified"
+        case .loopback:
+            return "IPv6 address with 127 binary zeros followed by a 1 is loopback"
+        case .ipv4Mapped:
+            return "IPv6 addresses inside 0:0:0:0:0:ffff::/96 are IPv4-mapped and are displayed differently"
+        case .uniqueLocal:
+            return "IPv6 addresses inside fc00::/7 (starting with fc or fd) are unique-local"
+        case .linkLocal:
+            return "IPv6 addresses inside fe80::/10 (starting with fe8 through feb) are link-local"
+        case .siteLocal:
+            return "IPv6 addresses inside fec0::/10 (starting with fec through fef) are site-local.  This type is DEPRECATED"
+        case .unicast:
+            return "IPv6 addresses inside 2000::/3 (Starting with 2 or 3) are used for globally unique unicast"
+        case .multicast:
+            return "IPv6 addresses inside ff00::/8 (starting with ff) are multicast"
+        case .unknown:
+            return "This IPv6 address is not inside one of the currently assigned categories"
         }
     }
 }

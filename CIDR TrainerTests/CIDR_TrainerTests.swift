@@ -45,13 +45,29 @@ class CIDR_TrainerTests: XCTestCase {
     func testv61281() throws {
         let input: UInt128 = 1
         let address = IPv6Address(uint128: input)
-        XCTAssert(address.debugDescription == "::1")
+        XCTAssert(address.description == "::1")
     }
+    
+    func testv6Description1() throws {
+        let description = IPv6Address("ff02:75c8::")!.description
+        XCTAssert(description == "ff02:75c8:0000:0000:0000:0000:0000:0000")
+    }
+    
+    func testv6Description2() throws {
+        let description = IPv6Address("ff82:4bb8::3")!.description
+        XCTAssert(description == "ff82:4bb8:0000:0000:0000:0000:0000:0003")
+    }
+    
+    func testv6Description3() throws {
+        let description = IPv6Address("ff82:0000::3")!.description
+        XCTAssert(description == "ff82::3")
+    }
+
     
     func testv61282() throws {
         let input: UInt128 = UInt128(upperBits: 0xff00_0000_0000_0000, lowerBits: 0)
         let address = IPv6Address(uint128: input)
-        XCTAssert(address.debugDescription == "ff00::")
+        XCTAssert(address.description == "ff00::")
     }
     
     func testUInt16hex41() throws {
