@@ -1,5 +1,5 @@
 //
-//  IPv6DoubleColonLengtheningView.swift
+//  IPv6AddressShorteningView.swift
 //  CIDR Trainer
 //
 //  Created by Darrell Root on 2/25/22.
@@ -7,26 +7,25 @@
 
 import SwiftUI
 
-struct IPv6DoubleColonLengtheningView: View, DrillHelper {
-    static let staticFetchRequest = Games.ipv6DoubleColonLengthening.fetchRequest
+struct IPv6AddressShorteningView: View, DrillHelper {
+    static let staticFetchRequest = Games.ipv6AddressShortening.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
-
-    @State var input: String = ""
-
-    @State var given = IPv6Cidr(practice: .doubleColon)
     
+    @State var input: String = ""
+    @State var given = IPv6Cidr(practice: .addressShortening)
+
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
     @State var displayScore = true
 
     init() {
-        self.input = self.given.ipv6.debugDescription
+        self.input = self.given.unshortened ?? ""
     }
-    
+
     func wrongAnswer() {
          withAnimation {
              lastCorrect = false
@@ -34,8 +33,8 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
          thisGame?.wrong()
         lastResult = """
             Incorrect:
-            \(given.ipv6.debugDescription) with :: expanded is
-            \(given.unshortened!) not
+            \(given.unshortened!) shortened is
+            \(given.ipv6.debugDescription) not
             \(input)
             """
 
@@ -45,7 +44,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
          }
          newQuestion()
     }
-    
+
     func correctAnswer() {
         withAnimation {
             lastCorrect = true
@@ -53,8 +52,8 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
         thisGame?.correct()
         lastResult = """
             Correct:
-            \(given.ipv6.debugDescription) with :: expanded is
-            \(given.unshortened!)
+            \(given.unshortened!) shortened is
+            \(given.ipv6.debugDescription)
             """
         displayCheck = true
         withAnimation {
@@ -62,7 +61,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
         }
         newQuestion()
     }
-    
+
     func submit() {
         displayScore = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -70,7 +69,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
                 displayScore = false
             }
         }
-        if input == given.unshortened! {
+        if input == given.ipv6.debugDescription {
             correctAnswer()
             return
         } else {
@@ -80,9 +79,10 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
     }
     
     func newQuestion() {
-        given = IPv6Cidr(practice: .doubleColon)
-        input = given.ipv6.debugDescription
+        given = IPv6Cidr(practice: .addressShortening)
+        input = given.unshortened!
     }
+
 
     var body: some View {
         if displayPurchaseView {
@@ -94,11 +94,9 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
                         if displayScore {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
                                 .font(.body.monospaced())
-
                         }
                         Section("Next Task") {
-                            Text("Special instructions for this exercise: only expand each all-zeroes hextet to one zero")
-                            Text("Expand double-colons in IPv6 Address \(given.ipv6.debugDescription)")
+                            Text("Shorten the IPv6 Address \(given.unshortened!)")
                             TextField("",text: $input)
                                 .onSubmit {
                                     submit()
@@ -118,15 +116,15 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
                 (lastCorrect ? SFSymbol.checkmark.image : SFSymbol.xCircle.image)
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
-            .navigationTitle("IPv6 Double Colon Lengthening")
+            .navigationTitle("IPv6 Address Shortening")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: IPv6DoubleColonHelp())
+                    NavigationLink("Help", destination: IPv6AddressShorteningHelp())
                 }
             }
             .onAppear {
-                input = given.ipv6.debugDescription
+                input = given.unshortened ?? ""
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         displayScore = false
@@ -136,9 +134,8 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
         }//if else
     }
 }
-
-struct IPv6DoubleColonLengtheningView_Previews: PreviewProvider {
+struct IPv6AddressShorteningView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv6DoubleColonLengtheningView()
+        IPv6AddressShorteningView()
     }
 }

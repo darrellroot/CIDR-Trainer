@@ -32,7 +32,12 @@ struct IPv6EightHextetLengtheningView: View, DrillHelper {
              lastCorrect = false
          }
          thisGame?.wrong()
-        lastResult = "Incorrect: \(given.ipv6.debugDescription) lengthened is \(given.unshortened!) not \(input)"
+        lastResult = """
+            Incorrect:
+            \(given.ipv6.debugDescription) lengthened is
+            \(given.unshortened!) not
+            \(input)
+            """
 
          displayCheck = true
          withAnimation {
@@ -46,7 +51,11 @@ struct IPv6EightHextetLengtheningView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(given.ipv6.debugDescription) lengthened is \(given.unshortened!)"
+        lastResult = """
+            Correct:
+            \(given.ipv6.debugDescription) lengthened is
+            \(given.unshortened!)
+            """
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -84,6 +93,8 @@ struct IPv6EightHextetLengtheningView: View, DrillHelper {
                     List {
                         if displayScore {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
+                                .font(.body.monospaced())
+
                         }
                         Section("Next Task") {
                             Text("Lengthen the IPv6 Address \(given.ipv6.debugDescription)")

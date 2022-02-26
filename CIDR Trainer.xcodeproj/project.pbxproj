@@ -167,6 +167,10 @@
 		2F4094A727C980760048F9F3 /* IPv6DoubleColonLengtheningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094A527C980760048F9F3 /* IPv6DoubleColonLengtheningView.swift */; };
 		2F4094A927C984660048F9F3 /* IPv6DoubleColonHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094A827C984660048F9F3 /* IPv6DoubleColonHelp.swift */; };
 		2F4094AA27C984660048F9F3 /* IPv6DoubleColonHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094A827C984660048F9F3 /* IPv6DoubleColonHelp.swift */; };
+		2F4094AC27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094AB27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift */; };
+		2F4094AD27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094AB27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift */; };
+		2F4094AF27C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094AE27C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift */; };
+		2F4094B027C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094AE27C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift */; };
 		2FB7341227BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
 		2FB7341327BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
 		2FB7341627BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */; };
@@ -343,6 +347,8 @@
 		2F4094A227C97B000048F9F3 /* IPv6DoubleColonShorteningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6DoubleColonShorteningView.swift; sourceTree = "<group>"; };
 		2F4094A527C980760048F9F3 /* IPv6DoubleColonLengtheningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6DoubleColonLengtheningView.swift; sourceTree = "<group>"; };
 		2F4094A827C984660048F9F3 /* IPv6DoubleColonHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv6DoubleColonHelp.swift; sourceTree = "<group>"; };
+		2F4094AB27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6AddressShorteningView.swift; sourceTree = "<group>"; };
+		2F4094AE27C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv6AddressShorteningHelp.swift; sourceTree = "<group>"; };
 		2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskView.swift; sourceTree = "<group>"; };
 		2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4PrefixLengthDrillsView.swift; sourceTree = "<group>"; };
 		2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskHelp.swift; sourceTree = "<group>"; };
@@ -656,7 +662,9 @@
 				2F40949F27C972E00048F9F3 /* IPv6EightHextetLengtheningView.swift */,
 				2F4094A227C97B000048F9F3 /* IPv6DoubleColonShorteningView.swift */,
 				2F4094A527C980760048F9F3 /* IPv6DoubleColonLengtheningView.swift */,
+				2F4094AB27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift */,
 				2F40949127C88E0E0048F9F3 /* IPv6HextetShorteningHelp.swift */,
+				2F4094AE27C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift */,
 				2F4094A827C984660048F9F3 /* IPv6DoubleColonHelp.swift */,
 			);
 			path = IPv6AddressDrills;
@@ -934,6 +942,7 @@
 				2F3075B627B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
 				2FF3548127C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */,
 				2FF3548727C082AC00251070 /* IPv4Cidr2BroadcastHelp.swift in Sources */,
+				2F4094AC27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F4094A027C972E00048F9F3 /* IPv6EightHextetLengtheningView.swift in Sources */,
 				2F30757427B591D000589B05 /* AllTimeScoreView.swift in Sources */,
@@ -946,6 +955,7 @@
 				2FB7342827BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift in Sources */,
 				2F30757127B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2FB7341C27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
+				2F4094AF27C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift in Sources */,
 				2F40947127C5F6F10048F9F3 /* CidrV4KeyboardView.swift in Sources */,
 				2FF354A127C19D7A00251070 /* DeviceModel.swift in Sources */,
 				2FB7345327BF371B002821D9 /* IPv4Cidr.swift in Sources */,
@@ -1051,6 +1061,7 @@
 				2F3075B727B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
 				2FF3548227C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */,
 				2FF3548827C082AC00251070 /* IPv4Cidr2BroadcastHelp.swift in Sources */,
+				2F4094AD27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
 				2F4094A127C972E00048F9F3 /* IPv6EightHextetLengtheningView.swift in Sources */,
 				2F30757527B591D000589B05 /* AllTimeScoreView.swift in Sources */,
@@ -1063,6 +1074,7 @@
 				2FB7342927BEF93C002821D9 /* IPv4HexNetmask2PrefixView.swift in Sources */,
 				2F30757227B58F0400589B05 /* RecentScoreView.swift in Sources */,
 				2FB7341D27BEEE73002821D9 /* IPv4BinaryNetmask2PrefixLengthView.swift in Sources */,
+				2F4094B027C9A5270048F9F3 /* IPv6AddressShorteningHelp.swift in Sources */,
 				2F40947227C5F6F10048F9F3 /* CidrV4KeyboardView.swift in Sources */,
 				2FF354A227C19D7A00251070 /* DeviceModel.swift in Sources */,
 				2FB7345427BF371B002821D9 /* IPv4Cidr.swift in Sources */,

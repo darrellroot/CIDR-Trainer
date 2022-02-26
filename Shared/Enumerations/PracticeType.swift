@@ -12,4 +12,5 @@ import Foundation
 enum PracticeType {
     case hextetShortening
     case doubleColon
+    case addressShortening
 }

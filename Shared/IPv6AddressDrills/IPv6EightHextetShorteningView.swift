@@ -32,7 +32,12 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
              lastCorrect = false
          }
          thisGame?.wrong()
-        lastResult = "Incorrect: \(given.unshortened!) shortened is \(given.ipv6.debugDescription) not \(input)"
+        lastResult = """
+            Incorrect:
+            \(given.unshortened!) shortened is
+            \(given.ipv6.debugDescription) not
+            \(input)
+            """
 
          displayCheck = true
          withAnimation {
@@ -46,7 +51,11 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
             lastCorrect = true
         }
         thisGame?.correct()
-        lastResult = "Correct: \(given.unshortened!) shortened is \(given.ipv6.debugDescription)"
+        lastResult = """
+            Correct:
+            \(given.unshortened!) shortened is
+            \(given.ipv6.debugDescription)
+            """
         displayCheck = true
         withAnimation {
             displayCheck = false
@@ -84,6 +93,8 @@ struct IPv6EightHextetShorteningView: View, DrillHelper {
                     List {
                         if displayScore {
                             ResultView(lastResult: $lastResult, lastCorrect: $lastCorrect, fetchRequest: fetchRequest)
+                                .font(.body.monospaced())
+
                         }
                         Section("Next Task") {
                             Text("Shorten the IPv6 Address \(given.unshortened!)")

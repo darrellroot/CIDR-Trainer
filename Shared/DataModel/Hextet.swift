@@ -12,7 +12,13 @@ struct Hextet {
     
     private(set) var value: String
     
+    // override used occasionally to prevent
+    // IPv4 compatible addresses
+    mutating func setValue(_ newValue: String) {
+        self.value = newValue
+    }
     // hextet with leading zeroes gone
+
     var short: String {
         
         var position = value.startIndex

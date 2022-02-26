@@ -102,6 +102,46 @@ struct IPv6Cidr: CustomStringConvertible {
             self.unshortened = result
             self.prefixLength = 128 // not used for this practice
             return
+            // for addressShortening we want an IPv6 address with many zeros but never ipv4-compatible
+        case .addressShortening:
+            self.prefixLength = 128 // not used for this practice
+            let specialCase = Int.random(in: 0..<20)
+            var result = ""
+            if specialCase == 0 {
+                result = "0:0:0:0:0:0:0:0"
+                self.unshortened = result
+                self.ipv6 = IPv6Address(result)!
+                return
+            }
+            if specialCase == 1 {
+                result = "0:0:0:0:0:0:0:1"
+                self.unshortened = result
+                self.ipv6 = IPv6Address(result)!
+                return
+            }
+            var possibleV4Compatible = true
+            for i in 0..<8 {
+                var newHextet = Hextet()
+                if i<5 && newHextet.value != "0000" {
+                    possibleV4Compatible = false
+                }
+                if possibleV4Compatible && i == 5 && (newHextet.value == "0000" || newHextet.value == "ffff") {
+                    newHextet.setValue("1111")
+                }
+                
+                result += newHextet.value
+                if i < 7 {
+                    result += ":"
+                }
+            }
+            
+            guard let resultV6 = IPv6Address(result) else {
+                fatalError("cannot initialize ipv6 address from \(result)")
+            }
+            self.ipv6 = resultV6
+            self.unshortened = result
+            return
+
         }
     }
     
