@@ -24,7 +24,7 @@ struct IPv6AddressLengtheningView: View, DrillHelper {
     @State var displayScore = true
 
     init() {
-        self.input = self.given.ipv6.debugDescription
+        self.input = self.given.ipv6.description
     }
     
     func wrongAnswer() {
@@ -34,7 +34,7 @@ struct IPv6AddressLengtheningView: View, DrillHelper {
         thisGame?.wrong()
         lastResult = """
             Incorrect:
-            \(given.ipv6.debugDescription) lengthened is
+            \(given.ipv6.description) lengthened is
             \(given.unshortened!) not
             \(input)
             """
@@ -53,7 +53,7 @@ struct IPv6AddressLengtheningView: View, DrillHelper {
         thisGame?.correct()
         lastResult = """
             Correct:
-            \(given.ipv6.debugDescription) lengthened is
+            \(given.ipv6.description) lengthened is
             \(given.unshortened!)
             """
         displayCheck = true
@@ -81,7 +81,7 @@ struct IPv6AddressLengtheningView: View, DrillHelper {
 
     func newQuestion() {
         given = IPv6Cidr(practice: .addressShortening)
-        input = given.ipv6.debugDescription
+        input = given.ipv6.description
     }
 
     var body: some View {
@@ -97,7 +97,7 @@ struct IPv6AddressLengtheningView: View, DrillHelper {
 
                         }
                         Section("Next Task") {
-                            Text("Lengthen \(given.ipv6.debugDescription)")
+                            Text("Lengthen \(given.ipv6.description)")
                             TextField("",text: $input)
                                 .onSubmit {
                                     submit()
@@ -125,7 +125,7 @@ struct IPv6AddressLengtheningView: View, DrillHelper {
                 }
             }
             .onAppear {
-                input = given.ipv6.debugDescription
+                input = given.ipv6.description
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         displayScore = false

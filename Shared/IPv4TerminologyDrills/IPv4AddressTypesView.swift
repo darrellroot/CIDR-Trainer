@@ -111,6 +111,13 @@ struct IPv4AddressTypesView: View, DrillHelper {
                     NavigationLink("Help", destination: IPv4AddressTypesHelp())
                 }
             }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
+                }
+            }
 
         }// if else
     }

@@ -59,11 +59,11 @@ struct IPv6CidrCalculatorView: View {
     }
     
     var networkAddress: String {
-        return "\(cidr?.networkIPv6.debugDescription ?? "")"
+        return "\(cidr?.networkIPv6.description ?? "")"
     }
     
     var lastIp: String {
-        return "\(cidr?.highestIPv6.debugDescription ?? "")"
+        return "\(cidr?.highestIPv6.description ?? "")"
     }
     
     func copyToClipboard() {

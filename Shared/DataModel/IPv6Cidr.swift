@@ -161,7 +161,7 @@ struct IPv6Cidr: CustomStringConvertible {
     }
     
     var description: String {
-        return ipv6.debugDescription + "/" + String(prefixLength)
+        return ipv6.description + "/" + String(prefixLength)
     }
     
     var networkIp: UInt128 {
@@ -204,7 +204,7 @@ struct IPv6Cidr: CustomStringConvertible {
     }
     
     var wellFormedCidr: IPv6Cidr {
-        let newString = "\(self.networkIPv6.debugDescription)/\(self.prefixLength)"
+        let newString = "\(self.networkIPv6.description)/\(self.prefixLength)"
         guard let wellFormed = IPv6Cidr(cidr: newString) else {
             fatalError("Unable to create IPv6Cidr from newString \(newString)")
         }

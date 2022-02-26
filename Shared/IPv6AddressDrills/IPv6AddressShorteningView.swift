@@ -34,7 +34,7 @@ struct IPv6AddressShorteningView: View, DrillHelper {
         lastResult = """
             Incorrect:
             \(given.unshortened!) shortened is
-            \(given.ipv6.debugDescription) not
+            \(given.ipv6.description) not
             \(input)
             """
 
@@ -53,7 +53,7 @@ struct IPv6AddressShorteningView: View, DrillHelper {
         lastResult = """
             Correct:
             \(given.unshortened!) shortened is
-            \(given.ipv6.debugDescription)
+            \(given.ipv6.description)
             """
         displayCheck = true
         withAnimation {
@@ -69,7 +69,7 @@ struct IPv6AddressShorteningView: View, DrillHelper {
                 displayScore = false
             }
         }
-        if input == given.ipv6.debugDescription {
+        if input == given.ipv6.description {
             correctAnswer()
             return
         } else {

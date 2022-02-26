@@ -24,7 +24,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
     @State var displayScore = true
 
     init() {
-        self.input = self.given.ipv6.debugDescription
+        self.input = self.given.ipv6.description
     }
     
     func wrongAnswer() {
@@ -34,7 +34,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
          thisGame?.wrong()
         lastResult = """
             Incorrect:
-            \(given.ipv6.debugDescription) with :: expanded is
+            \(given.ipv6.description) with :: expanded is
             \(given.unshortened!) not
             \(input)
             """
@@ -53,7 +53,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
         thisGame?.correct()
         lastResult = """
             Correct:
-            \(given.ipv6.debugDescription) with :: expanded is
+            \(given.ipv6.description) with :: expanded is
             \(given.unshortened!)
             """
         displayCheck = true
@@ -81,7 +81,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
     
     func newQuestion() {
         given = IPv6Cidr(practice: .doubleColon)
-        input = given.ipv6.debugDescription
+        input = given.ipv6.description
     }
 
     var body: some View {
@@ -98,7 +98,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
                         }
                         Section("Next Task") {
                             Text("Special instructions for this exercise: only expand each all-zeroes hextet to one zero")
-                            Text("Expand double-colons in IPv6 Address \(given.ipv6.debugDescription)")
+                            Text("Expand double-colons in IPv6 Address \(given.ipv6.description)")
                             TextField("",text: $input)
                                 .onSubmit {
                                     submit()
@@ -126,7 +126,7 @@ struct IPv6DoubleColonLengtheningView: View, DrillHelper {
                 }
             }
             .onAppear {
-                input = given.ipv6.debugDescription
+                input = given.ipv6.description
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         displayScore = false
