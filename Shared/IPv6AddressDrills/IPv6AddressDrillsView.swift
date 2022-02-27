@@ -21,6 +21,8 @@ struct IPv6AddressDrillsView: View {
                 NavigationLink("IPv6 Address Lengthening", destination: IPv6AddressLengtheningView())
             }
         }
+        .navigationTitle("IPv6 Address Compression")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

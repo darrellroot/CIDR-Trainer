@@ -46,6 +46,8 @@
 		2F0F529627CC158300B4FCB9 /* IPv6Cidr4Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F529427CC158300B4FCB9 /* IPv6Cidr4Help.swift */; };
 		2F0F529827CC17D400B4FCB9 /* IPv6CidrAnyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F529727CC17D400B4FCB9 /* IPv6CidrAnyHelp.swift */; };
 		2F0F529927CC17D400B4FCB9 /* IPv6CidrAnyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F529727CC17D400B4FCB9 /* IPv6CidrAnyHelp.swift */; };
+		2F0F529B27CC294C00B4FCB9 /* OtherApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F529A27CC294C00B4FCB9 /* OtherApplications.swift */; };
+		2F0F529C27CC294C00B4FCB9 /* OtherApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0F529A27CC294C00B4FCB9 /* OtherApplications.swift */; };
 		2F3074BF27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */; };
 		2F3074C027AE3CFC00589B05 /* OneDigitDecimal2HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */; };
 		2F3074C227AE3F6700589B05 /* HexKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */; };
@@ -329,6 +331,7 @@
 		2F0F529127CC134000B4FCB9 /* IPv6Cidr16Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv6Cidr16Help.swift; sourceTree = "<group>"; };
 		2F0F529427CC158300B4FCB9 /* IPv6Cidr4Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv6Cidr4Help.swift; sourceTree = "<group>"; };
 		2F0F529727CC17D400B4FCB9 /* IPv6CidrAnyHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv6CidrAnyHelp.swift; sourceTree = "<group>"; };
+		2F0F529A27CC294C00B4FCB9 /* OtherApplications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherApplications.swift; sourceTree = "<group>"; };
 		2F1B648E27B8AA37008B7991 /* Store-StoreKit1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store-StoreKit1.swift"; sourceTree = "<group>"; };
 		2F3074BE27AE3CFC00589B05 /* OneDigitDecimal2HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDigitDecimal2HexView.swift; sourceTree = "<group>"; };
 		2F3074C127AE3F6700589B05 /* HexKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexKeyboardView.swift; sourceTree = "<group>"; };
@@ -818,6 +821,7 @@
 			children = (
 				2FF3549327C17ADC00251070 /* OtherViewsView.swift */,
 				2FF3549627C17BE300251070 /* ContactsHelp.swift */,
+				2F0F529A27CC294C00B4FCB9 /* OtherApplications.swift */,
 			);
 			path = OtherViews;
 			sourceTree = "<group>";
@@ -983,6 +987,7 @@
 				2FF3548427C0805700251070 /* IPv4Cidr2BroadcastView.swift in Sources */,
 				2F3074CA27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DB27B0746D00589B05 /* PurchaseView.swift in Sources */,
+				2F0F529B27CC294C00B4FCB9 /* OtherApplications.swift in Sources */,
 				2F4094B227C9AEAB0048F9F3 /* IPv6AddressLengtheningView.swift in Sources */,
 				2F3074D127AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F30758127B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */,
@@ -1121,6 +1126,7 @@
 				2FF3548527C0805700251070 /* IPv4Cidr2BroadcastView.swift in Sources */,
 				2F3074CB27AF229500589B05 /* DataController.swift in Sources */,
 				2F3074DC27B0746D00589B05 /* PurchaseView.swift in Sources */,
+				2F0F529C27CC294C00B4FCB9 /* OtherApplications.swift in Sources */,
 				2F4094B327C9AEAB0048F9F3 /* IPv6AddressLengtheningView.swift in Sources */,
 				2F3074D227AF305400589B05 /* CoreGame+CoreDataProperties.swift in Sources */,
 				2F30758227B605CC00589B05 /* OneDigitBinary2HexView.swift in Sources */,

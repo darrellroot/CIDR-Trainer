@@ -10,7 +10,7 @@ import SwiftUI
 struct OtherViewsView: View {
     var body: some View {
         List {
-            Section("Other Views") {
+            Section("Support and Settings") {
                 NavigationLink("Purchase full unlock",destination: PurchaseView())
                 NavigationLink("Support and Credits",destination: ContactsHelp())
                 Button(action: {
@@ -23,9 +23,11 @@ struct OtherViewsView: View {
                             .foregroundColor(.red)
                     }
                 }
+                NavigationLink("Other Network Mom LLC Applications",destination: OtherApplications())
+
             }
         }
-        .navigationTitle("Other Views")
+        .navigationTitle("Support and Settings")
         .navigationBarTitleDisplayMode(.inline)
     }
     func requestReviewManually() {

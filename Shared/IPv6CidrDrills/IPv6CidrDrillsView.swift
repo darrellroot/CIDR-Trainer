@@ -17,6 +17,8 @@ struct IPv6CidrDrillsView: View {
 
             }
         }
+        .navigationTitle("IPv6 CIDR Drills")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
