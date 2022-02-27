@@ -13,6 +13,7 @@ struct IPv6TerminologyView: View {
             Section("IPv6 Terminology Drills") {
                 NavigationLink("IPv6 Address Types", destination: IPv6AddressTypesView())
                 NavigationLink("Valid IPv6 Hextets", destination: ValidIPv6HextetView())
+                NavigationLink("Valid IPv6 Addresses", destination: ValidIPv6AddressView())
 
             }
         }

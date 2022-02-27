@@ -68,6 +68,18 @@ class CIDR_TrainerTests: XCTestCase {
         XCTAssert(description == "ff82:0008:0000:0000:0000:0000:0000:0003")
     }
 
+    func testInvalidv6() throws {
+        for _ in 0..<100 {
+            let candidate = InvalidIPv6Address()
+            let address = IPv6Address(candidate.value)
+            print("\(candidate.value) \(candidate.type)")
+            if candidate.type == .valid {
+                XCTAssert(address != nil)
+            } else {
+                XCTAssert(address == nil)
+            }
+        }
+    }
 
     
     func testv61282() throws {
