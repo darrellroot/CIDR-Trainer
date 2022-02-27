@@ -11,9 +11,9 @@ struct IPv6CidrDrillsView: View {
     var body: some View {
         List {
             Section("IPv6 Terminology Drills") {
-                NavigationLink("IPv6 CIDR (prefix / 16) drill", destination: IPv6Cidr16DrillView(cidrDivisor: 16))
-                NavigationLink("IPv6 CIDR (prefix / 4) drill", destination: IPv6Cidr16DrillView(cidrDivisor: 16))
-                NavigationLink("IPv6 CIDR (any prefix) drill", destination: IPv6Cidr16DrillView(cidrDivisor: 1))
+                NavigationLink("IPv6 CIDR (prefix / 16) drill", destination: IPv6Cidr16DrillView())
+                NavigationLink("IPv6 CIDR (prefix / 4) drill", destination: IPv6Cidr4DrillView())
+                NavigationLink("IPv6 CIDR (any prefix) drill", destination: IPv6CidrAnyDrillView())
 
             }
         }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IPv6Cidr16DrillView: View, DrillHelper {
+struct IPv6CidrAnyDrillView: View, DrillHelper {
     static let staticFetchRequest = Games.ipv6Cidr16.fetchRequest
     let fetchRequest = staticFetchRequest
     @FetchRequest(fetchRequest: staticFetchRequest) var coreGames
@@ -15,15 +15,14 @@ struct IPv6Cidr16DrillView: View, DrillHelper {
     @FetchRequest(fetchRequest: CoreSettings.fetchRequest()) var coreSettings
 
     @State var input = ""
-    @State var given: IPv6Cidr = IPv6Cidr(divisor: 16)
+    @State var given: IPv6Cidr = IPv6Cidr(divisor: 1)
     @State var lastResult = "Press your answer and hit the up arrow"
     @State var lastCorrect = true
     @State var displayCheck = false
     @State var displayScore = true
 
-    let cidrDivisor: Int = 16
+    let cidrDivisor: Int = 1
     
-
     func wrongAnswer() {
         withAnimation {
             lastCorrect = false
@@ -123,7 +122,7 @@ struct IPv6Cidr16DrillView: View, DrillHelper {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: IPv6Cidr16Help())
+                    NavigationLink("Help", destination: IPv6HextetShorteningHelp())
                 }
             }
             .onAppear {
@@ -137,8 +136,8 @@ struct IPv6Cidr16DrillView: View, DrillHelper {
         }//if else
     }
 }
-struct IPv6Cidr16DrillView_Previews: PreviewProvider {
+struct IPv6CidrAnyDrillView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv6Cidr16DrillView()
+        IPv6CidrAnyDrillView()
     }
 }
