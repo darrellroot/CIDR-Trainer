@@ -17,6 +17,8 @@ struct IPv6TerminologyView: View {
 
             }
         }
+        .navigationTitle("IPv6 Terminology")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -21,7 +21,7 @@ struct IPv6AddressTypesView: View, DrillHelper {
     @State var displayScore = true
 
     // any case except unknown IPv6 type
-    static let cases: [IPv6AddressType] = [.unspecified,.loopback,.ipv4Mapped,.uniqueLocal,.linkLocal,.siteLocal,.unicast,.multicast]
+    static let cases: [IPv6AddressType] = [.unspecified,.loopback,.ipv4Mapped,.uniqueLocal,.linkLocal,.unicast,.multicast]
     
     @State var ipv6Address = IPv6Address(type: cases.randomElement()!)
 
@@ -95,7 +95,7 @@ struct IPv6AddressTypesView: View, DrillHelper {
 
                     }
                     Spacer()
-                    ForEach(IPv6AddressType.allCases.sorted(by: {$0.description < $1.description}), id: \.self) { type in
+                    ForEach(IPv6AddressTypesView.cases.sorted(by: {$0.description < $1.description}), id: \.self) { type in
                         Button(action: {
                             if type == ipv6Address.addressType {
                                 correctAnswer()

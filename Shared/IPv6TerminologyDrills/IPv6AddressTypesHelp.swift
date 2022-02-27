@@ -85,6 +85,25 @@ struct IPv6AddressTypesHelp: View {
     `Unknown:          everything else`
     
     The majority of IPv6 addresses are not in any of the above categories and are reserved for future use.
+    
+    The following categories of IPv6 addresses are deprecated.  This app does not test on them, but it is good to be aware of them:
+    
+    `site-local:        fec0::/10`
+    That includes all IPv6 addresses starting with fec, fed, fee, and fef.
+    
+    Site-local is similar to RFC1918 address space in IPv4.  It is deprecated because if two companies merge, they may have overlapping side-local space.  It was replaced with unique-local where each site would pick a random /48 inside fc00::/7.
+    
+    `IPv4-compatible IPv6 addresses:  ::/96`
+    (but not including :: or ::1)
+    
+    This was an old transition mechanism where the first 96 bits are 0 and the last 32 bits correspond to an IPv4 address.
+    
+    Some computers still display IP addresses in this range in the following format:
+    `::192.168.3.4`
+    This could correspond to
+    `::c0a8:0304`
+    
+    IPv4-compatible IPv6 addresses are deprecated in favor of IPv4-mapped IPv6 addresses inside ::ffff:0:0/96
     """
 }
 

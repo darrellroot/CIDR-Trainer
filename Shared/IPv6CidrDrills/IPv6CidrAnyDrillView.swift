@@ -117,7 +117,7 @@ struct IPv6CidrAnyDrillView: View, DrillHelper {
                     .font(.system(size: 150)).opacity(displayCheck ? 0.4 : 0.0)
             }// zstack
             
-            .navigationTitle(cidrDivisor == 1 ? "IPv6 CIDR /\(cidrDivisor) Drill" : "IPv6 CIDR Drill" )
+            .navigationTitle("IPv6 CIDR Drill" )
 
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
