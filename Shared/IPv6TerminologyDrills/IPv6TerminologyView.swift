@@ -20,7 +20,7 @@ struct IPv6TerminologyView: View {
     }
 }
 
-struct IPv6CidrDrillsView_Previews: PreviewProvider {
+struct IPv6TerminologyView_Previews: PreviewProvider {
     static var previews: some View {
         IPv6TerminologyView()
     }

@@ -157,6 +157,19 @@ struct IPv6Cidr: CustomStringConvertible {
         guard let prefixLength = Int(lengthString) else { return nil }
         guard prefixLength >= 0 && prefixLength <= 128 else { return nil }
         self.prefixLength = prefixLength
+    }
+    
+    //Generates an IPv6 cidr where the prefix length is an integer multiple of divisor
+    init(divisor: Int) {
+        let ipHigh = UInt64.random(in: 0..<UINT64_MAX)
+        let ipLow = UInt64.random(in: 0..<UINT64_MAX)
+        let ip = UInt128(upperBits: ipHigh, lowerBits: ipLow)
+        let address = IPv6Address(uint128: ip)
+        let prefix = (Int.random(in: 0...128) / divisor) * divisor
+        self.ipv6 = address
+        self.prefixLength = prefix
+        self.unshortened = "\(ipv6.description)/\(prefix)"
+
         
     }
     
