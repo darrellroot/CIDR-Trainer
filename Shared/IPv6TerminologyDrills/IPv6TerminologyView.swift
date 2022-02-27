@@ -10,8 +10,9 @@ import SwiftUI
 struct IPv6TerminologyView: View {
     var body: some View {
         List {
-            Section("IPv6 CIDR Drills") {
+            Section("IPv6 Terminology Drills") {
                 NavigationLink("IPv6 Address Types", destination: IPv6AddressTypesView())
+                NavigationLink("Valid IPv6 Hextets", destination: ValidIPv6HextetView())
 
             }
         }
