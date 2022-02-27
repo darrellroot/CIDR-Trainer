@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IPv6CidrDrillsView: View {
+struct IPv6TerminologyView: View {
     var body: some View {
         List {
             Section("IPv6 CIDR Drills") {
@@ -20,6 +20,6 @@ struct IPv6CidrDrillsView: View {
 
 struct IPv6CidrDrillsView_Previews: PreviewProvider {
     static var previews: some View {
-        IPv6CidrDrillsView()
+        IPv6TerminologyView()
     }
 }

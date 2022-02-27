@@ -180,10 +180,16 @@
 		2F4094BB27C9EDF60048F9F3 /* IPv6AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094B427C9DB660048F9F3 /* IPv6AddressType.swift */; };
 		2F4094BC27C9EE3E0048F9F3 /* IPv4AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3075C827B7770900589B05 /* IPv4AddressType.swift */; };
 		2F4094BD27C9EE510048F9F3 /* Hextet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40948E27C888A60048F9F3 /* Hextet.swift */; };
-		2F4094C227CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C127CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift */; };
-		2F4094C327CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C127CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift */; };
+		2F4094C227CAC9AD0048F9F3 /* IPv6TerminologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C127CAC9AD0048F9F3 /* IPv6TerminologyView.swift */; };
+		2F4094C327CAC9AD0048F9F3 /* IPv6TerminologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C127CAC9AD0048F9F3 /* IPv6TerminologyView.swift */; };
 		2F4094C527CAC9EF0048F9F3 /* IPv6AddressTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C427CAC9EF0048F9F3 /* IPv6AddressTypesView.swift */; };
 		2F4094C627CAC9EF0048F9F3 /* IPv6AddressTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C427CAC9EF0048F9F3 /* IPv6AddressTypesView.swift */; };
+		2F4094C827CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C727CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift */; };
+		2F4094C927CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094C727CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift */; };
+		2F4094CB27CB26700048F9F3 /* ValidIPv6HextetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094CA27CB26700048F9F3 /* ValidIPv6HextetView.swift */; };
+		2F4094CC27CB26700048F9F3 /* ValidIPv6HextetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094CA27CB26700048F9F3 /* ValidIPv6HextetView.swift */; };
+		2F4094CE27CB26EA0048F9F3 /* HextetInvalid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094CD27CB26EA0048F9F3 /* HextetInvalid.swift */; };
+		2F4094CF27CB26EA0048F9F3 /* HextetInvalid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4094CD27CB26EA0048F9F3 /* HextetInvalid.swift */; };
 		2FB7341227BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
 		2FB7341327BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */; };
 		2FB7341627BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */; };
@@ -365,8 +371,11 @@
 		2F4094B127C9AEAB0048F9F3 /* IPv6AddressLengtheningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6AddressLengtheningView.swift; sourceTree = "<group>"; };
 		2F4094B427C9DB660048F9F3 /* IPv6AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6AddressType.swift; sourceTree = "<group>"; };
 		2F4094B727C9ECC60048F9F3 /* UInt16+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt16+extensions.swift"; sourceTree = "<group>"; };
-		2F4094C127CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6CidrDrillsView.swift; sourceTree = "<group>"; };
+		2F4094C127CAC9AD0048F9F3 /* IPv6TerminologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6TerminologyView.swift; sourceTree = "<group>"; };
 		2F4094C427CAC9EF0048F9F3 /* IPv6AddressTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv6AddressTypesView.swift; sourceTree = "<group>"; };
+		2F4094C727CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv6AddressTypesHelp.swift; sourceTree = "<group>"; };
+		2F4094CA27CB26700048F9F3 /* ValidIPv6HextetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidIPv6HextetView.swift; sourceTree = "<group>"; };
+		2F4094CD27CB26EA0048F9F3 /* HextetInvalid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HextetInvalid.swift; sourceTree = "<group>"; };
 		2FB7341127BEE280002821D9 /* IPv4Prefix2BinaryNetmaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskView.swift; sourceTree = "<group>"; };
 		2FB7341527BEE7D5002821D9 /* IPv4PrefixLengthDrillsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPv4PrefixLengthDrillsView.swift; sourceTree = "<group>"; };
 		2FB7341827BEE989002821D9 /* IPv4Prefix2BinaryNetmaskHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPv4Prefix2BinaryNetmaskHelp.swift; sourceTree = "<group>"; };
@@ -473,7 +482,7 @@
 				2FB7341427BEE67C002821D9 /* IPv4PrefixLengthDrills */,
 				2FB7344B27BF35D8002821D9 /* IPv4CidrDrills */,
 				2F40948727C85FF80048F9F3 /* IPv6AddressDrills */,
-				2F4094C027CAC9870048F9F3 /* IPv6CidrDrills */,
+				2F4094C027CAC9870048F9F3 /* IPv6TerminologyDrills */,
 				2F30757627B5A6B200589B05 /* OtherHelpViews */,
 				2FF3549227C17A9A00251070 /* OtherViews */,
 				2F40946927C5EEF20048F9F3 /* Tools */,
@@ -535,6 +544,7 @@
 				2F3074EF27B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift */,
 				2F40947427C825120048F9F3 /* UInt128.swift */,
 				2F40948E27C888A60048F9F3 /* Hextet.swift */,
+				2F4094CD27CB26EA0048F9F3 /* HextetInvalid.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -692,13 +702,15 @@
 			path = IPv6AddressDrills;
 			sourceTree = "<group>";
 		};
-		2F4094C027CAC9870048F9F3 /* IPv6CidrDrills */ = {
+		2F4094C027CAC9870048F9F3 /* IPv6TerminologyDrills */ = {
 			isa = PBXGroup;
 			children = (
-				2F4094C127CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift */,
+				2F4094C127CAC9AD0048F9F3 /* IPv6TerminologyView.swift */,
 				2F4094C427CAC9EF0048F9F3 /* IPv6AddressTypesView.swift */,
+				2F4094CA27CB26700048F9F3 /* ValidIPv6HextetView.swift */,
+				2F4094C727CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift */,
 			);
-			path = IPv6CidrDrills;
+			path = IPv6TerminologyDrills;
 			sourceTree = "<group>";
 		};
 		2FB7341427BEE67C002821D9 /* IPv4PrefixLengthDrills */ = {
@@ -898,6 +910,7 @@
 				2FB7344627BF2B2F002821D9 /* EightBitAndView.swift in Sources */,
 				2FB7343727BF01A2002821D9 /* DottedDecimalKeyboardView.swift in Sources */,
 				2FB7345C27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift in Sources */,
+				2F4094CE27CB26EA0048F9F3 /* HextetInvalid.swift in Sources */,
 				2F3074D727B068D300589B05 /* Store.swift in Sources */,
 				2FB7344D27BF3610002821D9 /* IPv4CidrDrillsView.swift in Sources */,
 				2F40948C27C860CC0048F9F3 /* IPv6HextetShorteningView.swift in Sources */,
@@ -969,14 +982,16 @@
 				2FB7345027BF3686002821D9 /* IPv4NumberIpsCidrView.swift in Sources */,
 				2FB7343127BEFD96002821D9 /* UInt32+Extensions.swift in Sources */,
 				2F30757B27B5AB9C00589B05 /* HTMLStringView.swift in Sources */,
+				2F4094C827CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift in Sources */,
 				2F40947527C825120048F9F3 /* UInt128.swift in Sources */,
 				2F40947927C8332A0048F9F3 /* IPv6CidrCalculatorView.swift in Sources */,
-				2F4094C227CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift in Sources */,
+				2F4094C227CAC9AD0048F9F3 /* IPv6TerminologyView.swift in Sources */,
 				2F30757E27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */,
 				2F40948027C834D80048F9F3 /* UInt128+extensions.swift in Sources */,
 				2F30759C27B7110500589B05 /* TwoDigitNumberDrillsView.swift in Sources */,
 				2F3075B627B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
 				2FF3548127C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */,
+				2F4094CB27CB26700048F9F3 /* ValidIPv6HextetView.swift in Sources */,
 				2FF3548727C082AC00251070 /* IPv4Cidr2BroadcastHelp.swift in Sources */,
 				2F4094AC27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift in Sources */,
 				2F3074F227B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,
@@ -1022,6 +1037,7 @@
 				2FB7344727BF2B2F002821D9 /* EightBitAndView.swift in Sources */,
 				2FB7343827BF01A2002821D9 /* DottedDecimalKeyboardView.swift in Sources */,
 				2FB7345D27C02DB6002821D9 /* IPv4Cidr2NetworkHardView.swift in Sources */,
+				2F4094CF27CB26EA0048F9F3 /* HextetInvalid.swift in Sources */,
 				2F3074D827B068D300589B05 /* Store.swift in Sources */,
 				2FB7344E27BF3610002821D9 /* IPv4CidrDrillsView.swift in Sources */,
 				2F40948D27C860CC0048F9F3 /* IPv6HextetShorteningView.swift in Sources */,
@@ -1093,14 +1109,16 @@
 				2FB7345127BF3686002821D9 /* IPv4NumberIpsCidrView.swift in Sources */,
 				2FB7343227BEFD96002821D9 /* UInt32+Extensions.swift in Sources */,
 				2F30757C27B5AB9C00589B05 /* HTMLStringView.swift in Sources */,
+				2F4094C927CAEBAE0048F9F3 /* IPv6AddressTypesHelp.swift in Sources */,
 				2F40947627C825120048F9F3 /* UInt128.swift in Sources */,
 				2F40947A27C8332A0048F9F3 /* IPv6CidrCalculatorView.swift in Sources */,
-				2F4094C327CAC9AD0048F9F3 /* IPv6CidrDrillsView.swift in Sources */,
+				2F4094C327CAC9AD0048F9F3 /* IPv6TerminologyView.swift in Sources */,
 				2F30757F27B5B89600589B05 /* OneDigitBinaryHelp.swift in Sources */,
 				2F40948127C834D80048F9F3 /* UInt128+extensions.swift in Sources */,
 				2F30759D27B7110500589B05 /* TwoDigitNumberDrillsView.swift in Sources */,
 				2F3075B727B746B500589B05 /* TwoDigitHex2DecimalView.swift in Sources */,
 				2FF3548227C079DB00251070 /* IPv4Cidr2NetworkDecimalView.swift in Sources */,
+				2F4094CC27CB26700048F9F3 /* ValidIPv6HextetView.swift in Sources */,
 				2FF3548827C082AC00251070 /* IPv4Cidr2BroadcastHelp.swift in Sources */,
 				2F4094AD27C9A19B0048F9F3 /* IPv6AddressShorteningView.swift in Sources */,
 				2F3074F327B08B4A00589B05 /* CoreSettings+CoreDataProperties.swift in Sources */,

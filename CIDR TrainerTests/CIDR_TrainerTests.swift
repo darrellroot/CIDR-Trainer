@@ -62,6 +62,12 @@ class CIDR_TrainerTests: XCTestCase {
         let description = IPv6Address("ff82:0000::3")!.description
         XCTAssert(description == "ff82::3")
     }
+    
+    func testv6Description4() throws {
+        let description = IPv6Address("ff82:0008::3")!.description
+        XCTAssert(description == "ff82:0008:0000:0000:0000:0000:0000:0003")
+    }
+
 
     
     func testv61282() throws {

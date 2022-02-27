@@ -122,7 +122,7 @@ struct IPv6AddressTypesView: View, DrillHelper {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: IPv4AddressTypesHelp())
+                    NavigationLink("Help", destination: IPv6AddressTypesHelp())
                 }
             }
             .onAppear {

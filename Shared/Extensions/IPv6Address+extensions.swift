@@ -23,11 +23,11 @@ extension IPv6Address {
         return total
     }
     
+    //debugDescription is buggy in some cases
+    // see test cases and FB9931840 for examples
     var description: String {
         let debugDescription = self.debugDescription
-        if debugDescription != "?" {
-            return debugDescription
-        } else {
+        if debugDescription == "?" || debugDescription.contains("%") {
             var result = ""
             for (position,octet) in self.rawValue.enumerated() {
                 let output = String(format: "%02x",octet)
@@ -37,6 +37,8 @@ extension IPv6Address {
                 }
             }
             return result
+        } else {
+            return debugDescription
         }
     }
     var addressType: IPv6AddressType {
