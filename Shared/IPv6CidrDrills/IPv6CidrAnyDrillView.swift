@@ -122,7 +122,7 @@ struct IPv6CidrAnyDrillView: View, DrillHelper {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Help", destination: IPv6HextetShorteningHelp())
+                    NavigationLink("Help", destination: IPv6CidrAnyHelp())
                 }
             }
             .onAppear {

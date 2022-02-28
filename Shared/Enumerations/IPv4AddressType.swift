@@ -17,6 +17,9 @@ enum IPv4AddressType: String, CaseIterable {
     case unspecified
     case thisNetwork
     
+    // for cases to generate
+    static var cases: [IPv4AddressType] = [.broadcast, .loopback, .multicast, .reserved,.unicast,.unspecified,.thisNetwork]
+    
     var explanation: String {
         switch self {
             

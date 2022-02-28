@@ -125,6 +125,13 @@ struct ValidIPv6AddressView: View, DrillHelper {
                     NavigationLink("Help", destination: ValidIPv6AddressHelp())
                 }
             }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
+                }
+            }
 
         }// if else
     }

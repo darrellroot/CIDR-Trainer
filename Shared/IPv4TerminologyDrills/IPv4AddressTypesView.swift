@@ -19,7 +19,7 @@ struct IPv4AddressTypesView: View, DrillHelper {
     @State var displayCheck = false
     @State var displayScore = true
 
-    @State var ipv4Address = IPv4Address(type: IPv4AddressType.allCases.randomElement()!)
+    @State var ipv4Address = IPv4Address(type: IPv4AddressType.cases.randomElement()!)
 
     func wrongAnswer() {
         displayScore = true
@@ -61,7 +61,7 @@ struct IPv4AddressTypesView: View, DrillHelper {
     }
 
     func newQuestion() {
-        ipv4Address = IPv4Address(type: IPv4AddressType.allCases.randomElement()!)
+        ipv4Address = IPv4Address(type: IPv4AddressType.cases.randomElement()!)
     }
     
     var body: some View {
@@ -81,7 +81,7 @@ struct IPv4AddressTypesView: View, DrillHelper {
 
                     }
                     Spacer()
-                    ForEach(IPv4AddressType.allCases.sorted(by: {$0.rawValue < $1.rawValue}), id: \.self) { type in
+                    ForEach(IPv4AddressType.cases.sorted(by: {$0.rawValue < $1.rawValue}), id: \.self) { type in
                         Button(action: {
                             if type == ipv4Address.type {
                                 correctAnswer()

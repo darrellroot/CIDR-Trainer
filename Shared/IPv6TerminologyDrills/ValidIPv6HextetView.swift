@@ -122,6 +122,13 @@ struct ValidIPv6HextetView: View, DrillHelper {
                     NavigationLink("Help", destination: ValidIPv6HextetHelp())
                 }
             }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        displayScore = false
+                    }
+                }
+            }
 
         }// if else
     }
